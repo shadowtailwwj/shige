@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <include file="public@head"/>
+
+</head>
+<body>
+<include file="public@nav"/>
+
+<div class="banner df jc ov">
+    <img src="images/subban1.png" alt="" />
+</div>
+
+<div class="content flex1">
+    <div class="inner">
+        <div class="msba">
+            <a href="#" class="cur" >全部</a>
+            <foreach name="cate" item="vo">
+                <a href="#" class="" >{$vo.name}</a>
+            </foreach>
+        </div>
+        <div class="msba">
+            <a href="#" class="cur" >全部</a>
+
+            <a href="#" class="" >A  </a>
+            <a href="#" class="" >B  </a>
+            <a href="#" class="" >C  </a>
+            <a href="#" class="" >D  </a>
+            <a href="#" class="" >E  </a>
+            <a href="#" class="" >F  </a>
+            <a href="#" class="" >G  </a>
+            <a href="#" class="" >H  </a>
+            <a href="#" class="" >I  </a>
+            <a href="#" class="" >J  </a>
+            <a href="#" class="" >K  </a>
+            <a href="#" class="" >L  </a>
+            <a href="#" class="" >M  </a>
+            <a href="#" class="" >N  </a>
+            <a href="#" class="" >O  </a>
+            <a href="#" class="" >P  </a>
+            <a href="#" class="" >Q  </a>
+            <a href="#" class="" >R  </a>
+            <a href="#" class="" >S  </a>
+            <a href="#" class="" >T  </a>
+            <a href="#" class="" >U  </a>
+            <a href="#" class="" >V  </a>
+            <a href="#" class="" >W  </a>
+            <a href="#" class="" >X  </a>
+            <a href="#" class="" >Y  </a>
+            <a href="#" class="" >Z  </a>
+        </div>
+        <div class="cl h15"></div>
+        <div class="lostxbo lostxbosm">
+
+            <div class="liscontin">
+                <ul class="shilist1 shilist3">
+                    <foreach name="album" item="vo">
+                    <li><a href="#" class="" ><span class="sspomg"><img src="__TMPL__/public/assets/images/shi2.jpg" alt="" /></span><span class="shinmtl">{$vo.name}</span></a></li>
+                    </foreach>
+                </ul>
+            </div>
+        </div>
+        <div class="cl h33"></div>
+        <div class="oages df ac js">
+            <a href="#" class="fema cur" ><em class="">< </em> 上一页 </a>
+            <span class="">
+					<a href="#" class="pagesa cur" >1</a>
+					<a href="#" class="pagesa" >2</a>
+					<a href="#" class="pagesa" >3</a>
+					<a href="#" class="pagesa" >4</a>
+					<a href="#" class="pagesa" >5</a>
+					<a href="#" class="pagesa" >6</a>
+					<a href="#" class="pagesa" >7</a>
+				</span>
+            <a href="#" class="fema" > 下一页 <em class="">></em></a>
+        </div>
+        <div class="cl h33"></div>
+    </div>
+</div>
+
+<include file="public@footer"/>
+</body>
+
+</html>
