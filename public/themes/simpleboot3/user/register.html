@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content="">
+    <include file="public@head"/>
+</head>
+
+<body class="body-white">
+<include file="public@nav"/>
+
+<div class="content flex1">
+    <div class="inner1">
+        <div class="glootl df ac">注册</div>
+
+        <div class="losint">
+            <form action="{:url('user/Register/doRegister')}" method="post">
+            <ul>
+                <li class="df ac">
+                    <span class="logozw">用户名：</span>
+                    <input type="text" class="lsiniipt" value="" name="user_login" />
+                    <span class="zhushi">*</span>
+                </li>
+                <li class="df ac">
+                    <span class="logozw">密   码：</span>
+                    <input type="password" class="lsiniipt" value="" name="password"/>
+                    <span class="zhushi">*</span>
+                </li>
+                <li class="df ac">
+                    <span class="logozw">邮   箱：</span>
+                    <input type="text" class="lsiniipt" value="" name="username"/>
+                    <span class="zhushi">*</span>
+                </li>
+                <li class="df ac">
+                    <span class="logozw">验证码：</span>
+                    <input type="text" class="lsiniipt" value="" name="captcha" />
+                    <captcha height="38" width="160" font-size="20"/>
+                    <span class="zhushi">*</span>
+                </li>
+                <li class="df ac">
+                    <span class="logozw">&nbsp;</span>
+                    <input type="submit" value="注  册" class="zhucezs" style="border: none">
+                    <!--<a href="#" class="zhucezs" >注  册</a>-->
+                    <a href="#" class="zhucezs cur" >重  置</a>
+                </li>
+
+            </ul>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- /container -->
+
+<include file="public@scripts"/>
+</body>
+</html>

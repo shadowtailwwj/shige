@@ -1,0 +1,117 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="{:url('AdminAlbum/index')}">专辑管理</a></li>
+        <li class="active"><a href="{:url('AdminAlbum/add')}">添加专辑</a></li>
+    </ul>
+    <div class="row margin-top-20">
+        <div class="col-md-6">
+            <form class="js-ajax-form" action="{:url('AdminAlbum/addPost')}" method="post">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="A">
+                        <div class="form-group">
+                            <label for="input-name"><span class="form-required">*</span>专辑名称</label>
+                            <div>
+                                <input type="text" class="form-control" id="input-name" name="name">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input-name">所属歌手</label>
+                            <div>
+                                <input type="text" class="form-control" id="input-alias" name="singer">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input-name">专辑语言</label>
+                            <div>
+                                <input type="text" class="form-control" id="language" name="language">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input-name">发型日期</label>
+                            <div>
+                                <input type="text" class="form-control" id="release_time" name="release_time">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input-parent">分类</label>
+                            <div>
+                                <select class="form-control" name="category" id="input-parent">
+                                    <foreach name="cate" item="vo">
+                                        <option value="{$vo.id}">{$vo.name}</option>
+                                    </foreach>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input-name">首字母</label>
+                            <div>
+                                <input type="radio"   name="initials" value="A">A
+                                <input type="radio"   name="initials" value="B">B
+                                <input type="radio"   name="initials" value="C">C
+                                <input type="radio"   name="initials" value="D">D
+                                <input type="radio"   name="initials" value="E">E
+                                <input type="radio"   name="initials" value="F">F
+                                <input type="radio"   name="initials" value="G">G
+                                <input type="radio"   name="initials" value="H">H
+                                <input type="radio"   name="initials" value="I">I
+                                <input type="radio"   name="initials" value="J">J
+                                <input type="radio"   name="initials" value="K">K
+                                <input type="radio"   name="initials" value="L">L
+                                <input type="radio"   name="initials" value="M">M
+                                <input type="radio"   name="initials" value="N">N
+                                <input type="radio"   name="initials" value="O">O
+                                <input type="radio"   name="initials" value="P">P
+                                <input type="radio"   name="initials" value="Q">Q
+                                <input type="radio"   name="initials" value="R">R
+                                <input type="radio"   name="initials" value="S">S
+                                <input type="radio"   name="initials" value="T">T
+                                <input type="radio"   name="initials" value="U">U
+                                <input type="radio"   name="initials" value="V">V
+                                <input type="radio"   name="initials" value="W">W
+                                <input type="radio"   name="initials" value="X">X
+                                <input type="radio"   name="initials" value="Y">Y
+                                <input type="radio"   name="initials" value="Z">Z
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input-description">描述</label>
+                            <div>
+                                <textarea class="form-control" name="description" id="input-description"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-description">专辑封面</label>
+                            <div>
+                                <input type="hidden" name="cover" class="form-control"
+                                       id="js-thumbnail-input">
+                                <div>
+                                    <a href="javascript:uploadOneImage('图片上传','#js-thumbnail-input');">
+                                        <img src="__TMPL__/public/assets/images/default-thumbnail.png"
+                                             id="js-thumbnail-input-preview"
+                                             width="135" style="cursor: pointer"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('ADD')}</button>
+                    <a class="btn btn-default" href="{:url('AdminAlbum/index')}">{:lang('BACK')}</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

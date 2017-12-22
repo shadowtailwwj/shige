@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<include file="public@head"/>
+</head>
+<body>
+<include file="public@nav"/>
+
+<div class="banner df jc ov">
+	<img src="__TMPL__/public/assets/images/banner.jpg" alt="" />
+</div>
+
+<div class="content flex1">
+	<div class="inner df js">
+		<div class="leftcont fl">
+			<div class="lostxbo">
+				<div class="lisitl df ac js">
+					<span class="">诗歌专辑</span>
+					<a href="#" class="morennsg" >更多 <span class="songti">>></span></a>
+				</div>
+
+				<div class="liscontin">
+					<ul class="shilist1 df  fww">
+						<foreach name="album" item="vo">
+						<li><a href="{:cmf_url('portal/Album/index',array('id'=>$vo['id']))}" class="" ><span class="sspomg"><img src="__TMPL__/public/assets/images/shi1.jpg" alt="" /></span><span class="shinmtl">{$vo.name}</span></a></li>
+						</foreach>
+					</ul>
+				</div>
+			</div>
+
+
+			<div class="lostxbo">
+				<div class="lisitl df ac js">
+					<span class="">诗人与诗歌</span>
+					<a href="#" class="morennsg" >更多 <span class="songti">>></span></a>
+				</div>
+
+				<div class="liscontin">
+					<ul class="shilist1 shilist2">
+						<foreach name="poet" item="vo">
+						<li><a href="{:cmf_url('portal/Poet/index',array('id'=>$vo['id']))}" class="" ><span class="sspomg"><img src="__TMPL__/public/assets/images/shi2.jpg" alt="" /></span><span class="shinmtl">{$vo.name}</span></a></li>
+						</foreach>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="rightcont fr">
+			<div class="beiix">
+				<div class="lisitl lisitl1 df ac js">诗歌分类</div>
+				<div class="dwinntl">
+					<ul>
+						<foreach name="cate" item="vo">
+						<li><a href="{:cmf_url('portal/List/index',array('id'=>$vo['id']))}" class="" >{$vo.name}</a></li>
+						</foreach>
+					</ul>
+				</div>
+			</div>
+			<div class="beiix">
+				<div class="lisitl lisitl1 df ac js">最新专辑</div>
+				<div class="dwinntl">
+					<ul>
+						<foreach name="album" item="vo">
+						<li><a href="{:cmf_url('portal/Album/index',array('id'=>$vo['id']))}" class="" >{$vo.name}</a></li>
+						</foreach>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<include file="public@footer"/>
+</body>
+
+</html>
