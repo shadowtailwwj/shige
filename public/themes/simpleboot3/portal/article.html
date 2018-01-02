@@ -19,101 +19,94 @@
 </head>
 <body class="body-white">
 <include file="public@nav"/>
-<div class="container tc-main">
-    <div class="row">
-        <div class="col-md-9">
-            <div class="tc-box article-box">
-                <h2>{$article.post_title}</h2>
-                <div class="article-infobox">
-                    <span>{:date('Y-m-d H:i',$article.published_time)} by {$article.user.user_nickname}</span>
-                    <span>
-		    			<a href="javascript:;"><i class="fa fa-eye"></i><span>{$article.post_hits}</span></a>
-						<a href="{:url('portal/Article/doLike',array('id'=>$article['id']))}" class="js-count-btn"><i
-                                class="fa fa-thumbs-up"></i><span class="count">{$article.post_like}</span></a>
-						<a href="{:url('user/favorite/add')}"
-                           class="js-favorite-btn"
-                           data-title="{:base64_encode($article.post_title)}"
-                           data-url="{:cmf_url_encode('portal/Article/index',array('id'=>$article['id']))}"
-                           data-table="portal_post"
-                           data-id="{$article['id']}"
-                        >
-							<i class="fa fa-star-o"></i>
-						</a>
-					</span>
-                </div>
-                <hr>
-                <div id="article_content">
-                    {$article.post_content}
-                </div>
-                <if condition="!empty($article['post_source'])">
-                    <div>
-                        <b>注：本文转载自{$article.post_source}，转载目的在于传递更多信息，并不代表本网赞同其观点和对其真实性负责。如有侵权行为，请联系我们，我们会及时删除。</b>
+<div class="banner df jc ov">
+    <img src="images/subban1.png" alt="" />
+</div>
+
+<div class="banner df jc ov">
+    <img src="images/subban1.png" alt="" />
+</div>
+
+<div class="content flex1">
+    <div class="cl h22"></div>
+    <div class="inner df js">
+        <div class="digentu">
+            <img src="images/shilogo.png" alt="" />
+        </div>
+        <div class="zhongnr flex1">
+            <div class="zhongdtl">{$article.post_title}</div>
+            <div class="zhunsnj">
+                诗人： <span class="">{$article.poet}</span>
+                <br>专辑： <span class="">{$article.album}</span>
+            </div>
+            <div class="ansbibtn df ">
+                <a href="{$article.xiazai}" class="df ac jc cur" ><span class="icmvx icm0"><img src="images/play.png" alt="" /></span> 播放{$article.post_hits}</a>
+                <a href="#" class="df ac jc" ><span class="icmvx icm1"><img src="images/icm1.png" alt="" /></span> 收藏{$article.post_like}</a>
+                <a href="#" class="df ac jc" ><span class="icmvx icm2"><img src="images/icm2.png" alt="" /></span> 分享</a>
+                <a href="{$article.xiazai}" class="df ac jc" ><span class="icmvx icm3"><img src="images/icm3.png" alt="" /></span> 下载</a>
+            </div>
+            <div class="lvbtns df ac">
+                <a href="#qiehan" class="">文本</a>
+                <a href="#qiehan" class="">PDF</a>
+                <a href="#qiehan" class="">JPG</a>
+            </div>
+
+            <div class="ndwixq wenbenqih cur">
+                {$article.post_content}
+            </div>
+            <div class="ndwixq wenbenqih">
+                pbf 依照教会的历史有一件不辩自明的事实，就是每个复兴运动都有一个属灵的领袖。等到主的时候到了，那人就会出现。照样在19世纪初叶，在那次属灵运动开始的时候，神所要使用的器皿亦应时而生。这个运动通常被称为“弟兄运动”(Brethren)。经过半世纪以上不断的辛劳，达秘殷勤的教导而且付之实行，处在当前宗教的纷乱之下，坚持基督身体的每一肢体仍有责任和权利，竭力用和平彼此联络，保守在圣灵里的合一(弗4:3)。这是他毕生所致力的伟大目的。
+            </div>
+            <div class="ndwixq wenbenqih">
+
+            </div>
+        </div>
+        <if condition="($article.appreciation == '')">
+            <div class="col-md-3">
+                <div class="tc-box first-box">
+                    <div class="headtitle">
+                        <h2>热门诗歌</h2>
                     </div>
-                </if>
-
-                <php>
-                    $after_content_hook_param=[
-                    'object_id'=>$article['id'],
-                    'table_name'=>'portal_post',
-                    'object_title'=>$article['post_title'],
-                    'user_id'=>$article['user_id'],
-                    'url'=>cmf_url_encode('portal/Article/index',array('id'=>$article['id'],'cid'=>$category['id'])),
-                    'object'=>$article
-                    ];
-                </php>
-                <hook name="after_content" param="after_content_hook_param"/>
-
-                <php>
-                    $comment_hook_param=[
-                    'object_id'=>$article['id'],
-                    'table_name'=>'portal_post',
-                    'object_title'=>$article['post_title'],
-                    'url'=>cmf_url_encode('portal/Article/index',array('id'=>$article['id'],'cid'=>$category['id']))
-                    ];
-                    $comment=hook_one('comment',$comment_hook_param);
-                </php>
-
-                <!--<if condition="empty($comment) && cmf_get_current_admin_id()">-->
-                    <!--<div style="border: 1px dashed #ddd;min-height: 200px;padding-top: 50px;">-->
-                        <!--<div class="alert alert-warning" role="alert">-->
-                            <!--此区域这为评论区，请安装评论插件！<br>-->
-                            <!--<em>注：普通用户不会看到此提示！</em>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</if>-->
-                {$comment}
-            </div>
-
-
-        </div>
-        <div class="col-md-3">
-            <div class="tc-box first-box">
-                <div class="headtitle">
-                    <h2>热门文章</h2>
+                    <div class="ranking">
+                        <php>
+                            $hot_articles=[];
+                        </php>
+                        <ul class="list-unstyled">
+                            <portal:articles limit="10" order="post.post_hits DESC">
+                                <php>$top=$key<3?"top3":"";</php>
+                                <li class="{$top}">
+                                    <i>{$key+1}</i>
+                                    <a title="{$vo.post_title}"
+                                       href="{:url('portal/article/index',array('id'=>$vo['id']))}">
+                                        {$vo.post_title}&nbsp;&nbsp;{:date('Y-m-d H:i',$article.published_time)}
+                                    </a>
+                                </li>
+                            </portal:articles>
+                        </ul>
+                    </div>
                 </div>
-                <div class="ranking">
-                    <php>
-                        $hot_articles=[];
-                    </php>
-                    <ul class="list-unstyled">
-                        <portal:articles limit="10" order="post.post_hits DESC">
-                            <php>$top=$key<3?"top3":"";</php>
-                            <li class="{$top}">
-                                <i>{$key+1}</i>
-                                <a title="{$vo.post_title}"
-                                   href="{:url('portal/article/index',array('id'=>$vo['id']))}">
-                                    {$vo.post_title}
-                                </a>
-                            </li>
-                        </portal:articles>
-                    </ul>
+
+            </div>
+        <else />
+            <div class="youwnttl">
+                <div class="lostxbo">
+                    <div class="snntls">
+                        <a href="#aaa" class="cur" >诗歌赏析  </a>
+                        <a href="#aaa" class="" >诗歌考典  </a>
+                    </div>
+                    <div class="dianjwz qemcin cur">
+                        {$article.appreciation}
+                    </div>
+
+                    <div class="dianjwz qemcin">
+                        {$article.allusion}
+                    </div>
                 </div>
             </div>
-
-        </div>
+        </if>
 
     </div>
-
+</div>
     <include file="public@footer"/>
 </div>
 

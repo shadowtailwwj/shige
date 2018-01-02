@@ -27,6 +27,8 @@ class ArticleController extends HomeBaseController
         $articleId  = $this->request->param('id', 0, 'intval');
         $categoryId = $this->request->param('cid', 0, 'intval');
         $article    = $postService->publishedArticle($articleId, $categoryId);
+        $album = Db::name('portal_album')->where('id',$article['album_id'])->find();
+        $poet = Db::name('portal_poet')->where('id',$article['poet_id'])->find();
 
         if (empty($articleId)) {
             abort(404, '文章不存在!');
@@ -63,7 +65,9 @@ class ArticleController extends HomeBaseController
 
 
         hook('portal_before_assign_article', $article);
-
+        $article['album'] = $album['name'];
+        $article['poet'] = $poet['name'];
+        $article['xiazai'] = cmf_get_file_download_url($article['music'], $expires = 3600);
         $this->assign('article', $article);
         $this->assign('prev_article', $prevArticle);
         $this->assign('next_article', $nextArticle);
@@ -72,6 +76,8 @@ class ArticleController extends HomeBaseController
 
         return $this->fetch("/$tplName");
     }
+
+
 
     // 文章点赞
     public function doLike()
