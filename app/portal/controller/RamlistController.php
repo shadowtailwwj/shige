@@ -20,6 +20,14 @@ class RamlistController extends HomeBaseController
 {
     public function index()
     {
+        $ramble = Db::name('portal_ramble')
+            ->alias('a')
+            ->join('portal_category_ramble p','a.cate=p.cate_id')
+            ->where('flag',1)
+            ->select();
+        $cate = Db::name('portal_category_ramble')->select();
+        $this->assign('ramble', $ramble);
+        $this->assign('cate', $cate);
         return $this->fetch();
     }
 

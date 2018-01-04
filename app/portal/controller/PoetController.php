@@ -20,10 +20,19 @@ class PoetController extends HomeBaseController
 {
     public function index()
     {
-        $times = Db::name('times')->select();
-        $poet = Db::name('portal_poet')->where('flag',1)->select();
-        $this->assign('times', $times);
-        $this->assign('poet', $poet);
+        $rambleId = $this->request->param('id', 0, 'intval');
+        $ramble = Db::name('portal_ramble')
+            ->alias('a')
+            ->join('portal_category_ramble p','a.cate=p.cate_id')
+            ->where('id',$rambleId)
+            ->find();
+        $ramblelist = Db::name('portal_ramble')
+            ->alias('a')
+            ->join('portal_category_ramble p','a.cate=p.cate_id')
+            ->where('flag',1)
+            ->select();
+        $this->assign('ramble', $ramble);
+        $this->assign('ramblelist', $ramblelist);
         return $this->fetch();
     }
 

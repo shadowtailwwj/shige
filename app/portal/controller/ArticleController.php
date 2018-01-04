@@ -27,6 +27,7 @@ class ArticleController extends HomeBaseController
         $articleId  = $this->request->param('id', 0, 'intval');
         $categoryId = $this->request->param('cid', 0, 'intval');
         $article    = $postService->publishedArticle($articleId, $categoryId);
+
         $album = Db::name('portal_album')->where('id',$article['album_id'])->find();
         $poet = Db::name('portal_poet')->where('id',$article['poet_id'])->find();
 

@@ -16,13 +16,9 @@
         <div class="msba">
             分类：
             <a href="#" class="cur" >全部分类</a>
-            <a href="#" class="" >乐理与技巧  </a>
-            <a href="#" class="" >敬拜者      </a>
-            <a href="#" class="" >生命人物    </a>
-            <a href="#" class="" >故事        </a>
-            <a href="#" class="" >敬拜学      </a>
-            <a href="#" class="" >诗歌赏析    </a>
-            <a href="#" class="" >其它        </a>
+            <foreach name="cate" item="vo">
+                <a href="#" class="" >{$vo.name}</a>
+            </foreach>
         </div>
         <div class="msba">
             排序：
@@ -36,64 +32,27 @@
 
             <div class="sgihmtan">
                 <ul>
+                    <foreach name="ramble" item="vo">
                     <li>
-                        <div class="datls">尽心敬拜（一）</div>
+                        <div class="datls">{$vo.title}</div>
                         <div class="df">
                             <div class="zuodat">
                                 <img src="images/shi3.png" alt="" />
                             </div>
                             <div class="youwnkw dc js">
                                 <div class="dwyonrs">
-                                    玛拉基书是旧约的最后一本书卷。玛拉基这名字是指「我的使者」。先知是神的使者，神借着先知宣告祂对子民的责备和应许。本书起首就以「我曾爱你们」一语开始，神向处于艰困世代中的百姓申明祂对他们的爱，而1章6-14节指出神斥责以色列民及以色列的领导者没有尽应尽的责任，纵使神无条件地爱祂的子民。玛拉基先知提出，在复兴的圣殿中，子民必需有真实的敬拜和正当的奉献。先知责备祭司和所有百姓藐视神与他们的关系，而这种藐视和不尊重神的态度，从他们的献祭行动中表现出来。先知指出，他们将污秽的食物献在
+                                    {$vo.outline}
                                 </div>
-                                <a href="#" class="dwnnru flex1" >阅读全文»</a>
+                                <a href="{:cmf_url('portal/Ramble/index',array('id'=>$vo['id']))}" class="dwnnru flex1" >阅读全文»</a>
 
                                 <div class="co666">
-                                    分类： <span class="lan">敬拜学 </span>
-                                    <br>发布于 2017-04-08 人气: 118
+                                    分类： <span class="lan">{$vo.name} </span>
+                                    <br>发布于 {:date('Y-m-d H:i',$vo['published_time'])} 人气: {$vo.post_like}
                                 </div>
                             </div>
                         </div>
                     </li>
-                    <li>
-                        <div class="datls">尽心敬拜（一）</div>
-                        <div class="df">
-                            <div class="zuodat">
-                                <img src="images/shi3.png" alt="" />
-                            </div>
-                            <div class="youwnkw dc js">
-                                <div class="dwyonrs">
-                                    玛拉基书是旧约的最后一本书卷。玛拉基这名字是指「我的使者」。先知是神的使者，神借着先知宣告祂对子民的责备和应许。本书起首就以「我曾爱你们」一语开始，神向处于艰困世代中的百姓申明祂对他们的爱，而1章6-14节指出神斥责以色列民及以色列的领导者没有尽应尽的责任，纵使神无条件地爱祂的子民。玛拉基先知提出，在复兴的圣殿中，子民必需有真实的敬拜和正当的奉献。先知责备祭司和所有百姓藐视神与他们的关系，而这种藐视和不尊重神的态度，从他们的献祭行动中表现出来。先知指出，他们将污秽的食物献在
-                                </div>
-                                <a href="#" class="dwnnru flex1" >阅读全文»</a>
-
-                                <div class="co666">
-                                    分类： <span class="lan">敬拜学 </span>
-                                    <br>发布于 2017-04-08 人气: 118
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="datls">尽心敬拜（一）</div>
-                        <div class="df">
-                            <div class="zuodat">
-                                <img src="images/shi3.png" alt="" />
-                            </div>
-                            <div class="youwnkw dc js">
-                                <div class="dwyonrs">
-                                    玛拉基书是旧约的最后一本书卷。玛拉基这名字是指「我的使者」。先知是神的使者，神借着先知宣告祂对子民的责备和应许。本书起首就以「我曾爱你们」一语开始，神向处于艰困世代中的百姓申明祂对他们的爱，而1章6-14节指出神斥责以色列民及以色列的领导者没有尽应尽的责任，纵使神无条件地爱祂的子民。玛拉基先知提出，在复兴的圣殿中，子民必需有真实的敬拜和正当的奉献。先知责备祭司和所有百姓藐视神与他们的关系，而这种藐视和不尊重神的态度，从他们的献祭行动中表现出来。先知指出，他们将污秽的食物献在
-                                </div>
-                                <a href="#" class="dwnnru flex1" >阅读全文»</a>
-
-                                <div class="co666">
-                                    分类： <span class="lan">敬拜学 </span>
-                                    <br>发布于 2017-04-08 人气: 118
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
+                    </foreach>
                 </ul>
             </div>
         </div>

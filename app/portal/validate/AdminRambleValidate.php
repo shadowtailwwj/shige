@@ -17,10 +17,12 @@ class AdminRambleValidate extends Validate
     protected $rule = [
         'cate' => 'require',
         'title' => 'require',
+        'outline' => 'require',
     ];
     protected $message = [
         'cate.require' => '请指定分类！',
         'title.require' => '标题不能为空！',
+        'outline.require' => '概要不能为空！',
     ];
 
     protected $scene = [
