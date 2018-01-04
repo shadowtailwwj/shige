@@ -7,17 +7,17 @@
 <body>
 <include file="public@nav"/>
 <div class="banner df jc ov">
-    <img src="images/subban1.png" alt="" />
+    <img src="__TMPL__/public/assets/images/subban1.png" alt="" />
 </div>
 
 <div class="content flex1">
     <div class="cl h22"></div>
     <div class="inner df js">
         <div class="digentu">
-            <img src="images/avtar.png" alt="" />
+            <img src="{:cmf_get_image_url($poet.photo)}" alt="" />
         </div>
         <div class="zhongnr flex1">
-            <div class="shinremt">诗人名称 <br><span class="sinnrew">EUNGLISH NAME</span></div>
+            <div class="shinremt">{$poet.name} <br><span class="sinnrew">{$poet.english_name}</span></div>
             <table class="sbbtl">
                 <tr>
                     <td>出生地  </td>
@@ -25,16 +25,16 @@
                     <td>逝世日期</td>
                 </tr>
                 <tr>
-                    <td>英国伦敦      </td>
-                    <td>1800-11-09    </td>
-                    <td>1882-09-09    </td>
+                    <td>{$poet.native_heath}</td>
+                    <td>{$poet.birthday}</td>
+                    <td>{$poet.death}</td>
                 </tr>
 
             </table>
             <div class="ansbibtn df ">
-                <a href="#" class="df ac jc cur" ><span class=""><img src="images/play.png" alt="" /></span> 播放</a>
-                <a href="#" class="df ac jc" ><span class=""><img src="images/icm1.png" alt="" /></span> 收藏</a>
-                <a href="#" class="df ac jc" ><span class=""><img src="images/icm2.png" alt="" /></span> 分享</a>
+                <a href="#" class="df ac jc cur" ><span class=""><img src="__TMPL__/public/assets/images/play.png" alt="" /></span> 播放</a>
+                <a href="#" class="df ac jc" ><span class=""><img src="__TMPL__/public/assets/images/icm1.png" alt="" /></span> 收藏</a>
+                <a href="#" class="df ac jc" ><span class=""><img src="__TMPL__/public/assets/images/icm2.png" alt="" /></span> 分享</a>
 
             </div>
             <table class="shijjtb">
@@ -46,77 +46,28 @@
                     <td>专辑   </td>
                     <td>时长   </td>
                 </tr>
+                <foreach name="postlist" item="vo">
                 <tr>
-
-                    <td>诗歌名称诗歌名称诗歌名称诗歌名称诗歌名称   </td>
+                    <td>{$vo.post_title}</td>
                     <td class="shiinco">
                         <div class="df ac">
-                            <a href="#" class="" ><img src="images/c1.png" alt="" /></a>
-                            <a href="#" class="" ><img src="images/c2.png" alt="" /></a>
-                            <a href="#" class="" ><img src="images/c3.png" alt="" /></a>
-                            <a href="#" class="" ><img src="images/c4.png" alt="" /></a>
-                            <a href="#" class="" ><img src="images/c5.png" alt="" /></a>
+                            <a href="#" class="" ><img src="__TMPL__/public/assets/images/c1.png" alt="" /></a>
+                            <a href="#" class="" ><img src="__TMPL__/public/assets/images/c2.png" alt="" /></a>
+                            <a href="#" class="" ><img src="__TMPL__/public/assets/images/c3.png" alt="" /></a>
+                            <a href="#" class="" ><img src="__TMPL__/public/assets/images/c4.png" alt="" /></a>
+                            <a href="#" class="" ><img src="__TMPL__/public/assets/images/c5.png" alt="" /></a>
                         </div>
                     </td>
-                    <td>1098年   </td>
-                    <td>《诗歌专辑名称》   </td>
+                    <td>{$vo.release_time}年   </td>
+                    <td>《{$vo.name}》   </td>
                     <td>10分钟   </td>
                 </tr>
-                <tr>
-
-                    <td>诗歌名称诗歌名称诗歌名称诗歌名称诗歌名称   </td>
-                    <td class="shiinco">
-                        <div class="df ac">
-                            <a href="#" class="" ><img src="images/c1.png" alt="" /></a>
-                            <a href="#" class="" ><img src="images/c2.png" alt="" /></a>
-                            <a href="#" class="" ><img src="images/c3.png" alt="" /></a>
-                            <a href="#" class="" ><img src="images/c4.png" alt="" /></a>
-                            <a href="#" class="" ><img src="images/c5.png" alt="" /></a>
-                        </div>
-                    </td>
-                    <td>1098年   </td>
-                    <td>《诗歌专辑名称》   </td>
-                    <td>10分钟   </td>
-                </tr>
-                <tr>
-
-                    <td>诗歌名称诗歌名称诗歌名称诗歌名称诗歌名称   </td>
-                    <td class="shiinco">
-                        <div class="df ac">
-                            <a href="#" class="" ><img src="images/c1.png" alt="" /></a>
-                            <a href="#" class="" ><img src="images/c2.png" alt="" /></a>
-                            <a href="#" class="" ><img src="images/c3.png" alt="" /></a>
-                            <a href="#" class="" ><img src="images/c4.png" alt="" /></a>
-                            <a href="#" class="" ><img src="images/c5.png" alt="" /></a>
-                        </div>
-                    </td>
-                    <td>1098年   </td>
-                    <td>《诗歌专辑名称》   </td>
-                    <td>10分钟   </td>
-                </tr>
-                <tr>
-
-                    <td>诗歌名称诗歌名称诗歌名称诗歌名称诗歌名称   </td>
-                    <td class="shiinco">
-                        <div class="df ac">
-                            <a href="#" class="" ><img src="images/c1.png" alt="" /></a>
-                            <a href="#" class="" ><img src="images/c2.png" alt="" /></a>
-                            <a href="#" class="" ><img src="images/c3.png" alt="" /></a>
-                            <a href="#" class="" ><img src="images/c4.png" alt="" /></a>
-                            <a href="#" class="" ><img src="images/c5.png" alt="" /></a>
-                        </div>
-                    </td>
-                    <td>1098年   </td>
-                    <td>《诗歌专辑名称》   </td>
-                    <td>10分钟   </td>
-                </tr>
-
-
+                </foreach>
             </table>
 
             <div class="shijjs">诗人简介</div>
             <div class="ndwixq">
-                纵有成百万的人直接或间接受到达秘属灵生活和工作的影响，但是很少人真正认识这位被神大用的仆人。 依照教会的历史有一件不辩自明的事实，就是每个复兴运动都有一个属灵的领袖。等到主的时候到了，那人就会出现。照样在19世纪初叶，在那次属灵运动开始的时候，神所要使用的器皿亦应时而生。这个运动通常被称为“弟兄运动”(Brethren)。经过半世纪以上不断的辛劳，达秘殷勤的教导而且付之实行，处在当前宗教的纷乱之下，坚持基督身体的每一肢体仍有责任和权利，竭力用和平彼此联络，保守在圣灵里的合一(弗4:3)。这是他毕生所致力的伟大目的。
+                {$poet.introduction}
             </div>
         </div>
 

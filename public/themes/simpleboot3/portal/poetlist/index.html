@@ -55,7 +55,7 @@
             <div class="liscontin">
                 <ul class="shilist1 shilist3">
                     <foreach name="poet" item="vo">
-                    <li><a href="#" class="" ><span class="sspomg"><img src="__TMPL__/public/assets/images/shi2.jpg" alt="" /></span><span class="shinmtl">{$vo.name}</span></a></li>
+                    <li><a href="#" class="" ><span class="sspomg"><img src="{:cmf_get_image_url($vo.photo)}" alt="" /></span><span class="shinmtl">{$vo.name}</span></a></li>
                     </foreach>
                 </ul>
             </div>
