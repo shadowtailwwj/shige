@@ -8,25 +8,25 @@
 <include file="public@nav"/>
 
 <div class="banner df jc ov">
-    <img src="images/subban1.png" alt="" />
+    <img src="__TMPL__/public/assets/images/subban1.png" alt="" />
 </div>
 
 <div class="content flex1">
     <div class="cl h22"></div>
     <div class="inner df js">
         <div class="digentu">
-            <img src="images/avtar.png" alt="" />
+            <img src="{:cmf_get_image_url($album.cover)}" alt="" />
         </div>
         <div class="zhongnr flex1">
-            <div class="shinremt"></div>
+            <div class="shinremt">{$album.album_name}</div>
             <table class="sbbtl">
                 <tr>
-                    <td>所属歌手：</td><td>谁啊</td>
-                    <td>发行日期：</td><td>逝世日期</td>
+                    <td>所属歌手：</td><td>{$album.singer}</td>
+                    <td>发行日期：</td><td>{$album.release_time}</td>
                 </tr>
                 <tr>
-                    <td>歌曲数量：</td><td>1882-09-09    </td>
-                    <td>专辑语言：</td><td>1882-09-09    </td>
+                    <td>歌曲数量：</td><td>{$count}</td>
+                    <td>专辑语言：</td><td>{$album.language}</td>
                 </tr>
 
             </table>
@@ -47,7 +47,6 @@
             <div class="cl h11"></div>
             <table class="shijjtb">
                 <tr class="sbttou">
-
                     <td>诗歌   </td>
                     <td>   </td>
                     <td>时间   </td>
@@ -55,8 +54,8 @@
                     <td>时长   </td>
                 </tr>
                 <tr>
-
-                    <td>诗歌名称诗歌名称诗歌名称诗歌名称诗歌名称   </td>
+                    <foreach name="postlist" item="vo">
+                    <td>{$vo.post_title}</td>
                     <td class="shiinco">
                         <div class="df ac">
                             <a href="#" class="" ><img src="__TMPL__/public/assets/images/c1.png" alt="" /></a>
@@ -66,18 +65,17 @@
                             <a href="#" class="" ><img src="__TMPL__/public/assets/images/c5.png" alt="" /></a>
                         </div>
                     </td>
-                    <td>1098年   </td>
-                    <td>《诗歌专辑名称》   </td>
+                    <td>{$album.release_time}</td>
+                    <td>《{$album.album_name}》   </td>
                     <td>10分钟   </td>
                 </tr>
-
+                </foreach>
             </table>
         </div>
         <div class="flex1">
             <div class="shijjs">专辑简介</div>
             <div class="ndwixq ndwixqx">
-
-                纵有成百万的人直接或间接受到达秘属灵生活和工作的影响，但是很少人真正认识这位被神大用的仆人。 依照教会的历史有一件不辩自明的事实，就是每个复兴运动都有一个属灵的领袖。等到主的时候到了，那人就会出现。照样在19世纪初叶，在那次属灵运动开始的时候，神所要使用的器皿亦应时而生。
+                {$album.description}
             </div>
         </div>
     </div>

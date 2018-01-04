@@ -22,7 +22,7 @@
 				<div class="liscontin">
 					<ul class="shilist1 df  fww">
 						<foreach name="album" item="vo">
-						<li><a href="{:cmf_url('portal/Album/index',array('id'=>$vo['id']))}" class="" ><span class="sspomg"><img src="__TMPL__/public/assets/images/shi1.jpg" alt="" /></span><span class="shinmtl">{$vo.album_name}</span></a></li>
+						<li><a href="{:cmf_url('portal/Album/index',array('id'=>$vo['id']))}" class="" ><span class="sspomg"><img src="{:cmf_get_image_url($vo.cover)}" alt="" /></span><span class="shinmtl">{$vo.album_name}</span></a></li>
 						</foreach>
 					</ul>
 				</div>

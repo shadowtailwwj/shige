@@ -22,13 +22,12 @@ class AlbumController extends HomeBaseController
     {
         $albumId = $this->request->param('id', 0, 'intval');
         $album = Db::name('portal_album')->where('id',$albumId)->find();
-        $postlist = Db::name('portal_post')
-            ->alias('a')
-            ->join('portal_album p','a.album_id=p.id')
-            ->where('poet_id',$albumId)
-            ->select();
+        $postlist = Db::name('portal_post')->where('album_id',$albumId)->select();
+//        print_r($postlist);die;
+        $count = Db::name('portal_post')->where('album_id',$albumId)->count();
         $this->assign('album', $album);
         $this->assign('postlist', $postlist);
+        $this->assign('count', $count);
         return $this->fetch();
     }
 
