@@ -15,10 +15,10 @@ use think\Validate;
 class AdminAlbumValidate extends Validate
 {
     protected $rule = [
-        'name' => 'require',
+        'album_name' => 'require',
     ];
     protected $message = [
-        'name.require' => '专辑名称不能为空！',
+        'album_name.require' => '专辑名称不能为空！',
     ];
 
     protected $scene = [

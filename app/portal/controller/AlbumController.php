@@ -21,14 +21,14 @@ class AlbumController extends HomeBaseController
     public function index()
     {
         $albumId = $this->request->param('id', 0, 'intval');
-        $album = Db::name('portal_album')
-            ->where('id',$albumId)
-            ->find();
-        $albumlist = Db::name('portal_album')
-            ->where('flag',1)
+        $album = Db::name('portal_album')->where('id',$albumId)->find();
+        $postlist = Db::name('portal_post')
+            ->alias('a')
+            ->join('portal_album p','a.album_id=p.id')
+            ->where('poet_id',$albumId)
             ->select();
         $this->assign('album', $album);
-        $this->assign('albumlist', $albumlist);
+        $this->assign('postlist', $postlist);
         return $this->fetch();
     }
 

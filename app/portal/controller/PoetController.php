@@ -29,7 +29,6 @@ class PoetController extends HomeBaseController
             ->join('portal_album p','a.album_id=p.id')
             ->where('poet_id',$poetId)
             ->select();
-//        print_r($postlist);die;
         $this->assign('poet', $poet);
         $this->assign('postlist', $postlist);
         return $this->fetch();
