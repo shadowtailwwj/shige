@@ -66,7 +66,7 @@ class ArticleController extends HomeBaseController
 
 
         hook('portal_before_assign_article', $article);
-        $article['album'] = $album['name'];
+        $article['album'] = $album['album_name'];
         $article['poet'] = $poet['name'];
         $article['xiazai'] = cmf_get_file_download_url($article['music'], $expires = 3600);
         $this->assign('article', $article);
