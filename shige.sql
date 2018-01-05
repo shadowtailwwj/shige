@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2017-12-22 15:09:54
+Date: 2018-01-05 15:20:02
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -234,7 +234,7 @@ CREATE TABLE `cmf_asset` (
   `suffix` varchar(10) NOT NULL DEFAULT '' COMMENT '文件后缀名,不包括点',
   `more` text COMMENT '其它详细信息,JSON格式',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COMMENT='资源表';
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COMMENT='资源表';
 
 -- ----------------------------
 -- Records of cmf_asset
@@ -243,6 +243,10 @@ INSERT INTO `cmf_asset` VALUES ('1', '1', '42508', '1513754043', '1', '0', 'a8d0
 INSERT INTO `cmf_asset` VALUES ('2', '1', '68777', '1513835363', '1', '0', 'd9d1512cb76c5cfba88adb34fa46fced19a739c4a62a40ca5403c8e732649f18', 'shi3.png', '20171221/b65bf24bf1bf90e1be3b02b9432f8c86.png', 'd9d1512cb76c5cfba88adb34fa46fced', '950217cc78da44aaecf4a87c2f6b7e23c71696c4', 'png', null);
 INSERT INTO `cmf_asset` VALUES ('3', '1', '1105203', '1513924975', '1', '0', '0b07dbb76c5b698ab812cd590b939fdc386cfdc37b3c830576a6954c1e272a98', 'index.jpg', '20171222/f2ba619e17278f6e9b8af1b5ef90efe7.jpg', '0b07dbb76c5b698ab812cd590b939fdc', '1b8871c445d8256bd5c939d6c6648e6d01efd5c2', 'jpg', null);
 INSERT INTO `cmf_asset` VALUES ('4', '1', '31491', '1513925002', '1', '0', '068a902916131d9396fdfab47e3febf31eb533115a4dd7740bfa3251b31f109b', 'index_m_house.gif', '20171222/9d290d5105d271b75c08818000094121.gif', '068a902916131d9396fdfab47e3febf3', '5cf60c57eccfa97f1f5f132140e5f2b9865747ee', 'gif', null);
+INSERT INTO `cmf_asset` VALUES ('5', '1', '4654567', '1514860847', '1', '0', '76042d44b06aae6a614e8e6f5cfbf6f7bc1ccc1bb40d225c657ae0945e85fe91', '林俊杰 - 醉赤壁.mp3', 'portal/20180102/45186c84f9db69a966bd9e099474eaee.mp3', '76042d44b06aae6a614e8e6f5cfbf6f7', 'cd6c439264f051b7c01a980341670870c3c07178', 'mp3', null);
+INSERT INTO `cmf_asset` VALUES ('6', '1', '393295', '1514862023', '1', '0', 'ea4746cfb5ae96a508e4b1b7983ea14fe56ff66ffa83168d14b983d706a59888', '会员中心.jpg', 'portal/20180102/22238db9ac7e92abec93250dcb9876fc.jpg', 'ea4746cfb5ae96a508e4b1b7983ea14f', 'ed8017d1d3b987bc5126c77ab8738ea0df210bb6', 'jpg', null);
+INSERT INTO `cmf_asset` VALUES ('7', '1', '147072', '1514863209', '1', '0', '155f126166dd58c6a80039c215cb2c2bbcabc8e8e70a7ce5582b98d0258cb8e1', 'banner.jpg', 'portal/20180102/0aa0e75ec05ca1b2ad3f71467259e4f6.jpg', '155f126166dd58c6a80039c215cb2c2b', '1661ff5a331b521eb7a10dbf401bbae42cb8ee03', 'jpg', null);
+INSERT INTO `cmf_asset` VALUES ('8', '1', '27592', '1515034783', '1', '0', 'eee9b3713b432e53eb1185bdd873ad21944e6e46d7e37f57973f65af37a09b5a', 'shi1.jpg', 'portal/20180104/1b98861ac56ef55adb7a9677ea7b42a1.jpg', 'eee9b3713b432e53eb1185bdd873ad21', '48f80da427bb4aab4834553f91190f7143889ddf', 'jpg', null);
 
 -- ----------------------------
 -- Table structure for cmf_auth_access
@@ -621,7 +625,7 @@ CREATE TABLE `cmf_option` (
   `option_value` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT '配置值',
   PRIMARY KEY (`id`),
   UNIQUE KEY `option_name` (`option_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='全站配置表';
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='全站配置表';
 
 -- ----------------------------
 -- Records of cmf_option
@@ -630,6 +634,7 @@ INSERT INTO `cmf_option` VALUES ('7', '1', 'site_info', '{\"site_name\":\"\\u975
 INSERT INTO `cmf_option` VALUES ('8', '1', 'cmf_settings', '{\"open_registration\":\"1\",\"banned_usernames\":\"\"}');
 INSERT INTO `cmf_option` VALUES ('9', '1', 'cdn_settings', '{\"cdn_static_root\":\"\"}');
 INSERT INTO `cmf_option` VALUES ('10', '1', 'admin_settings', '{\"admin_password\":\"\",\"admin_style\":\"flatadmin\"}');
+INSERT INTO `cmf_option` VALUES ('11', '1', 'upload_setting', '{\"max_files\":\"20\",\"chunk_size\":\"512\",\"file_types\":{\"image\":{\"upload_max_filesize\":\"10240\",\"extensions\":\"jpg,jpeg,png,gif,bmp4,mp3,wma,wav\"},\"video\":{\"upload_max_filesize\":\"10240\",\"extensions\":\"mp4,avi,wmv,rm,rmvb,mkv\"},\"audio\":{\"upload_max_filesize\":\"10240\",\"extensions\":\"mp3,wma,wav\"},\"file\":{\"upload_max_filesize\":\"10240\",\"extensions\":\"txt,pdf,doc,docx,xls,xlsx,ppt,pptx,zip,rar\"}}}');
 
 -- ----------------------------
 -- Table structure for cmf_plugin
@@ -663,7 +668,7 @@ CREATE TABLE `cmf_plugin` (
 DROP TABLE IF EXISTS `cmf_portal_album`;
 CREATE TABLE `cmf_portal_album` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
+  `album_name` varchar(255) NOT NULL,
   `cover` varchar(255) NOT NULL COMMENT '封面',
   `singer` varchar(255) NOT NULL COMMENT '歌手',
   `release_time` varchar(10) NOT NULL COMMENT '发行日期',
@@ -683,14 +688,16 @@ CREATE TABLE `cmf_portal_album` (
   `post_hits` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '查看数',
   `post_like` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '点赞数',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of cmf_portal_album
 -- ----------------------------
-INSERT INTO `cmf_portal_album` VALUES ('1', '12332', 'portal/20171220/656c562789e9a2e8a97001c99b9394c5.png', '1231231', '1322132', '0', '0', '0', '0', '123123', '0', '', '123123', '1', '1', '1', '0', '0', '0', '0');
-INSERT INTO `cmf_portal_album` VALUES ('2', '测试专辑', '', '测试歌手', '0', '0', '0', '0', '0', '测试语言', '0', '', '随便测试', '1', '1', '1', '0', '0', '0', '0');
-INSERT INTO `cmf_portal_album` VALUES ('3', '钱123123', '', '123132', '1231233', '1513756232', '0', '0', '0', '123123', '0', '', '', '1', '1', '1', '0', '0', '0', '0');
+INSERT INTO `cmf_portal_album` VALUES ('1', '这是一个专辑', 'portal/20171220/656c562789e9a2e8a97001c99b9394c5.png', '1231231', '2001', '0', '0', '0', '0', '123123', '0', '', '123123', '1', '1', '1', '0', '0', '0', '0');
+INSERT INTO `cmf_portal_album` VALUES ('2', '测试专辑', '', '测试歌手', '1787', '0', '0', '0', '0', '测试语言', '0', '', '随便测试', '1', '1', '1', '0', '0', '0', '0');
+INSERT INTO `cmf_portal_album` VALUES ('3', '没钱', '', '123132', '1965', '1513756232', '0', '0', '0', '123123', '0', '', '', '1', '1', '1', '0', '0', '0', '0');
+INSERT INTO `cmf_portal_album` VALUES ('4', '测试专辑1', '', '三生三世', '2017', '1514270148', '1514270148', '1514270148', '0', '中文', '1', 'L', '', '1', '1', '1', '0', '0', '0', '0');
+INSERT INTO `cmf_portal_album` VALUES ('5', '我是专辑', 'portal/20180104/1b98861ac56ef55adb7a9677ea7b42a1.jpg', '李白', '1980-09-25', '1515034786', '1515034786', '1515034786', '0', '英语', '1', 'W', '这是一个秘密', '1', '1', '1', '0', '0', '0', '0');
 
 -- ----------------------------
 -- Table structure for cmf_portal_category
@@ -755,7 +762,7 @@ CREATE TABLE `cmf_portal_category_post` (
   `status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '状态,1:发布;0:不发布',
   PRIMARY KEY (`id`),
   KEY `term_taxonomy_id` (`category_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='portal应用 分类文章对应表';
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='portal应用 分类文章对应表';
 
 -- ----------------------------
 -- Records of cmf_portal_category_post
@@ -766,6 +773,11 @@ INSERT INTO `cmf_portal_category_post` VALUES ('3', '3', '2', '10000', '1');
 INSERT INTO `cmf_portal_category_post` VALUES ('4', '4', '1', '10000', '1');
 INSERT INTO `cmf_portal_category_post` VALUES ('5', '5', '2', '10000', '1');
 INSERT INTO `cmf_portal_category_post` VALUES ('6', '6', '4', '10000', '1');
+INSERT INTO `cmf_portal_category_post` VALUES ('7', '7', '3', '10000', '1');
+INSERT INTO `cmf_portal_category_post` VALUES ('8', '8', '2', '10000', '1');
+INSERT INTO `cmf_portal_category_post` VALUES ('9', '9', '1', '10000', '1');
+INSERT INTO `cmf_portal_category_post` VALUES ('10', '10', '3', '10000', '1');
+INSERT INTO `cmf_portal_category_post` VALUES ('11', '11', '1', '10000', '1');
 
 -- ----------------------------
 -- Table structure for cmf_portal_category_ramble
@@ -815,12 +827,14 @@ CREATE TABLE `cmf_portal_poet` (
   `post_hits` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '查看数',
   `post_like` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '点赞数',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of cmf_portal_poet
 -- ----------------------------
-INSERT INTO `cmf_portal_poet` VALUES ('1', '李白', 'libai', '长安', '唐朝', '唐朝', '', '床前明月光', '', '0', '1513823458', '0', '1513823458', '0', '1', '1', '1', '0', '0', '0', '0');
+INSERT INTO `cmf_portal_poet` VALUES ('1', '李白', 'libai', '长安', '唐朝', '唐朝', '', '床前明月光', 'portal/20171220/656c562789e9a2e8a97001c99b9394c5.png', '0', '1513823458', '0', '1513823458', '0', '1', '1', '1', '0', '0', '0', '0');
+INSERT INTO `cmf_portal_poet` VALUES ('2', '我是谁', 'who are me', '不知道', '很久很久以前', '很久很久以前', 'W', '这谁啊这？？？？', 'portal/20171220/656c562789e9a2e8a97001c99b9394c5.png', '2', '1515031153', '1515031153', '1515031153', '0', '1', '1', '1', '0', '0', '0', '0');
+INSERT INTO `cmf_portal_poet` VALUES ('3', '柯南道尔', '不知道咋写', '英国', '不知道', '不晓得', 'K', '写推理小说的', 'portal/20171220/656c562789e9a2e8a97001c99b9394c5.png', '4', '1515031265', '1515031265', '1515031265', '0', '1', '1', '1', '0', '0', '0', '0');
 
 -- ----------------------------
 -- Table structure for cmf_portal_post
@@ -831,6 +845,7 @@ CREATE TABLE `cmf_portal_post` (
   `parent_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '父级id',
   `post_type` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '类型,1:文章;2:页面',
   `post_format` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '内容格式;1:html;2:md',
+  `music` varchar(255) NOT NULL,
   `user_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '发表者用户id',
   `poet_id` int(11) NOT NULL COMMENT '所属诗人',
   `album_id` int(11) NOT NULL COMMENT '所属专辑',
@@ -859,17 +874,22 @@ CREATE TABLE `cmf_portal_post` (
   KEY `post_parent` (`parent_id`),
   KEY `post_author` (`user_id`),
   KEY `post_date` (`create_time`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='portal应用 文章表';
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='portal应用 文章表';
 
 -- ----------------------------
 -- Records of cmf_portal_post
 -- ----------------------------
-INSERT INTO `cmf_portal_post` VALUES ('1', '0', '1', '1', '1', '0', '0', '', '', '1', '1', '0', '0', '28', '1', '0', '1513672658', '1513672658', '1513672635', '0', '王安石', '', '', '', '&lt;p&gt;王安石&lt;br&gt;&lt;/p&gt;', null, '{\"thumbnail\":\"\",\"template\":\"\"}');
-INSERT INTO `cmf_portal_post` VALUES ('2', '0', '1', '1', '1', '1', '2', ' 阿什顿发斯蒂芬', '阿斯顿发生打发斯蒂芬三', '1', '1', '0', '0', '1', '0', '0', '1513843985', '1513843985', '1513672635', '0', '诗歌1111', '', '', '', '&lt;p&gt;第三方拉数据的法拉盛会计分录屎大颗&lt;br&gt;&lt;/p&gt;', null, null);
-INSERT INTO `cmf_portal_post` VALUES ('3', '0', '1', '1', '1', '1', '1', '去玩儿去玩儿沃尔沃群二额无', '去玩儿去玩儿无群二无群二', '1', '1', '0', '0', '2', '0', '0', '1513844168', '1513844168', '1513672635', '0', '诗歌1111', '', '', '', '&lt;p&gt;去玩儿群翁人&lt;br&gt;&lt;/p&gt;', null, null);
-INSERT INTO `cmf_portal_post` VALUES ('4', '0', '1', '1', '1', '1', '2', 'v单方事故更好的复合弓     ', '蕨根粉价格黄金分割', '1', '1', '0', '0', '1', '0', '0', '1513844376', '1513844376', '1513672635', '0', '诗歌1111', '', '', '', '&lt;p&gt;王企鹅群翁群无&lt;br&gt;&lt;/p&gt;', null, null);
-INSERT INTO `cmf_portal_post` VALUES ('5', '0', '1', '1', '1', '1', '1', '', '', '1', '1', '0', '0', '3', '1', '0', '1513847541', '1513847541', '1513672635', '0', '123', '', '', '', '&lt;p&gt;123131313&lt;br&gt;&lt;/p&gt;', null, null);
-INSERT INTO `cmf_portal_post` VALUES ('6', '0', '1', '1', '1', '1', '2', '', '', '1', '1', '0', '0', '12', '0', '0', '1513925007', '1513925007', '1513672635', '0', '种太阳', '', '', '', '&lt;p&gt;啦啦啦种太阳 啦啦啦啦啦啦种太阳&lt;img src=&quot;/thinkcmf/public/upload/20171222/9d290d5105d271b75c08818000094121.gif&quot; title=&quot;index_m_house.gif&quot; alt=&quot;index_m_house.gif&quot;&gt;&lt;/p&gt;', null, null);
+INSERT INTO `cmf_portal_post` VALUES ('1', '0', '1', '1', '', '1', '2', '1', '', '', '1', '1', '0', '0', '40', '1', '0', '1513672658', '1513672658', '1513672635', '0', '王安石', '', '', '', '&lt;p&gt;王安石&lt;br&gt;&lt;/p&gt;', null, '{\"thumbnail\":\"\",\"template\":\"\"}');
+INSERT INTO `cmf_portal_post` VALUES ('2', '0', '1', '1', '', '1', '1', '2', ' 阿什顿发斯蒂芬', '阿斯顿发生打发斯蒂芬三', '1', '1', '0', '0', '6', '0', '0', '1513843985', '1513843985', '1513672635', '0', '诗歌1111', '', '', '', '&lt;p&gt;第三方拉数据的法拉盛会计分录屎大颗&lt;br&gt;&lt;/p&gt;', null, null);
+INSERT INTO `cmf_portal_post` VALUES ('3', '0', '1', '1', '', '1', '1', '1', '去玩儿去玩儿沃尔沃群二额无', '去玩儿去玩儿无群二无群二', '1', '1', '0', '0', '2', '0', '0', '1513844168', '1513844168', '1513672635', '0', '诗歌1111', '', '', '', '&lt;p&gt;去玩儿群翁人&lt;br&gt;&lt;/p&gt;', null, null);
+INSERT INTO `cmf_portal_post` VALUES ('4', '0', '1', '1', '', '1', '2', '2', 'v单方事故更好的复合弓     ', '蕨根粉价格黄金分割', '1', '1', '0', '0', '7', '0', '0', '1513844376', '1513844376', '1513672635', '0', '诗歌1111', '', '', '', '&lt;p&gt;王企鹅群翁群无&lt;br&gt;&lt;/p&gt;', null, null);
+INSERT INTO `cmf_portal_post` VALUES ('5', '0', '1', '1', '', '1', '1', '1', '', '', '1', '1', '0', '0', '4', '1', '0', '1513847541', '1513847541', '1513672635', '0', '123', '', '', '', '&lt;p&gt;123131313&lt;br&gt;&lt;/p&gt;', null, null);
+INSERT INTO `cmf_portal_post` VALUES ('6', '0', '1', '1', '', '1', '3', '2', '', '', '1', '1', '0', '0', '26', '0', '0', '1513925007', '1513925007', '1513672635', '0', '种太阳', '', '', '', '&lt;p&gt;啦啦啦种太阳 啦啦啦啦啦啦种太阳&lt;img src=&quot;/thinkcmf/public/upload/20171222/9d290d5105d271b75c08818000094121.gif&quot; title=&quot;index_m_house.gif&quot; alt=&quot;index_m_house.gif&quot;&gt;&lt;/p&gt;', null, null);
+INSERT INTO `cmf_portal_post` VALUES ('7', '0', '1', '1', '', '1', '3', '1', 'dsfadfsa', 'sdfasdfsafff', '1', '1', '0', '0', '0', '0', '0', '1514860274', '1514860274', '1513672635', '0', 'MP3', '', '', '', '&lt;p&gt;ceshimp3&lt;br&gt;&lt;/p&gt;', null, '{\"photos\":[{\"url\":\"20171221\\/b65bf24bf1bf90e1be3b02b9432f8c86.png\",\"name\":\"shi3.png\"}]}');
+INSERT INTO `cmf_portal_post` VALUES ('8', '0', '1', '1', '', '1', '2', '3', 'asdasd', 'asdasdsadsad', '1', '1', '0', '0', '1', '0', '0', '1514860865', '1514860865', '1513672635', '0', '种太阳1231', '', '', '', '&lt;p&gt;12321313&lt;br&gt;&lt;/p&gt;', null, '{\"files\":[{\"url\":\"portal\\/20180102\\/45186c84f9db69a966bd9e099474eaee.mp3\",\"name\":\"林俊杰 - 醉赤壁.mp3\"}]}');
+INSERT INTO `cmf_portal_post` VALUES ('9', '0', '1', '1', '', '1', '1', '3', '', '', '1', '1', '0', '0', '0', '0', '0', '1514862630', '1514862630', '1513672635', '0', 'asdads', '', '', '', '', null, null);
+INSERT INTO `cmf_portal_post` VALUES ('10', '0', '1', '1', '', '1', '3', '4', '', '', '1', '1', '0', '0', '1', '0', '0', '1514862743', '1514862743', '1513672635', '0', 'MP31', '', '', '', null, null, null);
+INSERT INTO `cmf_portal_post` VALUES ('11', '0', '1', '1', 'portal/20180102/45186c84f9db69a966bd9e099474eaee.mp3', '1', '1', '4', '阿什顿发斯蒂芬三', '协助执行程序', '1', '1', '0', '0', '29', '0', '0', '1514863409', '1514863409', '1513672635', '0', '阿斯蒂芬', '', '', '', '&lt;p&gt;阿斯顿发生&lt;br&gt;&lt;/p&gt;', null, null);
 
 -- ----------------------------
 -- Table structure for cmf_portal_ramble
@@ -878,7 +898,8 @@ DROP TABLE IF EXISTS `cmf_portal_ramble`;
 CREATE TABLE `cmf_portal_ramble` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
-  `details` text NOT NULL,
+  `outline` text NOT NULL,
+  `details` text,
   `cate` int(11) NOT NULL,
   `flag` int(10) NOT NULL DEFAULT '1',
   `post_status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '状态;1:已发布;0:未发布;',
@@ -892,13 +913,14 @@ CREATE TABLE `cmf_portal_ramble` (
   `published_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '发布时间',
   `delete_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '删除时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of cmf_portal_ramble
 -- ----------------------------
-INSERT INTO `cmf_portal_ramble` VALUES ('1', '测试漫谈标题', '&lt;p&gt;侧荣测试&lt;img src=&quot;/thinkcmf/public/upload/portal/20171220/656c562789e9a2e8a97001c99b9394c5.png&quot; title=&quot;avtar.png&quot; alt=&quot;avtar.png&quot;/&gt;&lt;/p&gt;', '1', '1', '1', '1', '0', '0', '0', '0', '1513835669', '1513835669', '1513835669', '0');
-INSERT INTO `cmf_portal_ramble` VALUES ('2', '测试2', '&lt;p&gt;鞍山里的咖啡加拉斯科技法拉盛会计法&lt;br/&gt;&lt;/p&gt;', '4', '1', '1', '1', '0', '0', '0', '0', '1513841443', '1513841443', '1513841443', '0');
+INSERT INTO `cmf_portal_ramble` VALUES ('1', '测试漫谈标题', '玛拉基书是旧约的最后一本书卷。玛拉基这名字是指「我的使者」。先知是神的使者，神借着先知宣告祂对子民的责备和应许。本书起首就以「我曾爱你们」一语开始，神向处于艰困世代中的百', '&lt;p&gt;侧荣测试&lt;img src=&quot;/thinkcmf/public/upload/portal/20171220/656c562789e9a2e8a97001c99b9394c5.png&quot; title=&quot;avtar.png&quot; alt=&quot;avtar.png&quot;/&gt;&lt;/p&gt;', '1', '1', '1', '1', '0', '0', '0', '0', '1513835669', '1513835669', '1513835669', '0');
+INSERT INTO `cmf_portal_ramble` VALUES ('2', '测试2', '玛拉基书是旧约的最后一本书卷。玛拉基这名字是指「我的使者」。先知是神的使者，神借着先知宣告祂对子民的责备和应许。本书起首就以「我曾爱你们」一语开始，神向处于艰困世代中的百', '&lt;p&gt;鞍山里的咖啡加拉斯科技法拉盛会计法&lt;br/&gt;&lt;/p&gt;', '4', '1', '1', '1', '0', '0', '0', '0', '1513841443', '1513841443', '1513841443', '0');
+INSERT INTO `cmf_portal_ramble` VALUES ('3', '测试概要', '这是一个测试', '&lt;p&gt;测试内容在这里&lt;br/&gt;&lt;/p&gt;', '4', '1', '1', '1', '0', '0', '0', '0', '1514943354', '1514943354', '1514943354', '0');
 
 -- ----------------------------
 -- Table structure for cmf_portal_tag
@@ -1189,7 +1211,7 @@ CREATE TABLE `cmf_user` (
 -- ----------------------------
 -- Records of cmf_user
 -- ----------------------------
-INSERT INTO `cmf_user` VALUES ('1', '1', '0', '0', '1513910504', '0', '0', '1513569036', '1', 'admin', '###22a7d9e13df8ac7139e6330fa3015407', 'admin', '122312312@qq.com', '', '', '', '127.0.0.1', '', '', null);
+INSERT INTO `cmf_user` VALUES ('1', '1', '0', '0', '1515117020', '0', '0', '1513569036', '1', 'admin', '###22a7d9e13df8ac7139e6330fa3015407', 'admin', '122312312@qq.com', '', '', '', '127.0.0.1', '', '', null);
 INSERT INTO `cmf_user` VALUES ('2', '2', '0', '0', '1513909999', '0', '0', '1513909882', '2', '', '###6f94d3b968f122a50ae5fa0a16e7af56', '', 'yqwwj001@1863.com', '', '', '', '127.0.0.1', '', '', null);
 
 -- ----------------------------
@@ -1312,7 +1334,7 @@ CREATE TABLE `cmf_user_token` (
 -- ----------------------------
 -- Records of cmf_user_token
 -- ----------------------------
-INSERT INTO `cmf_user_token` VALUES ('3', '1', '1529462504', '1513910504', 'de7d03849424f4f3fa3856690dcf8682f674fe4850c7951557ffe7d5242077a2', 'web');
+INSERT INTO `cmf_user_token` VALUES ('3', '1', '1530669020', '1515117020', 'a44bd92ef6551ffe4913cbcd155d8e4b6fa1ba04bc8050d1cfe1160b34079437', 'web');
 
 -- ----------------------------
 -- Table structure for cmf_verification_code
