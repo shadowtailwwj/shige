@@ -71,110 +71,48 @@ class AdminRambleController extends AdminBaseController
     public function edit()
     {
         $id = $this->request->param('id', 0, 'intval');
-
-        $portalPostModel = new PortalPostModel();
-        $post            = $portalPostModel->where('id', $id)->find();
-        $postCategories  = $post->categories()->alias('a')->column('a.name', 'a.id');
-        $postCategoryIds = implode(',', array_keys($postCategories));
-
-        $themeModel        = new ThemeModel();
-        $articleThemeFiles = $themeModel->getActionThemeFiles('portal/Article/index');
-        $this->assign('article_theme_files', $articleThemeFiles);
+        $post            = Db::name('portal_ramble')->where('id',$id)->find();
+        $cate = Db::name('portal_category_ramble')->select();
+        $this->assign('cate', $cate);
         $this->assign('post', $post);
-        $this->assign('post_categories', $postCategories);
-        $this->assign('post_category_ids', $postCategoryIds);
-
         return $this->fetch();
     }
 
 
     public function editPost()
     {
-
+        $id = $this->request->param('id', 0, 'intval');
         if ($this->request->isPost()) {
-            $data   = $this->request->param();
-            $post   = $data['post'];
-            $result = $this->validate($post, 'AdminArticle');
+            $data = $this->request->param();
+
+            $result = $this->validate($data, 'AdminRamble');
+
             if ($result !== true) {
                 $this->error($result);
             }
 
-            $portalPostModel = new PortalPostModel();
+            $data['update_time'] = time();
+            $res = Db::name('portal_ramble')->where('id',$id)->update($data);;
 
-            if (!empty($data['photo_names']) && !empty($data['photo_urls'])) {
-                $data['post']['more']['photos'] = [];
-                foreach ($data['photo_urls'] as $key => $url) {
-                    $photoUrl = cmf_asset_relative_url($url);
-                    array_push($data['post']['more']['photos'], ["url" => $photoUrl, "name" => $data['photo_names'][$key]]);
-                }
+            if ($res!=1) {
+                $this->error('修改失败!');
             }
 
-            if (!empty($data['file_names']) && !empty($data['file_urls'])) {
-                $data['post']['more']['files'] = [];
-                foreach ($data['file_urls'] as $key => $url) {
-                    $fileUrl = cmf_asset_relative_url($url);
-                    array_push($data['post']['more']['files'], ["url" => $fileUrl, "name" => $data['file_names'][$key]]);
-                }
-            }
-
-            $portalPostModel->adminEditArticle($data['post'], $data['post']['categories']);
-
-            $hookParam = [
-                'is_add'  => false,
-                'article' => $data['post']
-            ];
-            hook('portal_admin_after_save_article', $hookParam);
-
-            $this->success('保存成功!');
-
+            $this->success('修改成功!', url('AdminRamble/index'));
         }
     }
 
 
     public function delete()
     {
-        $param           = $this->request->param();
-        $portalPostModel = new PortalPostModel();
+        $id = $this->request->param('id', 0, 'intval');
+        $data['flag'] = 0;
+        $res = Db::name('portal_ramble')->where('id',$id)->update($data);
 
-        if (isset($param['id'])) {
-            $id           = $this->request->param('id', 0, 'intval');
-            $result       = $portalPostModel->where(['id' => $id])->find();
-            $data         = [
-                'object_id'   => $result['id'],
-                'create_time' => time(),
-                'table_name'  => 'portal_post',
-                'name'        => $result['post_title']
-            ];
-            $resultPortal = $portalPostModel
-                ->where(['id' => $id])
-                ->update(['delete_time' => time()]);
-            if ($resultPortal) {
-                Db::name('portal_category_post')->where(['post_id'=>$id])->update(['status'=>0]);
-                Db::name('portal_tag_post')->where(['post_id'=>$id])->update(['status'=>0]);
-
-                Db::name('recycleBin')->insert($data);
-            }
-            $this->success("删除成功！", '');
-
+        if ($res!=1) {
+            $this->error('删除失败!');
         }
-
-        if (isset($param['ids'])) {
-            $ids     = $this->request->param('ids/a');
-            $recycle = $portalPostModel->where(['id' => ['in', $ids]])->select();
-            $result  = $portalPostModel->where(['id' => ['in', $ids]])->update(['delete_time' => time()]);
-            if ($result) {
-                foreach ($recycle as $value) {
-                    $data = [
-                        'object_id'   => $value['id'],
-                        'create_time' => time(),
-                        'table_name'  => 'portal_post',
-                        'name'        => $value['post_title']
-                    ];
-                    Db::name('recycleBin')->insert($data);
-                }
-                $this->success("删除成功！", '');
-            }
-        }
+        $this->success('删除成功!', url('AdminRamble/index'));
     }
 
 

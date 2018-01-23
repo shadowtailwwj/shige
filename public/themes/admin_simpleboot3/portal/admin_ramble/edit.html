@@ -29,104 +29,48 @@
 <body>
 <div class="wrap js-check-wrap">
     <ul class="nav nav-tabs">
-        <li><a href="{:url('AdminArticle/index')}">诗歌管理</a></li>
-        <li class="active"><a href="{:url('AdminArticle/add')}">添加诗歌</a></li>
+        <li><a href="{:url('AdminRamble/index')}">漫谈管理</a></li>
+        <li class="active"><a href="{:url('AdminRamble/add')}">添加漫谈</a></li>
     </ul>
-    <form action="{:url('AdminArticle/addPost')}" method="post" class="form-horizontal js-ajax-form margin-top-20" enctype="multipart/form-data">
+    <form action="{:url('AdminRamble/editPost')}" method="post" class="form-horizontal js-ajax-form margin-top-20">
+        <input type="hidden" value="{$post.id}" name="id">
         <div class="row">
             <div class="col-md-9">
                 <table class="table table-bordered">
                     <tr>
                         <th width="100">分类<span class="form-required">*</span></th>
                         <td>
-                            <input class="form-control" type="text" style="width:400px;" required value=""
-                                   placeholder="请选择分类" onclick="doSelectCategory();" id="js-categories-name-input"
-                                   readonly/>
-                            <input class="form-control" type="hidden" value="" name="post[categories]"
-                                   id="js-categories-id-input"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>诗歌名称<span class="form-required">*</span></th>
-                        <td>
-                            <input class="form-control" type="text" name="post[post_title]" id="title" required value=""/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th width="100">所属专辑<span class="form-required">*</span></th>
-                        <td>
-                            <select class="form-control" name="post[album_id]" id="input-parent">
-                                <foreach name="album" item="vo">
-                                    <option value="{$vo.id}">{$vo.album_name}</option>
+                            <select class="form-control" name="cate" id="input-parent">
+                                <foreach name="cate" item="vo">
+                                    <option value="{$vo.cate_id}">{$vo.name}</option>
                                 </foreach>
                             </select>
                         </td>
                     </tr>
                     <tr>
-                        <th width="100">所属诗人<span class="form-required">*</span></th>
+                        <th>标题<span class="form-required">*</span></th>
                         <td>
-                            <select class="form-control" name="post[poet_id]" >
-                                <foreach name="poet" item="vo">
-                                     <option value="{$vo.id}">{$vo.name}</option>
-                                </foreach>
-                            </select>
+                            <input class="form-control" type="text" name="title"
+                                   id="title" required value="{$post.title}" placeholder="请输入标题" />
                         </td>
                     </tr>
                     <tr>
-                        <th>文本</th>
+                        <th>概要<span class="form-required">*</span></th>
                         <td>
-                            <script type="text/plain" id="content" name="post[post_content]"></script>
+                            <textarea name="outline" style="width: 850px">{$post.outline}</textarea>
                         </td>
                     </tr>
                     <tr>
-                        <th>诗歌赏析</th>
+                        <th>内容</th>
                         <td>
-                            <textarea class="form-control" name="post[appreciation]" style="height: 50px;"></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>诗歌考典</th>
-                        <td>
-                            <textarea class="form-control" name="post[allusion]" style="height: 50px;"></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>诗歌封面</th>
-                        <td>
-                            <ul id="photos" class="pic-list list-unstyled form-inline"></ul>
-                            <a href="javascript:uploadMultiImage('图片上传','#photos','photos-item-tpl');"
-                               class="btn btn-default btn-sm">选择图片</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>诗歌附件</th>
-                        <td>
-                            <ul id="mp3" class="pic-list list-unstyled form-inline">
-                            </ul>
-                            <input type="hidden" name="post[music]" class="form-control"
-                                   id="js-thumbnail-input">
-                            <a href="javascript:uploadOne('文件上传','#js-thumbnail-input');" class="btn btn-sm btn-default">
-                                <img src="__TMPL__/public/assets/images/default-thumbnail.png"
-                                     id="js-thumbnail-input-preview"
-                                     width="135" style="cursor: pointer"/>
-                            </a>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>PDF附件</th>
-                        <td>
-                            <ul id="files" class="pic-list list-unstyled form-inline">
-                            </ul>
-                            <a href="javascript:uploadMultiFile('附件上传','#files','files-item-tpl','file');"
-                               class="btn btn-sm btn-default">选择文件</a>
+                            <script type="text/plain" id="content" name="details">{:htmlspecialchars_decode($post['details'])}</script>
                         </td>
                     </tr>
                 </table>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('ADD')}</button>
-                        <a class="btn btn-default" href="{:url('AdminArticle/index')}">{:lang('BACK')}</a>
+                        <a class="btn btn-default" href="{:url('AdminRamble/index')}">{:lang('BACK')}</a>
                     </div>
                 </div>
             </div>
