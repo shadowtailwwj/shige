@@ -73,7 +73,31 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>文本</th>
+                        <th>作曲</th>
+                        <td>
+                            <input class="form-control" type="text" name="post[composer]" id="composer" required value=""/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>调号</th>
+                        <td>
+                            <input class="form-control" type="text" name="post[tone]" id="tone" required value=""/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>节奏</th>
+                        <td>
+                            <input class="form-control" type="text" name="post[rhythm]" id="rhythm" required value=""/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>韵律</th>
+                        <td>
+                            <input class="form-control" type="text" name="post[cadence]" id="cadence" required value=""/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>歌词</th>
                         <td>
                             <script type="text/plain" id="content" name="post[post_content]"></script>
                         </td>
@@ -81,13 +105,14 @@
                     <tr>
                         <th>诗歌赏析</th>
                         <td>
-                            <textarea class="form-control" name="post[appreciation]" style="height: 50px;"></textarea>
+                            <script type="text/plain" id="content1" name="post[appreciation]"></script>
+                            <!--<textarea class="form-control" name="post[appreciation]" style="height: 50px;"></textarea>-->
                         </td>
                     </tr>
                     <tr>
                         <th>诗歌考典</th>
                         <td>
-                            <textarea class="form-control" name="post[allusion]" style="height: 50px;"></textarea>
+                            <script type="text/plain" id="content2" name="post[allusion]"></script>
                         </td>
                     </tr>
                     <tr>
@@ -99,7 +124,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>诗歌附件</th>
+                        <th>诗歌音乐上传</th>
                         <td>
                             <ul id="mp3" class="pic-list list-unstyled form-inline">
                             </ul>
@@ -145,7 +170,12 @@
     $(function () {
 
         editorcontent = new baidu.editor.ui.Editor();
-        editorcontent.render('content');
+//        editorcontent.render('content');
+//        editorcontent.render('content1');
+//        editorcontent.render('content2');
+        UE.getEditor("content");
+        UE.getEditor("content1");
+        UE.getEditor("content2");
         try {
             editorcontent.sync();
         } catch (err) {

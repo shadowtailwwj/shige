@@ -163,6 +163,10 @@ class AdminArticleController extends AdminBaseController
 
         $themeModel        = new ThemeModel();
         $articleThemeFiles = $themeModel->getActionThemeFiles('portal/Article/index');
+        $poet = Db::name('portal_poet')->where('flag',1)->select();
+        $album = Db::name('portal_album')->where('flag',1)->select();
+        $this->assign('poet', $poet);
+        $this->assign('album', $album);
         $this->assign('article_theme_files', $articleThemeFiles);
         $this->assign('post', $post);
         $this->assign('post_categories', $postCategories);
