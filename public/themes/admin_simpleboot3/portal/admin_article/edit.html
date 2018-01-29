@@ -60,9 +60,10 @@
                         </td>
                     </tr>
                     <tr>
-                        <th width="100">所属专辑<span class="form-required">*</span></th>
+                        <th width="100">所属专辑</th>
                         <td>
                             <select class="form-control" name="post[album_id]" id="input-parent">
+                                <option value="0">无</option>
                                 <foreach name="album" item="vo">
                                     <option value="{$vo.id}">{$vo.album_name}</option>
                                 </foreach>
@@ -70,37 +71,39 @@
                         </td>
                     </tr>
                     <tr>
-                        <th width="100">所属诗人<span class="form-required">*</span></th>
+                        <th width="100">所属诗人</th>
                         <td>
-                            <select class="form-control" name="post[poet_id]" >
-                                <foreach name="poet" item="vo">
-                                    <option value="{$vo.id}">{$vo.name}</option>
-                                </foreach>
-                            </select>
+                            <input class="form-control" type="text" name="post[poet_id]" id="poet_id"  value="{$post.poet_id}"/>
                         </td>
                     </tr>
                     <tr>
                         <th>作曲</th>
                         <td>
-                            <input class="form-control" type="text" name="post[composer]" id="composer" required value="{$post.composer}"/>
+                            <input class="form-control" type="text" name="post[composer]" id="composer"  value="{$post.composer}"/>
                         </td>
                     </tr>
                     <tr>
                         <th>调号</th>
                         <td>
-                            <input class="form-control" type="text" name="post[tone]" id="tone" required value="{$post.tone}"/>
+                            <input class="form-control" type="text" name="post[tone]" id="tone"  value="{$post.tone}"/>
                         </td>
                     </tr>
                     <tr>
                         <th>节奏</th>
                         <td>
-                            <input class="form-control" type="text" name="post[rhythm]" id="rhythm" required value="{$post.rhythm}"/>
+                            <input class="form-control" type="text" name="post[rhythm]" id="rhythm" value="{$post.rhythm}"/>
                         </td>
                     </tr>
                     <tr>
                         <th>韵律</th>
                         <td>
-                            <input class="form-control" type="text" name="post[cadence]" id="cadence" required value="{$post.cadence}"/>
+                            <input class="form-control" type="text" name="post[cadence]" id="cadence"  value="{$post.cadence}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>首数</th>
+                        <td>
+                            <input class="form-control" type="text" name="post[num]" id="num" value="{$post.num}"/>
                         </td>
                     </tr>
                     <tr>
@@ -154,7 +157,27 @@
                                class="btn btn-sm btn-default">选择文件</a>
                         </td>
                     </tr>
-
+                    <tr>
+                        <th><b>发布时间</b></th>
+                        <td>
+                            <input class="form-control js-bootstrap-datetime" type="text" name="post[published_time]"
+                                   value="{:date('Y-m-d H:i:s',time())}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><b>状态</b></th>
+                        <td>
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="post[post_status]" value="1" checked>发布</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="post[is_top]" value="1">置顶</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="post[recommended]" value="1">推荐</label>
+                            </div>
+                        </td>
+                    </tr>
                 </table>
             </div>
 

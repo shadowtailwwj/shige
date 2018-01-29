@@ -29,7 +29,7 @@ class ArticleController extends HomeBaseController
         $article    = $postService->publishedArticle($articleId, $categoryId);
 
         $album = Db::name('portal_album')->where('id',$article['album_id'])->find();
-        $poet = Db::name('portal_poet')->where('id',$article['poet_id'])->find();
+//        $poet = Db::name('portal_poet')->where('id',$article['poet_id'])->find();
 
         if (empty($articleId)) {
             abort(404, '文章不存在!');
@@ -67,7 +67,7 @@ class ArticleController extends HomeBaseController
 
         hook('portal_before_assign_article', $article);
         $article['album'] = $album['album_name'];
-        $article['poet'] = $poet['name'];
+//        $article['poet'] = $poet['name'];
         $article['xiazai'] = cmf_get_file_download_url($article['music'], $expires = 3600);
         $this->assign('article', $article);
         $this->assign('prev_article', $prevArticle);

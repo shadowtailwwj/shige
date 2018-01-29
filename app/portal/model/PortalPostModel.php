@@ -142,11 +142,11 @@ class PortalPostModel extends Model
         }
 
 
-        $data['post_keywords'] = str_replace('，', ',', $data['post_keywords']);
-
-        $keywords = explode(',', $data['post_keywords']);
-
-        $this->addTags($keywords, $data['id']);
+//        $data['post_keywords'] = str_replace('，', ',', $data['post_keywords']);
+//
+//        $keywords = explode(',', $data['post_keywords']);
+//
+//        $this->addTags($keywords, $data['id']);
 
         return $this;
 

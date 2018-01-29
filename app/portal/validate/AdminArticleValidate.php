@@ -19,8 +19,8 @@ class AdminArticleValidate extends Validate
         'post_title' => 'require',
     ];
     protected $message = [
-        'categories.require' => '请指定文章分类！',
-        'post_title.require' => '文章标题不能为空！',
+        'categories.require' => '请指定分类！',
+        'post_title.require' => '诗歌名称不能为空！',
     ];
 
     protected $scene = [
