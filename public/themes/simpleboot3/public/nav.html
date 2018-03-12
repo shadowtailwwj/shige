@@ -75,30 +75,27 @@
     <!--</div>-->
 <!--</nav>-->
 <div class="header">
-    <div class="inner df js ac">
+    <div class="inner">
         <div class="logo"><h1><a href="#" class="" ><img src="__TMPL__/public/assets/images/logo.png" alt="" /></a></h1></div>
-        <div class="rinnv dc je ae">
-            <div class="df ac">
-               <span class="denshz">
-                  <a href="{:cmf_url('user/Login/index')}" class="" style="color:#c30d23;" >登 陆</a>
-                    |
-                  <a href="{:cmf_url('user/Register/index')}" class="" style="color:#c30d23;"> 注 册</a>
-               </span>
-                <div class="soubox">
-                    <input type="text" class="souinpts" placeholder="推荐的曲目" value="" />
-                    <a href="#" class="earchbtn" ></a>
-                </div>
+        <div class="nav">
+            <ul class="navul">
+                <li class="cur"><a href="{:cmf_url('portal/Index/index')}" target="_blank">首  页</a></li>
+                <li><a href="{:cmf_url('portal/List/index')}" target="_blank">诗歌歌曲 </a></li>
+                <li><a href="#" target="_blank">诗歌源考 </a></li>
+                <li><a href="#" target="_blank">诗歌赏析 </a></li>
+                <li><a href="{:cmf_url('portal/Ramshow/index')}" target="_blank">诗歌漫谈 </a></li>
+                <li><a href="{:cmf_url('portal/Poetlist/index')}" target="_blank">诗人小传 </a></li>
+            </ul>
+        </div>
+        <div class="soiswa">
+            <div class="dengzc">
+                <a href="{:cmf_url('user/Login/index')}" class="" style="color:#c30d23;" >登 陆</a>
+                |
+                <a href="{:cmf_url('user/Register/index')}" class="" style="color:#c30d23;"> 注 册</a>
             </div>
-
-            <div class="nav">
-                <ul class="df">
-                    <li class="cur"><a href="{:cmf_url('portal/Index/index')}" target="_blank">首  页</a></li>
-                    <li><a href="{:cmf_url('portal/List/index')}" target="_blank">诗歌歌曲 </a></li>
-                    <li><a href="#" target="_blank">诗歌源考 </a></li>
-                    <li><a href="#" target="_blank">诗歌赏析 </a></li>
-                    <li><a href="{:cmf_url('portal/Ramshow/index')}" target="_blank">诗歌漫谈 </a></li>
-                    <li><a href="{:cmf_url('portal/Poetlist/index')}" target="_blank">诗人小传 </a></li>
-                </ul>
+            <div class="searcbx">
+                <input type="text" class="searint" placeholder="推荐的曲目" value="" />
+                <a href="#" class="searctn" ></a>
             </div>
         </div>
     </div>

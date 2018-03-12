@@ -195,5 +195,21 @@ class PortalCategoryModel extends Model
         return $result;
     }
 
+    public function getAttrs($data,$pid)
+    {
+        $tree = array();
+        foreach($data as $k => $v)
+        {
+            if($v['parent_id'] == $pid)
+            {
+                $v['parent_id'] = $this->getAttrs($data, $v['id']);
+                $tree[] = $v;
+                //unset($data[$k]);
+            }
+        }
+        return $tree;
+
+    }
+
 
 }

@@ -6,71 +6,182 @@
 <body>
 <include file="public@nav"/>
 
-<div class="banner df jc ov">
-	<img src="__TMPL__/public/assets/images/banner.jpg" alt="" />
-</div>
+<div class="content">
+	<div class="inner">
+		<div class="banner">
+			<ul class="tutu">
+				<foreach name="advert" item="vo">
+				<li><a href="#" class="" ><img src="{:cmf_get_image_url($vo.img)}" alt="" /></a></li>
+				</foreach>
+			</ul>
 
-<div class="content flex1">
-	<div class="inner df js">
-		<div class="leftcont fl">
-			<div class="lostxbo">
-				<div class="lisitl df ac js">
-					<span class="">诗歌专辑</span>
-					<a href="{:cmf_url('portal/Albumlist/index')}" class="morennsg" >更多 <span class="songti">>></span></a>
-				</div>
+		</div>
 
-				<div class="liscontin">
-					<ul class="shilist1 df  fww">
-						<foreach name="album" item="vo">
-						<li><a href="{:cmf_url('portal/Album/index',array('id'=>$vo['id']))}" class="" ><span class="sspomg"><img src="{:cmf_get_image_url($vo.cover)}" alt="" width="240" height="200"/></span><span class="shinmtl">{$vo.album_name}</span></a></li>
-						</foreach>
-					</ul>
-				</div>
+		<div class="cont1">
+			<div class="datl">诗歌专辑</div>
+			<div class="aubtnl">
+				<foreach name="albumCate" item="vo">
+				<a href="javascript:;" target="_blank" class="" >{$vo.name}</a>
+				</foreach>
 			</div>
 
-			<div class="lostxbo">
-				<div class="lisitl df ac js">
-					<span class="">诗人与诗歌</span>
-					<a href="{:cmf_url('portal/Poetlist/index')}" class="morennsg" >更多 <span class="songti">>></span></a>
-				</div>
-
-				<div class="liscontin">
-					<ul class="shilist1 shilist2">
-						<foreach name="poet" item="vo">
-						<li><a href="{:cmf_url('portal/Poet/index',array('id'=>$vo['id']))}" class="" ><span class="sspomg"><img src="{:cmf_get_image_url($vo.photo)}" alt="" /></span><span class="shinmtl">{$vo.name}</span></a></li>
+			<div class="liqibx libox1">
+				<div class="qiehuan cur">
+					<ul>
+						<foreach name="album" item="vo">
+						<li>
+							<a href="#" class="liboxng plays" ><img src="{:cmf_get_image_url($vo.cover)}" alt="" width="224" height="224"/></a>
+							<div class="tuitl">{$vo.album_name}</div>
+						</li>
 						</foreach>
 					</ul>
 				</div>
+
+
 			</div>
 		</div>
 
-		<div class="rightcont fr">
-			<div class="beiix">
-				<div class="lisitl lisitl1 df ac js">诗歌分类</div>
-				<div class="dwinntl">
+
+
+		<div class="cont2">
+			<div class="datl">诗歌视频</div>
+			<div class="aubtnl">
+				<foreach name="videoCate" item="vo">
+				<a href="javascript:;" target="_blank" class="" >{$vo.name}</a>
+				</foreach>
+
+			</div>
+
+			<div class="liqibx libox2">
+				<div class="qiehuan cur">
 					<ul>
-						<foreach name="cate" item="vo">
-						<li><a href="{:cmf_url('portal/List/index',array('id'=>$vo['id']))}" class="" >{$vo.name}</a></li>
+						<foreach name="video" item="vo">
+						<li>
+							<a href="#" class="liboxng plays" ><img src="{:cmf_get_image_url($vo.photos)}" alt="" width="224" height="127"/></a>
+							<div class="tuitl">{$vo.v_name}</div>
+						</li>
 						</foreach>
+
 					</ul>
 				</div>
+
+
 			</div>
-			<div class="beiix">
-				<div class="lisitl lisitl1 df ac js">最新专辑</div>
-				<div class="dwinntl">
-					<ul>
-						<foreach name="album" item="vo">
-						<li><a href="{:cmf_url('portal/Album/index',array('id'=>$vo['id']))}" class="" >{$vo.album_name}</a></li>
-						</foreach>
-					</ul>
+		</div>
+
+		<div class="cont3">
+			<div class="datl">诗人小传</div>
+			<div class="libox3">
+				<ul>
+					<foreach name="poet" item="vo">
+					<li>
+						<a href="#" class="" >
+							<span class="liboxmg"><img src="{:cmf_get_image_url($vo.photo)}" alt="" width="224" height="224"/></span>
+							<div class="mmgnmz">
+								<div class="gnnwz">{$vo.name}</div>
+								<div class="yudew">{$vo.english_name}</div>
+								<div class="niafe">
+									({$vo.birthday}~{$vo.death})
+								</div>
+							</div>
+						</a>
+					</li>
+					</foreach>
+				</ul>
+			</div>
+		</div>
+
+		<div class="cont4">
+			<div class="cont4item">
+				<div class="contzuo">
+					<div class="xitl">
+						诗歌分类
+					</div>
+					<div class="xisnavs">
+						<ul>
+							<php>
+								foreach($cate as $key=>$val){
+							</php>
+							<li><div class="ansizs"><span class="dwnitm"><php>echo $val['name']</php></span><em class="fa fa-angle-right"></em></div>
+
+								<div class="wenla">
+									<ul>
+										<php>
+											foreach($val['parent_id'] as $k=>$v){
+										</php>
+										<li><a href="#" class="" ><span class="dwannwz"><php>echo $v['name']</php></span><em class="fa fa-angle-right"></em></a>
+											<div class="wenla">
+												<php>
+													foreach($v['parent_id'] as $k1=>$v1){
+												</php>
+												<a href="#" class="" ><span class="dwannwz"><php>echo $v1['name']</php></span><em class="fa fa-angle-right"></em></a>
+												<php>
+													}
+												</php>
+											</div>
+										</li>
+										<php>
+											}
+										</php>
+									</ul>
+								</div>
+							</li>
+							<php>
+								}
+							</php>
+
+						</ul>
+					</div>
+				</div>
+				<div class="contyou">
+					<div class="vontyot">诗   集</div>
+					<div class="contylsit">
+						<ul>
+							<li><a href="#" class="" ><img src="__TMPL__/public/assets/images/tu4.png" alt="" /><span class="shijmc">诗   集</span></a></li>
+							<li><a href="#" class="" ><img src="__TMPL__/public/assets/images/tu4.png" alt="" /><span class="shijmc">诗   集</span></a></li>
+							<li><a href="#" class="" ><img src="__TMPL__/public/assets/images/tu4.png" alt="" /><span class="shijmc">诗   集</span></a></li>
+							<li><a href="#" class="" ><img src="__TMPL__/public/assets/images/tu4.png" alt="" /><span class="shijmc">诗   集</span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="cont4item">
+				<div class="contzuo">
+					<div class="xitl">
+						诗歌漫谈
+						<a href="#" class="morensz" >更多 <em class="fa fa-angle-double-right"></em></a>
+					</div>
+					<div class="mantlst">
+						<ul>
+							<foreach name="ramble" item="vo">
+							<li><a href="#" class="" >{$vo.title}</a></li>
+							</foreach>
+						</ul>
+					</div>
+				</div>
+				<div class="contyou">
+					<div class="vontyot" style="border: none;">&nbsp;</div>
+					<div class="contylsit">
+						<ul>
+							<li><a href="#" class="" ><img src="__TMPL__/public/assets/images/tu4.png" alt="" /><span class="shijmc">诗   集</span></a></li>
+							<li><a href="#" class="" ><img src="__TMPL__/public/assets/images/tu4.png" alt="" /><span class="shijmc">诗   集</span></a></li>
+							<li><a href="#" class="" ><img src="__TMPL__/public/assets/images/tu4.png" alt="" /><span class="shijmc">诗   集</span></a></li>
+							<li><a href="#" class="" ><img src="__TMPL__/public/assets/images/tu4.png" alt="" /><span class="shijmc">诗   集</span></a></li>
+						</ul>
+					</div>
 				</div>
 			</div>
 
 		</div>
+
 	</div>
 </div>
-
 <include file="public@footer"/>
 </body>
-
+<!--[if lt IE 11]>
+<div class="eachlisq"><div class="" style="display:table;width:100%;height:100%"><div class="" style="display:table-cell;vertical-align:middle"><div class="dwnntl1">温馨提示：<strong class="sainsnb">您的浏览器需要更新才能访问哦 ^_^</strong></div><div class="dqiangshiy">请使用 <strong class="sainsnb">Chrome</strong>、 <strong class="sainsnb">firefox</strong>、 <strong class="sainsnb">Safari</strong>、 <strong class="sainsnb">opera</strong> 、 <strong class="sainsnb">Microsoft Edge</strong>、 <strong class="sainsnb">Internet Explorer 11</strong> 浏览器访问~</div><p class="dsannp"><a class="sannbw1" href="http://www.google.com/chrome" target="_blank"></a> <a class="sannbw2" href="http://www.apple.com/safari" target="_blank"></a> <a class="sannbw3" href="http://www.firefox.com/" target="_blank"></a> <a class="sannbw4" href="http://www.opera.com/zh-cn" target="_blank"></a> <a class="sannbw5" href="https://www.microsoft.com/en-us/windows/microsoft-edge" target="_blank"></a> <a class="sannbw6" href="https://support.microsoft.com/en-us/help/17621/internet-explorer-downloads" target="_blank"></a></p><h4 class="dwnsnht">Please update to a modern browser</h4></div></div></div>
+<style type="text/css">
+	.eachlisq{position:fixed;left:0;top:0;width:100%;height:100%;z-index:9999;background:#fff;text-align:center;color:#666}.sainsnb{border-bottom:1px dotted #930;font-weight:400;padding-bottom:2px;color:#930}.dwnntl1{font-size:23px;font-weight:700;line-height:50px}.dqiangshiy{font-size:18px;line-height:40px;font-weight:700}.dsannp{padding:40px 0;text-align:center}.dsannp a{display:block;width:125px;height:135px;margin:0 10px;display:inline-block;background:url(images/lqx.png) no-repeat}.dsannp a.sannbw1{background-position:0 0}.dsannp a.sannbw2{background-position:-125px 0}.dsannp a.sannbw3{background-position:-250px 0}.dsannp a.sannbw4{background-position:-375px 0}.dsannp a.sannbw5{background-position:-500px 0}.dsannp a.sannbw6{background-position:-625px 0}.dwnsnht{margin:20px 0;color:#888}
+</style>
+<![endif]-->
 </html>
