@@ -19,9 +19,6 @@
 </head>
 <body class="body-white">
 <include file="public@nav"/>
-<div class="banner df jc ov">
-    <img src="images/subban1.png" alt="" />
-</div>
 
 <div class="content flex1">
     <div class="inner df js">
@@ -30,13 +27,12 @@
         <div class="mantazip flex1">
             <div class="lostxbo lostxbosm">
                 <div class="snntls df js">
-                    <a href="#" class="cur" >{$ramble.title}</a>
+                    <a href="#" class="cur">{$ramble.title}</a>
 
                 </div>
                 <div class="sgihmtan">
                     分类： <span class="lan">{$ramble.name}</span> 发布于 {:date('Y-m-d H:i',$ramble['published_time'])} 人气: {$ramble.post_like}
-
-                    <div class="sharin"><img src="images/share.png" alt="" /></div>
+                    <div class="sharin"><img src="__TMPL__/public/assets/images/share.png" alt=""></div>
                 </div>
 
                 <div class="snnwxq">
@@ -52,15 +48,14 @@
                     【乐理与技巧】用奇异恩典练习泛音技巧
                 </div>
                 <div class="xluns xlunss">
-                    <ul class="tutu">
-                        <li><a href="#" class="" ><img src="images/xlun1.png" alt="" /></a></li>
-                        <li><a href="#" class="" ><img src="images/xlun1.png" alt="" /></a></li>
-                        <li><a href="#" class="" ><img src="images/xlun1.png" alt="" /></a></li>
-                        <li><a href="#" class="" ><img src="images/xlun1.png" alt="" /></a></li>
-                        <li><a href="#" class="" ><img src="images/xlun1.png" alt="" /></a></li>
+                    <ul class="tutu" style="left: -692px;">
+                        <li><a href="#" class=""><img src="__TMPL__/public/assets/images/xlun1.png" alt=""></a></li>
+                        <li><a href="#" class=""><img src="__TMPL__/public/assets/images/xlun1.png" alt=""></a></li>
+                        <li><a href="#" class=""><img src="__TMPL__/public/assets/images/xlun1.png" alt=""></a></li>
+                        <li><a href="#" class=""><img src="__TMPL__/public/assets/images/xlun1.png" alt=""></a></li>
+                        <li><a href="#" class=""><img src="__TMPL__/public/assets/images/xlun1.png" alt=""></a></li>
 
-                    </ul>
-                    <div class="yuandian"></div>
+                        <div class="yuandian"></div>
                 </div>
             </div>
             <div class="cl h16"></div>
@@ -71,7 +66,7 @@
                 <div class="dianjwz">
                     <ul>
                         <foreach name="ramblelist" item="vo">
-                        <li><a href="{:cmf_url('portal/Ramble/index',array('id'=>$vo['id']))}" class="" ><span class="dsnnz">{$vo.id}.</span>{$vo.title}</a></li>
+                        <li><a href="{:cmf_url('portal/Ramble/index',array('id'=>$vo['id']))}" class=""><span class="dsnnz">{$vo.id}.</span>{$vo.title}</a></li>
                         </foreach>
                     </ul>
                 </div>

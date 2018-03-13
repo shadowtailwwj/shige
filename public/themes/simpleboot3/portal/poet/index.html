@@ -6,20 +6,81 @@
 </head>
 <body>
 <include file="public@nav"/>
-<div class="banner df jc ov">
-    <img src="__TMPL__/public/assets/images/subban1.png" alt="" />
-</div>
+
+<!--<div class="content flex1">-->
+    <!--<div class="cl h22"></div>-->
+    <!--<div class="inner df js">-->
+        <!--<div class="digentu">-->
+            <!--<img src="{:cmf_get_image_url($poet.photo)}" alt="" />-->
+        <!--</div>-->
+        <!--<div class="zhongnr flex1">-->
+            <!--<div class="shinremt">{$poet.name} <br><span class="sinnrew">{$poet.english_name}</span></div>-->
+            <!--<table class="sbbtl">-->
+                <!--<tr>-->
+                    <!--<td>出生地  </td>-->
+                    <!--<td>出生日期</td>-->
+                    <!--<td>逝世日期</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td>{$poet.native_heath}</td>-->
+                    <!--<td>{$poet.birthday}</td>-->
+                    <!--<td>{$poet.death}</td>-->
+                <!--</tr>-->
+
+            <!--</table>-->
+            <!--<div class="ansbibtn df ">-->
+                <!--<a href="#" class="df ac jc cur" ><span class=""><img src="__TMPL__/public/assets/images/play.png" alt="" /></span> 播放</a>-->
+                <!--<a href="#" class="df ac jc" ><span class=""><img src="__TMPL__/public/assets/images/icm1.png" alt="" /></span> 收藏</a>-->
+                <!--<a href="#" class="df ac jc" ><span class=""><img src="__TMPL__/public/assets/images/icm2.png" alt="" /></span> 分享</a>-->
+
+            <!--</div>-->
+            <!--<table class="shijjtb">-->
+                <!--<tr class="sbttou">-->
+
+                    <!--<td>诗歌   </td>-->
+                    <!--<td>   </td>-->
+                    <!--<td>时间   </td>-->
+                    <!--<td>专辑   </td>-->
+                    <!--<td>时长   </td>-->
+                <!--</tr>-->
+                <!--<foreach name="postlist" item="vo">-->
+                <!--<tr>-->
+                    <!--<td>{$vo.post_title}</td>-->
+                    <!--<td class="shiinco">-->
+                        <!--<div class="df ac">-->
+                            <!--<a href="#" class="" ><img src="__TMPL__/public/assets/images/c1.png" alt="" /></a>-->
+                            <!--<a href="#" class="" ><img src="__TMPL__/public/assets/images/c2.png" alt="" /></a>-->
+                            <!--<a href="#" class="" ><img src="__TMPL__/public/assets/images/c3.png" alt="" /></a>-->
+                            <!--<a href="#" class="" ><img src="__TMPL__/public/assets/images/c4.png" alt="" /></a>-->
+                            <!--<a href="#" class="" ><img src="__TMPL__/public/assets/images/c5.png" alt="" /></a>-->
+                        <!--</div>-->
+                    <!--</td>-->
+                    <!--<td>{$vo.release_time}</td>-->
+                    <!--<td>《{$vo.album_name}》   </td>-->
+                    <!--<td>10分钟   </td>-->
+                <!--</tr>-->
+                <!--</foreach>-->
+            <!--</table>-->
+
+            <!--<div class="shijjs">诗人简介</div>-->
+            <!--<div class="ndwixq">-->
+                <!--{$poet.introduction}-->
+            <!--</div>-->
+        <!--</div>-->
+
+    <!--</div>-->
+<!--</div>-->
 
 <div class="content flex1">
     <div class="cl h22"></div>
     <div class="inner df js">
         <div class="digentu">
-            <img src="{:cmf_get_image_url($poet.photo)}" alt="" />
+            <img src="{:cmf_get_image_url($poet.photo)}" alt="">
         </div>
         <div class="zhongnr flex1">
-            <div class="shinremt">{$poet.name} <br><span class="sinnrew">{$poet.english_name}</span></div>
+            <div class="shinremt">{$poet.name}<br><span class="sinnrew">{$poet.english_name}</span></div>
             <table class="sbbtl">
-                <tr>
+                <tbody><tr>
                     <td>出生地  </td>
                     <td>出生日期</td>
                     <td>逝世日期</td>
@@ -30,48 +91,344 @@
                     <td>{$poet.death}</td>
                 </tr>
 
-            </table>
+                </tbody></table>
             <div class="ansbibtn df ">
-                <a href="#" class="df ac jc cur" ><span class=""><img src="__TMPL__/public/assets/images/play.png" alt="" /></span> 播放</a>
-                <a href="#" class="df ac jc" ><span class=""><img src="__TMPL__/public/assets/images/icm1.png" alt="" /></span> 收藏</a>
-                <a href="#" class="df ac jc" ><span class=""><img src="__TMPL__/public/assets/images/icm2.png" alt="" /></span> 分享</a>
-
+                <a href="#" class="df ac jc cur"><em class="fa fa-play"></em> 播放</a>
+                <a href="#" class="df ac jc"><em class="fa fa-star"></em>收藏</a>
+                <a href="#" class="df ac jc"><em class="fa fa-share"></em> 分享</a>
             </div>
-            <table class="shijjtb">
-                <tr class="sbttou">
-
-                    <td>诗歌   </td>
-                    <td>   </td>
-                    <td>时间   </td>
-                    <td>专辑   </td>
-                    <td>时长   </td>
-                </tr>
-                <foreach name="postlist" item="vo">
+            <div class="cl "></div>
+            <table class="gequtabe">
                 <tr>
-                    <td>{$vo.post_title}</td>
-                    <td class="shiinco">
-                        <div class="df ac">
-                            <a href="#" class="" ><img src="__TMPL__/public/assets/images/c1.png" alt="" /></a>
-                            <a href="#" class="" ><img src="__TMPL__/public/assets/images/c2.png" alt="" /></a>
-                            <a href="#" class="" ><img src="__TMPL__/public/assets/images/c3.png" alt="" /></a>
-                            <a href="#" class="" ><img src="__TMPL__/public/assets/images/c4.png" alt="" /></a>
-                            <a href="#" class="" ><img src="__TMPL__/public/assets/images/c5.png" alt="" /></a>
-                        </div>
-                    </td>
-                    <td>{$vo.release_time}</td>
-                    <td>《{$vo.album_name}》   </td>
-                    <td>10分钟   </td>
+                    <td></td>
+                    <td width="480">歌曲</td>
+                    <td>诗集</td>
+                    <td>首数</td>
+                    <td>时长</td>
                 </tr>
-                </foreach>
+                <tr>
+                    <td><div class="chepne"><span class="pl20">1</span></div></td>
+                    <td>
+                        <div class="dwjjgwz">
+                            <a href="#" class="geuwz1" >歌曲歌曲歌曲</a> <span class="tagsx">歌曲</span><span class="tagsx">MV</span>
+                            <span class="flex1"></span>
+                            <div class="df ac  flex1 shiinco shiinco-cnr">
+                                <a href="#" class=""><em class="fa fa-play"></em></a>
+                                <a href="#" class=""><em class="fa fa-plus"></em></a>
+                                <a href="#" class=""><em class="fa fa-share"></em></a>
+                                <a href="#" class=""><em class="fa fa-star"></em></a>
+                                <a href="#" class=""><em class="fa fa-download"></em></a>
+
+                            </div>
+                        </div>
+                        <div class="cl"></div>
+                    </td>
+                    <td>
+                        <span class="geuwz2">歌曲歌曲歌曲</span>
+                    </td>
+                    <td>
+                        <span class="geuwz3">12</span>
+                    </td>
+                    <td>
+                        <span class="geuwz6">04:15</span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td><div class="chepne"><span class="pl20">1</span></div></td>
+                    <td>
+                        <div class="dwjjgwz">
+                            <a href="#" class="geuwz1" >歌曲歌曲歌曲</a> <span class="tagsx">歌曲</span><span class="tagsx">MV</span>
+                            <span class="flex1"></span>
+                            <div class="df ac  flex1 shiinco shiinco-cnr">
+                                <a href="#" class=""><em class="fa fa-play"></em></a>
+                                <a href="#" class=""><em class="fa fa-plus"></em></a>
+                                <a href="#" class=""><em class="fa fa-share"></em></a>
+                                <a href="#" class=""><em class="fa fa-star"></em></a>
+                                <a href="#" class=""><em class="fa fa-download"></em></a>
+
+                            </div>
+                        </div>
+                        <div class="cl"></div>
+                    </td>
+                    <td>
+                        <span class="geuwz2">歌曲歌曲歌曲</span>
+                    </td>
+                    <td>
+                        <span class="geuwz3">12</span>
+                    </td>
+                    <td>
+                        <span class="geuwz6">04:15</span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td><div class="chepne"><span class="pl20">1</span></div></td>
+                    <td>
+                        <div class="dwjjgwz">
+                            <a href="#" class="geuwz1" >歌曲歌曲歌曲</a> <span class="tagsx">歌曲</span><span class="tagsx">MV</span>
+                            <span class="flex1"></span>
+                            <div class="df ac  flex1 shiinco shiinco-cnr">
+                                <a href="#" class=""><em class="fa fa-play"></em></a>
+                                <a href="#" class=""><em class="fa fa-plus"></em></a>
+                                <a href="#" class=""><em class="fa fa-share"></em></a>
+                                <a href="#" class=""><em class="fa fa-star"></em></a>
+                                <a href="#" class=""><em class="fa fa-download"></em></a>
+
+                            </div>
+                        </div>
+                        <div class="cl"></div>
+                    </td>
+                    <td>
+                        <span class="geuwz2">歌曲歌曲歌曲</span>
+                    </td>
+                    <td>
+                        <span class="geuwz3">12</span>
+                    </td>
+                    <td>
+                        <span class="geuwz6">04:15</span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td><div class="chepne"><span class="pl20">1</span></div></td>
+                    <td>
+                        <div class="dwjjgwz">
+                            <a href="#" class="geuwz1" >歌曲歌曲歌曲</a> <span class="tagsx">歌曲</span><span class="tagsx">MV</span>
+                            <span class="flex1"></span>
+                            <div class="df ac  flex1 shiinco shiinco-cnr">
+                                <a href="#" class=""><em class="fa fa-play"></em></a>
+                                <a href="#" class=""><em class="fa fa-plus"></em></a>
+                                <a href="#" class=""><em class="fa fa-share"></em></a>
+                                <a href="#" class=""><em class="fa fa-star"></em></a>
+                                <a href="#" class=""><em class="fa fa-download"></em></a>
+
+                            </div>
+                        </div>
+                        <div class="cl"></div>
+                    </td>
+                    <td>
+                        <span class="geuwz2">歌曲歌曲歌曲</span>
+                    </td>
+                    <td>
+                        <span class="geuwz3">12</span>
+                    </td>
+                    <td>
+                        <span class="geuwz6">04:15</span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td><div class="chepne"><span class="pl20">1</span></div></td>
+                    <td>
+                        <div class="dwjjgwz">
+                            <a href="#" class="geuwz1" >歌曲歌曲歌曲</a> <span class="tagsx">歌曲</span><span class="tagsx">MV</span>
+                            <span class="flex1"></span>
+                            <div class="df ac  flex1 shiinco shiinco-cnr">
+                                <a href="#" class=""><em class="fa fa-play"></em></a>
+                                <a href="#" class=""><em class="fa fa-plus"></em></a>
+                                <a href="#" class=""><em class="fa fa-share"></em></a>
+                                <a href="#" class=""><em class="fa fa-star"></em></a>
+                                <a href="#" class=""><em class="fa fa-download"></em></a>
+
+                            </div>
+                        </div>
+                        <div class="cl"></div>
+                    </td>
+                    <td>
+                        <span class="geuwz2">歌曲歌曲歌曲</span>
+                    </td>
+                    <td>
+                        <span class="geuwz3">12</span>
+                    </td>
+                    <td>
+                        <span class="geuwz6">04:15</span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td><div class="chepne"><span class="pl20">1</span></div></td>
+                    <td>
+                        <div class="dwjjgwz">
+                            <a href="#" class="geuwz1" >歌曲歌曲歌曲</a> <span class="tagsx">歌曲</span><span class="tagsx">MV</span>
+                            <span class="flex1"></span>
+                            <div class="df ac  flex1 shiinco shiinco-cnr">
+                                <a href="#" class=""><em class="fa fa-play"></em></a>
+                                <a href="#" class=""><em class="fa fa-plus"></em></a>
+                                <a href="#" class=""><em class="fa fa-share"></em></a>
+                                <a href="#" class=""><em class="fa fa-star"></em></a>
+                                <a href="#" class=""><em class="fa fa-download"></em></a>
+
+                            </div>
+                        </div>
+                        <div class="cl"></div>
+                    </td>
+                    <td>
+                        <span class="geuwz2">歌曲歌曲歌曲</span>
+                    </td>
+                    <td>
+                        <span class="geuwz3">12</span>
+                    </td>
+                    <td>
+                        <span class="geuwz6">04:15</span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td><div class="chepne"><span class="pl20">1</span></div></td>
+                    <td>
+                        <div class="dwjjgwz">
+                            <a href="#" class="geuwz1" >歌曲歌曲歌曲</a> <span class="tagsx">歌曲</span><span class="tagsx">MV</span>
+                            <span class="flex1"></span>
+                            <div class="df ac  flex1 shiinco shiinco-cnr">
+                                <a href="#" class=""><em class="fa fa-play"></em></a>
+                                <a href="#" class=""><em class="fa fa-plus"></em></a>
+                                <a href="#" class=""><em class="fa fa-share"></em></a>
+                                <a href="#" class=""><em class="fa fa-star"></em></a>
+                                <a href="#" class=""><em class="fa fa-download"></em></a>
+
+                            </div>
+                        </div>
+                        <div class="cl"></div>
+                    </td>
+                    <td>
+                        <span class="geuwz2">歌曲歌曲歌曲</span>
+                    </td>
+                    <td>
+                        <span class="geuwz3">12</span>
+                    </td>
+                    <td>
+                        <span class="geuwz6">04:15</span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td><div class="chepne"><span class="pl20">1</span></div></td>
+                    <td>
+                        <div class="dwjjgwz">
+                            <a href="#" class="geuwz1" >歌曲歌曲歌曲</a> <span class="tagsx">歌曲</span><span class="tagsx">MV</span>
+                            <span class="flex1"></span>
+                            <div class="df ac  flex1 shiinco shiinco-cnr">
+                                <a href="#" class=""><em class="fa fa-play"></em></a>
+                                <a href="#" class=""><em class="fa fa-plus"></em></a>
+                                <a href="#" class=""><em class="fa fa-share"></em></a>
+                                <a href="#" class=""><em class="fa fa-star"></em></a>
+                                <a href="#" class=""><em class="fa fa-download"></em></a>
+
+                            </div>
+                        </div>
+                        <div class="cl"></div>
+                    </td>
+                    <td>
+                        <span class="geuwz2">歌曲歌曲歌曲</span>
+                    </td>
+                    <td>
+                        <span class="geuwz3">12</span>
+                    </td>
+                    <td>
+                        <span class="geuwz6">04:15</span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td><div class="chepne"><span class="pl20">1</span></div></td>
+                    <td>
+                        <div class="dwjjgwz">
+                            <a href="#" class="geuwz1" >歌曲歌曲歌曲</a> <span class="tagsx">歌曲</span><span class="tagsx">MV</span>
+                            <span class="flex1"></span>
+                            <div class="df ac  flex1 shiinco shiinco-cnr">
+                                <a href="#" class=""><em class="fa fa-play"></em></a>
+                                <a href="#" class=""><em class="fa fa-plus"></em></a>
+                                <a href="#" class=""><em class="fa fa-share"></em></a>
+                                <a href="#" class=""><em class="fa fa-star"></em></a>
+                                <a href="#" class=""><em class="fa fa-download"></em></a>
+
+                            </div>
+                        </div>
+                        <div class="cl"></div>
+                    </td>
+                    <td>
+                        <span class="geuwz2">歌曲歌曲歌曲</span>
+                    </td>
+                    <td>
+                        <span class="geuwz3">12</span>
+                    </td>
+                    <td>
+                        <span class="geuwz6">04:15</span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td><div class="chepne"><span class="pl20">1</span></div></td>
+                    <td>
+                        <div class="dwjjgwz">
+                            <a href="#" class="geuwz1" >歌曲歌曲歌曲</a> <span class="tagsx">歌曲</span><span class="tagsx">MV</span>
+                            <span class="flex1"></span>
+                            <div class="df ac  flex1 shiinco shiinco-cnr">
+                                <a href="#" class=""><em class="fa fa-play"></em></a>
+                                <a href="#" class=""><em class="fa fa-plus"></em></a>
+                                <a href="#" class=""><em class="fa fa-share"></em></a>
+                                <a href="#" class=""><em class="fa fa-star"></em></a>
+                                <a href="#" class=""><em class="fa fa-download"></em></a>
+
+                            </div>
+                        </div>
+                        <div class="cl"></div>
+                    </td>
+                    <td>
+                        <span class="geuwz2">歌曲歌曲歌曲</span>
+                    </td>
+                    <td>
+                        <span class="geuwz3">12</span>
+                    </td>
+                    <td>
+                        <span class="geuwz6">04:15</span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td><div class="chepne"><span class="pl20">1</span></div></td>
+                    <td>
+                        <div class="dwjjgwz">
+                            <a href="#" class="geuwz1" >歌曲歌曲歌曲</a> <span class="tagsx">歌曲</span><span class="tagsx">MV</span>
+                            <span class="flex1"></span>
+                            <div class="df ac  flex1 shiinco shiinco-cnr">
+                                <a href="#" class=""><em class="fa fa-play"></em></a>
+                                <a href="#" class=""><em class="fa fa-plus"></em></a>
+                                <a href="#" class=""><em class="fa fa-share"></em></a>
+                                <a href="#" class=""><em class="fa fa-star"></em></a>
+                                <a href="#" class=""><em class="fa fa-download"></em></a>
+
+                            </div>
+                        </div>
+                        <div class="cl"></div>
+                    </td>
+                    <td>
+                        <span class="geuwz2">歌曲歌曲歌曲</span>
+                    </td>
+                    <td>
+                        <span class="geuwz3">12</span>
+                    </td>
+                    <td>
+                        <span class="geuwz6">04:15</span>
+                    </td>
+
+                </tr>
+
             </table>
 
-            <div class="shijjs">诗人简介</div>
-            <div class="ndwixq">
-                {$poet.introduction}
+            <div class="shijjs">诗人小传</div>
+            <div class="ndwixq ndwixqx">
+                    {$poet.introduction}
+                <div class="cl h20"></div>
             </div>
         </div>
 
     </div>
+
+
+
+
 </div>
 
 <include file="public@footer"/>

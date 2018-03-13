@@ -41,8 +41,6 @@
 			</div>
 		</div>
 
-
-
 		<div class="cont2">
 			<div class="datl">诗歌视频</div>
 			<div class="aubtnl">
@@ -58,7 +56,7 @@
 						<foreach name="video" item="vo">
 						<li>
 							<a href="#" class="liboxng plays" ><img src="{:cmf_get_image_url($vo.photos)}" alt="" width="224" height="127"/></a>
-							<div class="tuitl">{$vo.v_name}</div>
+							<div class="tuitl">{$vo.title}</div>
 						</li>
 						</foreach>
 
@@ -75,7 +73,7 @@
 				<ul>
 					<foreach name="poet" item="vo">
 					<li>
-						<a href="#" class="" >
+						<a href="{:cmf_url('portal/Poet/index',array('id'=>$vo['id']))}" class="" >
 							<span class="liboxmg"><img src="{:cmf_get_image_url($vo.photo)}" alt="" width="224" height="224"/></span>
 							<div class="mmgnmz">
 								<div class="gnnwz">{$vo.name}</div>
@@ -137,10 +135,9 @@
 					<div class="vontyot">诗   集</div>
 					<div class="contylsit">
 						<ul>
-							<li><a href="#" class="" ><img src="__TMPL__/public/assets/images/tu4.png" alt="" /><span class="shijmc">诗   集</span></a></li>
-							<li><a href="#" class="" ><img src="__TMPL__/public/assets/images/tu4.png" alt="" /><span class="shijmc">诗   集</span></a></li>
-							<li><a href="#" class="" ><img src="__TMPL__/public/assets/images/tu4.png" alt="" /><span class="shijmc">诗   集</span></a></li>
-							<li><a href="#" class="" ><img src="__TMPL__/public/assets/images/tu4.png" alt="" /><span class="shijmc">诗   集</span></a></li>
+							<foreach name="poetry" item="vo">
+							<li><a href="#" class="" ><img src="{:cmf_get_image_url($vo.img)}" alt="" /><span class="shijmc">{$vo.poetry_name}</span></a></li>
+							</foreach>
 						</ul>
 					</div>
 				</div>
@@ -159,17 +156,17 @@
 						</ul>
 					</div>
 				</div>
-				<div class="contyou">
-					<div class="vontyot" style="border: none;">&nbsp;</div>
-					<div class="contylsit">
-						<ul>
-							<li><a href="#" class="" ><img src="__TMPL__/public/assets/images/tu4.png" alt="" /><span class="shijmc">诗   集</span></a></li>
-							<li><a href="#" class="" ><img src="__TMPL__/public/assets/images/tu4.png" alt="" /><span class="shijmc">诗   集</span></a></li>
-							<li><a href="#" class="" ><img src="__TMPL__/public/assets/images/tu4.png" alt="" /><span class="shijmc">诗   集</span></a></li>
-							<li><a href="#" class="" ><img src="__TMPL__/public/assets/images/tu4.png" alt="" /><span class="shijmc">诗   集</span></a></li>
-						</ul>
-					</div>
-				</div>
+				<!--<div class="contyou">-->
+					<!--<div class="vontyot" style="border: none;">&nbsp;</div>-->
+					<!--<div class="contylsit">-->
+						<!--<ul>-->
+							<!--<li><a href="#" class="" ><img src="__TMPL__/public/assets/images/tu4.png" alt="" /><span class="shijmc">诗   集</span></a></li>-->
+							<!--<li><a href="#" class="" ><img src="__TMPL__/public/assets/images/tu4.png" alt="" /><span class="shijmc">诗   集</span></a></li>-->
+							<!--<li><a href="#" class="" ><img src="__TMPL__/public/assets/images/tu4.png" alt="" /><span class="shijmc">诗   集</span></a></li>-->
+							<!--<li><a href="#" class="" ><img src="__TMPL__/public/assets/images/tu4.png" alt="" /><span class="shijmc">诗   集</span></a></li>-->
+						<!--</ul>-->
+					<!--</div>-->
+				<!--</div>-->
 			</div>
 
 		</div>

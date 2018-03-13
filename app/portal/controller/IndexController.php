@@ -20,6 +20,7 @@ class IndexController extends HomeBaseController
     public function index(){
 
         $poet = Db::name('portal_poet')->where('flag',1)->select();
+        $poetry = Db::name('portal_poetry')->where('flag',1)->select();
         $album = Db::name('portal_album')->where('flag',1)->select();
         $advert = Db::name('advert')->where('flag',1)->select();
         $ramble = Db::name('portal_ramble')->where('flag',1)->select();
@@ -30,6 +31,7 @@ class IndexController extends HomeBaseController
         $portalCategoryModel = new PortalCategoryModel();
         $categoryTree        = $portalCategoryModel->getAttrs($category,0);
         $this->assign('poet', $poet);
+        $this->assign('poetry', $poetry);
         $this->assign('album', $album);
         $this->assign('advert', $advert);
         $this->assign('ramble', $ramble);

@@ -9,119 +9,221 @@
 </head>
 <body class="body-white">
 <include file="public@nav"/>
-<div class="container">
-    <php>$demo_time=2;</php>
-    <h2>{$category.name}</h2>
-    <div class="row">
-        <div class="col-md-9">
-            <div class="">
-                <php>
-                    $where=[
-                    'post.create_time'=>['egt',0]
-                    ];
-                </php>
-                <portal:articles item="vo" where="$where" order="post.create_time DESC" page="10"
-                                 relation="categories"
-                                 categoryIds="$category.id"
-                                 returnVarName="articles_data">
-                    <div class="list-boxes">
-                        <h2><a href="{:cmf_url('portal/Article/index',array('id'=>$vo['id'],'cid'=>$category['id']))}">{$vo.post_title}</a>
-                        </h2>
-                        <p>{$vo.post_excerpt}</p>
-                        <div>
-                            <div class="pull-left">
-                                <div class="list-actions">
-                                    <a href="javascript:;"><i class="fa fa-eye"></i><span>{$vo.post_hits}</span></a>
-                                    <a href="{:url('portal/Article/doLike',array('id'=>$vo['id']))}"
-                                       class="js-count-btn"><i class="fa fa-thumbs-up"></i><span class="count">{$vo.post_like}</span></a>
-                                    <a href="{:url('user/Favorite/add',array('id'=>$vo['id'],'cid'=>$category['id']))}"
-                                       class="js-favorite-btn"
-                                       data-id="{$vo.id}"
-                                       data-table="portal_post"
-                                       data-title="{:base64_encode($vo.post_title)}"
-                                       data-url="{:cmf_url_encode('portal/Article/index',array('id'=>$vo['id'],'cid'=>$category['id']))}"
-                                    >
-                                        <i class="fa fa-star-o"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <a class="btn btn-warning btn-sm pull-right"
-                               href="{:cmf_url('portal/Article/index',array('id'=>$vo['id'],'cid'=>$category['id']))}">查看更多</a>
+<div class="geqie">
+    <div class="inner">
+        <a href="#" class="cur" >歌曲</a>
+        <a href="#" class="" >专辑</a>
+        <a href="#" class="" >视频</a>
+        <div class="cl"></div>
+    </div>
+</div>
+<div class="content flex1">
+    <div class="inner">
+        <div class="msba">
+            <em>语　言</em>
+
+            <a href="#" class="" >全部　  </a>
+            <a href="#" class="" >华语　  </a>
+            <a href="#" class="" >闽南语　</a>
+            <a href="#" class="" >英语　  </a>
+            <a href="#" class="" >韩语　  </a>
+            <a href="#" class="" >泰语　  </a>
+            <a href="#" class="" >西班牙语</a>
+        </div>
+        <div class="msba">
+            <em>诗　集</em>
+            <a href="#" class="" >全部</a>　
+            <a href="#" class="" >诗歌</a>
+            <a href="#" class="" >诗歌（补充本）</a>
+            <a href="#" class="" >儿童诗歌</a>　
+            <a href="#" class="" >标语诗歌</a>　
+            <a href="#" class="" >新诗</a>
+        </div>
+        <div class="msba">
+            <em>首字母</em>
+            <a href="#" class="">全部</a>
+            <a href="#" class="">A</a>
+            <a href="#" class="">B</a>
+            <a href="#" class="">C</a>
+            <a href="#" class="">D</a>
+            <a href="#" class="">E</a>
+            <a href="#" class="">F</a>
+        </div>
+
+
+        <div class="gequqie">
+            <a href="#" class="" >推荐诗歌 </a>
+            <a href="#" class="cur" >最新诗歌 </a>
+        </div>
+
+        <table class="gequtabe">
+            <tr>
+                <td></td>
+                <td width="480">歌曲</td>
+                <td>诗集</td>
+                <td>首数</td>
+                <td>专辑</td>
+                <td>时长</td>
+            </tr>
+            <tr>
+                <td><div class="chepne"><input type="checkbox" value="" /> <span class="">1</span></div></td>
+                <td>
+                    <div class="dwjjgwz">
+                        <a href="#" class="geuwz1" >歌曲歌曲歌曲</a> <span class="tagsx">歌曲</span><span class="tagsx">MV</span>
+                        <span class="flex1"></span>
+                        <div class="df ac  flex1 shiinco shiinco-cnr">
+                            <a href="#" class=""><em class="fa fa-play"></em></a>
+                            <a href="#" class=""><em class="fa fa-plus"></em></a>
+                            <a href="#" class=""><em class="fa fa-share"></em></a>
+                            <a href="#" class=""><em class="fa fa-star"></em></a>
+                            <a href="#" class=""><em class="fa fa-download"></em></a>
+
                         </div>
                     </div>
-                </portal:articles>
+                    <div class="cl"></div>
+                </td>
+                <td>
+                    <span class="geuwz2">歌曲歌曲歌曲</span>
+                </td>
+                <td>
+                    <span class="geuwz3">12</span>
+                </td>
+                <td>
+                    <span class="geuwz5">歌曲歌曲歌曲</span>
+                </td>
+                <td>
+                    <span class="geuwz6">04:15</span>
+                </td>
 
-            </div>
-            <ul class="pagination">
-                <page/>
-            </ul>
-        </div>
-        <div class="col-md-3">
-
-            <widget name="hottest_articles">
-                <div class="tc-box">
-                    <div class="headtitle">
-                        <h2>{$widget.title}</h2>
-                    </div>
-                    <div class="ranking">
-                        <php>
-                            $hot_articles=[];
-                        </php>
-                        <ul class="list-unstyled">
-                            <portal:articles limit="5" order="post.post_hits DESC"
-                                             categoryIds="$widget.vars.hottest_articles_category_id">
-                                <php>$top=$key<3?"top3":"";</php>
-                                <li class="{$top}">
-                                    <i>{$key+1}</i>
-                                    <a title="{$vo.post_title}"
-                                       href="{:cmf_url('portal/Article/index',array('id'=>$vo['id']))}">
-                                        {$vo.post_title}
-                                    </a>
-                                </li>
-                            </portal:articles>
-                        </ul>
-                    </div>
-                </div>
-            </widget>
+            </tr>
 
 
-            <widget name="last_articles">
-                <div class="tc-box">
-                    <div class="headtitle">
-                        <h2>{$widget.title}</h2>
-                    </div>
-                    <div class="posts">
-                        <portal:articles limit="5" order="post.published_time DESC"
-                                         categoryIds="$widget.vars.last_articles_category_id">
-                            <dl class="dl-horizontal">
-                                <dt>
-                                    <a class="img-wraper"
-                                       href="{:cmf_url('portal/Article/index',array('id'=>$vo.id))}">
-                                        <if condition="empty($vo.more.thumbnail)">
-                                            <img src="__TMPL__/public/assets/images/default_tupian4.png"
-                                                 class="img-responsive" alt="{$vo.post_title}"/>
-                                            <else/>
-                                            <img src="{:cmf_get_image_url($vo.more.thumbnail)}"
-                                                 class="img-responsive" alt="{$vo.post_title}"/>
-                                        </if>
-                                    </a>
-                                </dt>
-                                <dd>
-                                    <a href="{:cmf_url('portal/Article/index',array('id'=>$vo['id']))}">{$vo.post_title}</a>
-                                </dd>
-                            </dl>
-                        </portal:articles>
-                    </div>
-                </div>
-            </widget>
-
+        </table>
+        <div class="cl h30"></div>
+        <div class="oages df ac js">
+            <a href="#" class="fema cur"><em class="">&lt; </em> 上一页 </a>
+            <span class="">
+					<a href="#" class="pagesa cur">1</a>
+					<a href="#" class="pagesa">2</a>
+					<a href="#" class="pagesa">3</a>
+					<a href="#" class="pagesa">4</a>
+					<a href="#" class="pagesa">5</a>
+					<a href="#" class="pagesa">6</a>
+					<a href="#" class="pagesa">7</a>
+				</span>
+            <a href="#" class="fema"> 下一页 <em class="">&gt;</em></a>
         </div>
     </div>
-
-    <include file="public@footer"/>
 </div>
 
 <include file="public@scripts"/>
 <hook name="before_body_end"/>
 </body>
+<!-- 歌曲部分开始 -->
+<div class="audio-box">
+    <div class="audio-container">
+        <div class="audio-view">
+            <div class="audio-cover" ></div>
+            <div class="audio-body">
+                <h3 class="audio-title">未知歌曲</h3>
+                <div class="audio-backs">
+                    <div class="audio-this-time">00:00</div>
+                    <div class="audio-count-time">00:00</div>
+                    <div class="audio-setbacks">
+                        <i class="audio-this-setbacks">
+                            <span class="audio-backs-btn"></span>
+                        </i>
+                        <span class="audio-cache-setbacks">
+							</span>
+                    </div>
+                </div>
+            </div>
+            <div class="audio-btn">
+                <div class="audio-select">
+                    <div class="audio-prev"></div>
+                    <div class="audio-play"></div>
+                    <div class="audio-next"></div>
+                    <div class="audio-menu"></div>
+                    <div class="audio-volume"></div>
+                </div>
+                <div class="audio-set-volume">
+                    <div class="volume-box">
+                        <i><span></span></i>
+                    </div>
+                </div>
+                <div class="audio-list">
+                    <div class="audio-list-head">
+                        <p>歌单</p>
+                        <span class="menu-close">关闭</span>
+                    </div>
+                    <ul class="audio-inline">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="__TMPL__/public/assets/script/audio.js"></script>
+<script type="text/javascript">
+    $(function(){
+
+        var song = [
+            {
+                'cover' : '__TMPL__/public/assets/images/cover2.jpg',
+                'src' : 'http://m2.music.126.net/4uhG3v3vvpRTwJ-HTd5P6w==/6637751697320553.mp3',
+                'title' : 'Memories'
+            },
+            {
+                'cover' : '__TMPL__/public/assets/images/cover.png',
+                'src' : 'http://webmp3-1253691995.costj.myqcloud.com/audio/NumberOne.mp3',
+                'title' : 'number one'
+            },
+            {
+                'cover' : '__TMPL__/public/assets/images/cover1.jpg',
+                'src' : 'http://webmp3-1253691995.costj.myqcloud.com/audio/dqwm.mp3',
+                'title' : '大橋のぞみ - 黒ネコのタンゴ'
+            },
+            {
+                'cover' : '__TMPL__/public/assets/images/cover3.jpg',
+                'src' : 'http://webmp3-1253691995.costj.myqcloud.com/audio/qby.mp3',
+                'title' : '黒うさP,初音ミク - 千本桜'
+            },
+            {
+                'cover' : '__TMPL__/public/assets/images/cover4.jpg',
+                'src' : 'http://webmp3-1253691995.costj.myqcloud.com/audio/jljt.mp3',
+                'title' : '极乐净土'
+            }
+        ];
+
+        var audioFn = audioPlay({
+            song : song,
+            autoPlay : true  //是否立即播放第一首，autoPlay为true且song为空，会alert文本提示并退出
+        });
+
+        /* 向歌单中添加新曲目，第二个参数true为新增后立即播放该曲目，false则不播放 */
+        audioFn.newSong({
+            'cover' : '__TMPL__/public/assets/images/cover5.jpg',
+            'src' : 'http://webmp3-1253691995.costj.myqcloud.com/audio/baab.mp3',
+            'title' : 'B.A.A.B'
+        },false);
+
+        /* 暂停播放 */
+        //audioFn.stopAudio();
+
+        /* 开启播放 */
+        //audioFn.playAudio();
+
+        /* 选择歌单中索引为3的曲目(索引是从0开始的)，第二个参数true立即播放该曲目，false则不播放 */
+        //audioFn.selectMenu(3,true);
+
+        /* 查看歌单中的曲目 */
+        //console.log(audioFn.song);
+
+        /* 当前播放曲目的对象 */
+        //console.log(audioFn.audio);
+    });
+
+</script>
+
+<!-- 歌曲部分 结束 -->
 </html>
