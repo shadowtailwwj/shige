@@ -21,7 +21,7 @@ class IndexController extends HomeBaseController
 
         $poet = Db::name('portal_poet')->where('flag',1)->select();
         $poetry = Db::name('portal_poetry')->where('flag',1)->select();
-        $album = Db::name('portal_album')->where('flag',1)->select();
+        $album = Db::name('portal_album')->where('flag',1)->limit(10)->select();
         $advert = Db::name('advert')->where('flag',1)->select();
         $ramble = Db::name('portal_ramble')->where('flag',1)->select();
         $video = Db::name('video')->where('flag',1)->select();
@@ -40,5 +40,6 @@ class IndexController extends HomeBaseController
         $this->assign('cate', $categoryTree);
         $this->assign('video', $video);
         return $this->fetch(':index');
+
     }
 }
