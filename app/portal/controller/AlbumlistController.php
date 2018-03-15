@@ -20,9 +20,20 @@ class AlbumlistController extends HomeBaseController
 {
     public function index()
     {
+        $cid = $this->request->param('id', 0, 'intval');
+        $initials = $this->request->param('initials', 0, '');
 
+        if($cid!=''){
+            $data['category'] = $cid;
+        }
+        if($initials!=''){
+            $data['initials'] = $initials;
+        }
+        $data['flag'] = 1;
         $cate = Db::name('portal_category_album')->select();
-        $album = Db::name('portal_album')->where('flag',1)->select();
+
+        $album = Db::name('portal_album')->where($data)->select();
+
         $this->assign('cate', $cate);
         $this->assign('album', $album);
         return $this->fetch();

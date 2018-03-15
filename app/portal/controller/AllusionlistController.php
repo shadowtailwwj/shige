@@ -16,20 +16,30 @@ use app\portal\service\PostService;
 use app\portal\model\PortalPostModel;
 use think\Db;
 
-class AlbumController extends HomeBaseController
+class AllusionlistController extends HomeBaseController
 {
     public function index()
     {
-        $albumId = $this->request->param('id', 0, 'intval');
-        $album = Db::name('portal_album')->where('id',$albumId)->find();
-        $postlist = Db::name('portal_post')->where('album_id',$albumId)->select();
-//        print_r($postlist);die;
-        $albums = Db::name('portal_album')->where('flag',1)->order('create_time desc')->limit(5)->select();
-        $count = Db::name('portal_post')->where('album_id',$albumId)->count();
-        $this->assign('album', $album);
-        $this->assign('albums', $albums);
-        $this->assign('postlist', $postlist);
-        $this->assign('count', $count);
+        $param = $this->request->param();
+
+        $categoryId = $this->request->param('category', 0, 'intval');
+
+        $postService = new PostService();
+        $data        = $postService->adminArticleList($param);
+
+        $data->appends($param);
+
+        $portalCategoryModel = new PortalCategoryModel();
+        $categoryTree        = $portalCategoryModel->adminCategoryTree($categoryId);
+
+        $this->assign('start_time', isset($param['start_time']) ? $param['start_time'] : '');
+        $this->assign('end_time', isset($param['end_time']) ? $param['end_time'] : '');
+        $this->assign('keyword', isset($param['keyword']) ? $param['keyword'] : '');
+        $this->assign('articles', $data->items());
+        $this->assign('category_tree', $categoryTree);
+        $this->assign('category', $categoryId);
+        $this->assign('page', $data->render());
+
         return $this->fetch();
     }
 

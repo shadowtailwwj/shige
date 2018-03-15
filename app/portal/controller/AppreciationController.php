@@ -16,20 +16,15 @@ use app\portal\service\PostService;
 use app\portal\model\PortalPostModel;
 use think\Db;
 
-class AlbumController extends HomeBaseController
+class AppreciationController extends HomeBaseController
 {
     public function index()
     {
-        $albumId = $this->request->param('id', 0, 'intval');
-        $album = Db::name('portal_album')->where('id',$albumId)->find();
-        $postlist = Db::name('portal_post')->where('album_id',$albumId)->select();
-//        print_r($postlist);die;
-        $albums = Db::name('portal_album')->where('flag',1)->order('create_time desc')->limit(5)->select();
-        $count = Db::name('portal_post')->where('album_id',$albumId)->count();
-        $this->assign('album', $album);
-        $this->assign('albums', $albums);
+        $postId = $this->request->param('id', 0, 'intval');
+        $post = Db::name('portal_post')->where('id',$postId)->find();
+        $postlist = Db::name('portal_post')->where('delete_time',0)->limit(10)->select();
+        $this->assign('post', $post);
         $this->assign('postlist', $postlist);
-        $this->assign('count', $count);
         return $this->fetch();
     }
 

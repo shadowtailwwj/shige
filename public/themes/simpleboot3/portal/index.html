@@ -18,7 +18,7 @@
 		</div>
 
 		<div class="cont1">
-			<div class="datl">诗歌专辑</div>
+			<div class="datl"><a href="{:cmf_url('portal/Albumlist/index')}">诗歌专辑</a></div>
 			<div class="aubtnl">
 				<foreach name="albumCate" item="vo">
 				<a href="javascript:;" target="_blank" class="" >{$vo.name}</a>
@@ -30,24 +30,22 @@
 					<ul>
 						<foreach name="album" item="vo">
 						<li>
-							<a href="#" class="liboxng plays" ><img src="{:cmf_get_image_url($vo.cover)}" alt="" width="224" height="224"/></a>
+							<a href="{:cmf_url('portal/Album/index',array('id'=>$vo['id']))}" class="liboxng plays" ><img src="{:cmf_get_image_url($vo.cover)}" alt="" width="224" height="224"/></a>
 							<div class="tuitl">{$vo.album_name}</div>
 						</li>
 						</foreach>
 					</ul>
 				</div>
 
-
 			</div>
 		</div>
 
 		<div class="cont2">
-			<div class="datl">诗歌视频</div>
+			<div class="datl"><a href="{:cmf_url('portal/Videolist/index')}">诗歌视频</a></div>
 			<div class="aubtnl">
 				<foreach name="videoCate" item="vo">
 				<a href="javascript:;" target="_blank" class="" >{$vo.name}</a>
 				</foreach>
-
 			</div>
 
 			<div class="liqibx libox2">
@@ -55,20 +53,18 @@
 					<ul>
 						<foreach name="video" item="vo">
 						<li>
-							<a href="#" class="liboxng plays" ><img src="{:cmf_get_image_url($vo.photos)}" alt="" width="224" height="127"/></a>
+							<a href="{:cmf_url('portal/Video/index',array('id'=>$vo['id']))}" class="liboxng plays" ><img src="{:cmf_get_image_url($vo.photos)}" alt="" width="224" height="127"/></a>
 							<div class="tuitl">{$vo.title}</div>
 						</li>
 						</foreach>
 
 					</ul>
 				</div>
-
-
 			</div>
 		</div>
 
 		<div class="cont3">
-			<div class="datl">诗人小传</div>
+			<div class="datl"><a href="{:cmf_url('portal/Poetlist/index')}">诗人小传</a></div>
 			<div class="libox3">
 				<ul>
 					<foreach name="poet" item="vo">
@@ -146,12 +142,12 @@
 				<div class="contzuo">
 					<div class="xitl">
 						诗歌漫谈
-						<a href="#" class="morensz" >更多 <em class="fa fa-angle-double-right"></em></a>
+						<a href="{:cmf_url('portal/Ramshow/index')}" class="morensz" >更多 <em class="fa fa-angle-double-right"></em></a>
 					</div>
 					<div class="mantlst">
 						<ul>
 							<foreach name="ramble" item="vo">
-							<li><a href="#" class="" >{$vo.title}</a></li>
+							<li><a href="{:cmf_url('portal/Ramble/index',array('id'=>$vo['id']))}" class="" >{$vo.title}</a></li>
 							</foreach>
 						</ul>
 					</div>

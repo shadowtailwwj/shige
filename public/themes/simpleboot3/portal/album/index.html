@@ -7,84 +7,294 @@
 <body>
 <include file="public@nav"/>
 
-<div class="banner df jc ov">
-    <img src="__TMPL__/public/assets/images/subban1.png" alt="" />
-</div>
+<!--<div class="content flex1">-->
+    <!--<div class="cl h22"></div>-->
+    <!--<div class="inner df js">-->
+        <!--<div class="digentu">-->
+            <!--<img src="{:cmf_get_image_url($album.cover)}" alt="" width="241" height="258"/>-->
+        <!--</div>-->
+        <!--<div class="zhongnr flex1">-->
+            <!--<div class="shinremt">{$album.album_name}</div>-->
+            <!--<table class="sbbtl">-->
+                <!--<tr>-->
+                    <!--<td>所属歌手：</td><td>{$album.singer}</td>-->
+                    <!--<td>发行日期：</td><td>{$album.release_time}</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td>歌曲数量：</td><td>{$count}</td>-->
+                    <!--<td>专辑语言：</td><td>{$album.language}</td>-->
+                <!--</tr>-->
 
+            <!--</table>-->
+            <!--<div class="ansbibtn df ">-->
+                <!--<a href="#" class="df ac jc cur" ><span class=""><img src="__TMPL__/public/assets/images/play.png" alt="" /></span> 播放</a>-->
+                <!--<a href="#" class="df ac jc" ><span class=""><img src="__TMPL__/public/assets/images/icm1.png" alt="" /></span> 收藏</a>-->
+                <!--<a href="#" class="df ac jc" ><span class=""><img src="__TMPL__/public/assets/images/icm2.png" alt="" /></span> 分享</a>-->
+
+            <!--</div>-->
+
+        <!--</div>-->
+
+    <!--</div>-->
+
+    <!--<div class="inner df js">-->
+        <!--<div class="zahunmsu">-->
+            <!--<div class="shijjs">曲目列表</div>-->
+            <!--<div class="cl h11"></div>-->
+            <!--<table class="shijjtb">-->
+                <!--<tr class="sbttou">-->
+                    <!--<td>诗歌   </td>-->
+                    <!--<td>   </td>-->
+                    <!--<td>时间   </td>-->
+                    <!--<td>专辑   </td>-->
+                    <!--<td>时长   </td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<foreach name="postlist" item="vo">-->
+                    <!--<td>{$vo.post_title}</td>-->
+                    <!--<td class="shiinco">-->
+                        <!--<div class="df ac">-->
+                            <!--<a href="#" class="" ><img src="__TMPL__/public/assets/images/c1.png" alt="" /></a>-->
+                            <!--<a href="#" class="" ><img src="__TMPL__/public/assets/images/c2.png" alt="" /></a>-->
+                            <!--<a href="#" class="" ><img src="__TMPL__/public/assets/images/c3.png" alt="" /></a>-->
+                            <!--<a href="#" class="" ><img src="__TMPL__/public/assets/images/c4.png" alt="" /></a>-->
+                            <!--<a href="#" class="" ><img src="__TMPL__/public/assets/images/c5.png" alt="" /></a>-->
+                        <!--</div>-->
+                    <!--</td>-->
+                    <!--<td>{$album.release_time}</td>-->
+                    <!--<td>《{$album.album_name}》   </td>-->
+                    <!--<td>10分钟   </td>-->
+                <!--</tr>-->
+                <!--</foreach>-->
+            <!--</table>-->
+        <!--</div>-->
+        <!--<div class="flex1">-->
+            <!--<div class="shijjs">专辑简介</div>-->
+            <!--<div class="ndwixq ndwixqx">-->
+                <!--{$album.description}-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+
+<!--</div>-->
+
+<div class="geqie">
+    <div class="inner">
+        <a href="#" class="cur" >歌曲</a>
+        <a href="#" class="" >专辑</a>
+        <a href="#" class="" >视频</a>
+        <div class="cl"></div>
+    </div>
+</div>
 <div class="content flex1">
-    <div class="cl h22"></div>
-    <div class="inner df js">
-        <div class="digentu">
-            <img src="{:cmf_get_image_url($album.cover)}" alt="" width="241" height="258"/>
-        </div>
-        <div class="zhongnr flex1">
-            <div class="shinremt">{$album.album_name}</div>
-            <table class="sbbtl">
-                <tr>
-                    <td>所属歌手：</td><td>{$album.singer}</td>
-                    <td>发行日期：</td><td>{$album.release_time}</td>
-                </tr>
-                <tr>
-                    <td>歌曲数量：</td><td>{$count}</td>
-                    <td>专辑语言：</td><td>{$album.language}</td>
-                </tr>
-
-            </table>
-            <div class="ansbibtn df ">
-                <a href="#" class="df ac jc cur" ><span class=""><img src="__TMPL__/public/assets/images/play.png" alt="" /></span> 播放</a>
-                <a href="#" class="df ac jc" ><span class=""><img src="__TMPL__/public/assets/images/icm1.png" alt="" /></span> 收藏</a>
-                <a href="#" class="df ac jc" ><span class=""><img src="__TMPL__/public/assets/images/icm2.png" alt="" /></span> 分享</a>
+    <div class="inner">
+        <div class="df">
+            <div class="digentu">
+                <img src="{:cmf_get_image_url($album.cover)}" alt="" width="273" height="268">
+            </div>
+            <div class="zhongnr flex1">
+                <div class="shinremt">《{$album.album_name}》</div>
+                <div class="sofuxq">
+                    <ul>
+                        <li>所属歌手：{$album.singer}</li>
+                        <li>发行日期：{$album.release_time}</li>
+                        <li>歌曲数量：{$count} 首          </li>
+                        <li>专辑语言：{$album.language}</li>
+                    </ul>
+                </div>
+                <div class="ansbibtn df ">
+                    <a href="#" class="df ac jc cur"><em class="fa fa-play"></em> 播放</a>
+                    <a href="#" class="df ac jc"><em class="fa fa-star"></em>收藏</a>
+                    <a href="#" class="df ac jc"><em class="fa fa-share"></em> 分享</a>
+                </div>
 
             </div>
-
         </div>
 
-    </div>
+        <div class="df js">
+            <div class="zahunmsu">
+                <div class="shijjs">曲目列表</div>
+                <div class="cl h11"></div>
+                <table class="gequtabe">
+                    <tr>
+                        <td></td>
+                        <td width="480">歌曲</td>
+                        <td>诗集</td>
+                        <td>首数</td>
+                        <td>时长</td>
+                    </tr>
 
-    <div class="inner df js">
-        <div class="zahunmsu">
-            <div class="shijjs">曲目列表</div>
-            <div class="cl h11"></div>
-            <table class="shijjtb">
-                <tr class="sbttou">
-                    <td>诗歌   </td>
-                    <td>   </td>
-                    <td>时间   </td>
-                    <td>专辑   </td>
-                    <td>时长   </td>
-                </tr>
-                <tr>
-                    <foreach name="postlist" item="vo">
-                    <td>{$vo.post_title}</td>
-                    <td class="shiinco">
-                        <div class="df ac">
-                            <a href="#" class="" ><img src="__TMPL__/public/assets/images/c1.png" alt="" /></a>
-                            <a href="#" class="" ><img src="__TMPL__/public/assets/images/c2.png" alt="" /></a>
-                            <a href="#" class="" ><img src="__TMPL__/public/assets/images/c3.png" alt="" /></a>
-                            <a href="#" class="" ><img src="__TMPL__/public/assets/images/c4.png" alt="" /></a>
-                            <a href="#" class="" ><img src="__TMPL__/public/assets/images/c5.png" alt="" /></a>
+                    <tr>
+                        <td><div class="chepne"><span class="pl20">1</span></div></td>
+                        <td>
+                            <div class="dwjjgwz">
+                                <a href="#" class="geuwz1" >歌曲歌曲歌曲</a> <span class="tagsx">歌曲</span><span class="tagsx">MV</span>
+                                <span class="flex1"></span>
+                                <div class="df ac  flex1 shiinco shiinco-cnr">
+                                    <a href="#" class=""><em class="fa fa-play"></em></a>
+                                    <a href="#" class=""><em class="fa fa-plus"></em></a>
+                                    <a href="#" class=""><em class="fa fa-share"></em></a>
+                                    <a href="#" class=""><em class="fa fa-star"></em></a>
+                                    <a href="#" class=""><em class="fa fa-download"></em></a>
+
+                                </div>
+                            </div>
+                            <div class="cl"></div>
+                        </td>
+                        <td>
+                            <span class="geuwz2">歌曲歌曲歌曲</span>
+                        </td>
+                        <td>
+                            <span class="geuwz3">12</span>
+                        </td>
+                        <td>
+                            <span class="geuwz6">04:15</span>
+                        </td>
+
+                    </tr>
+
+                </table>
+            </div>
+            <div class="dwnysou flex1">
+                <div class="shijjs">专辑描述</div>
+                <div class="ndwixq ndwixqx">
+                        {$album.description}
+                    <div class="cl h20"></div>
+                </div>
+
+                <div class="shijjs">相关专辑</div>
+                <div class="ndwixq ndwixqx">
+                    <div class="dianjwz qemcin cur" style="display: block;padding: 0;">
+                        <div class="xixngzhq">
+                            <ul>
+                                <foreach name="albums" item="vo">
+                                <li>
+                                    <a href="#" class="xixngzhq-1" ><img src="{:cmf_get_image_url($vo.cover)}" alt="" /></a>
+                                    <div class="xixngzhq-2">
+                                        <a href="{:cmf_url('portal/Album/index',array('id'=>$vo['id']))}" class="xixngzhq-tl" >{$vo.album_name|mb_substr=0,10,'utf-8'}</a>
+                                        <div class="xixngzhqrq">{:date('Y-m-d H:i',$vo['create_time'])}</div>
+                                    </div>
+                                </li>
+                                </foreach>
+                            </ul>
                         </div>
-                    </td>
-                    <td>{$album.release_time}</td>
-                    <td>《{$album.album_name}》   </td>
-                    <td>10分钟   </td>
-                </tr>
-                </foreach>
-            </table>
-        </div>
-        <div class="flex1">
-            <div class="shijjs">专辑简介</div>
-            <div class="ndwixq ndwixqx">
-                {$album.description}
+                    </div>
+                </div>
+
             </div>
         </div>
+
     </div>
-
-
 </div>
-
 
 <include file="public@footer"/>
 </body>
+<!-- 歌曲部分开始 -->
+<div class="audio-box">
+    <div class="audio-container">
+        <div class="audio-view">
+            <div class="audio-cover" ></div>
+            <div class="audio-body">
+                <h3 class="audio-title">未知歌曲</h3>
+                <div class="audio-backs">
+                    <div class="audio-this-time">00:00</div>
+                    <div class="audio-count-time">00:00</div>
+                    <div class="audio-setbacks">
+                        <i class="audio-this-setbacks">
+                            <span class="audio-backs-btn"></span>
+                        </i>
+                        <span class="audio-cache-setbacks">
+							</span>
+                    </div>
+                </div>
+            </div>
+            <div class="audio-btn">
+                <div class="audio-select">
+                    <div class="audio-prev"></div>
+                    <div class="audio-play"></div>
+                    <div class="audio-next"></div>
+                    <div class="audio-menu"></div>
+                    <div class="audio-volume"></div>
+                </div>
+                <div class="audio-set-volume">
+                    <div class="volume-box">
+                        <i><span></span></i>
+                    </div>
+                </div>
+                <div class="audio-list">
+                    <div class="audio-list-head">
+                        <p>歌单</p>
+                        <span class="menu-close">关闭</span>
+                    </div>
+                    <ul class="audio-inline">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="__TMPL__/public/assets/script/audio.js"></script>
+<script type="text/javascript">
+    $(function(){
 
+        var song = [
+            {
+                'cover' : '__TMPL__/public/assets/images/cover2.jpg',
+                'src' : 'http://m2.music.126.net/4uhG3v3vvpRTwJ-HTd5P6w==/6637751697320553.mp3',
+                'title' : 'Memories'
+            },
+            {
+                'cover' : '__TMPL__/public/assets/images/cover.png',
+                'src' : 'http://webmp3-1253691995.costj.myqcloud.com/audio/NumberOne.mp3',
+                'title' : 'number one'
+            },
+            {
+                'cover' : '__TMPL__/public/assets/images/cover1.jpg',
+                'src' : 'http://webmp3-1253691995.costj.myqcloud.com/audio/dqwm.mp3',
+                'title' : '大橋のぞみ - 黒ネコのタンゴ'
+            },
+            {
+                'cover' : '__TMPL__/public/assets/images/cover3.jpg',
+                'src' : 'http://webmp3-1253691995.costj.myqcloud.com/audio/qby.mp3',
+                'title' : '黒うさP,初音ミク - 千本桜'
+            },
+            {
+                'cover' : '__TMPL__/public/assets/images/cover4.jpg',
+                'src' : 'http://webmp3-1253691995.costj.myqcloud.com/audio/jljt.mp3',
+                'title' : '极乐净土'
+            }
+        ];
+
+        var audioFn = audioPlay({
+            song : song,
+            autoPlay : true  //是否立即播放第一首，autoPlay为true且song为空，会alert文本提示并退出
+        });
+
+        /* 向歌单中添加新曲目，第二个参数true为新增后立即播放该曲目，false则不播放 */
+        audioFn.newSong({
+            'cover' : '__TMPL__/public/assets/images/cover5.jpg',
+            'src' : 'http://webmp3-1253691995.costj.myqcloud.com/audio/baab.mp3',
+            'title' : 'B.A.A.B'
+        },false);
+
+        /* 暂停播放 */
+        //audioFn.stopAudio();
+
+        /* 开启播放 */
+        //audioFn.playAudio();
+
+        /* 选择歌单中索引为3的曲目(索引是从0开始的)，第二个参数true立即播放该曲目，false则不播放 */
+        //audioFn.selectMenu(3,true);
+
+        /* 查看歌单中的曲目 */
+        //console.log(audioFn.song);
+
+        /* 当前播放曲目的对象 */
+        //console.log(audioFn.audio);
+    });
+
+</script>
+
+<!-- 歌曲部分 结束 -->
 </html>

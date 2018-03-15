@@ -16,20 +16,22 @@ use app\portal\service\PostService;
 use app\portal\model\PortalPostModel;
 use think\Db;
 
-class AlbumController extends HomeBaseController
+class VideoController extends HomeBaseController
 {
     public function index()
     {
-        $albumId = $this->request->param('id', 0, 'intval');
-        $album = Db::name('portal_album')->where('id',$albumId)->find();
-        $postlist = Db::name('portal_post')->where('album_id',$albumId)->select();
-//        print_r($postlist);die;
-        $albums = Db::name('portal_album')->where('flag',1)->order('create_time desc')->limit(5)->select();
-        $count = Db::name('portal_post')->where('album_id',$albumId)->count();
-        $this->assign('album', $album);
-        $this->assign('albums', $albums);
-        $this->assign('postlist', $postlist);
-        $this->assign('count', $count);
+        $videoId = $this->request->param('id', 0, 'intval');
+//        $video = Db::name('video')->where('id',$videoId)->find();
+        $video = Db::name('video')
+            ->alias('a')
+            ->join('portal_category_video p','a.cate=p.cid')
+            ->where('id',$videoId)
+            ->find();
+        $videolist = Db::name('video')->where('flag',1)->limit(5)->select();
+
+        $this->assign('video', $video);
+        $this->assign('videolist', $videolist);
+
         return $this->fetch();
     }
 

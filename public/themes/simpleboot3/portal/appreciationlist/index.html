@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <include file="public@head"/>
+</head>
+<body>
+<include file="public@nav"/>
+<div class="content flex1">
+    <div class="inner">
+        <div class="cl h15"></div>
+        <div class="lostxbo lostxbosm">
+            <div class="snntls df js">
+                <a href="#" class="">诗歌赏析</a>
+            </div>
+            <div class="sgihmtan">
+                <ul>
+                    <foreach name="articles" item="vo">
+                        <if condition="($vo['appreciation']!='')">
+                        <li>
+                            <div class="datls">{$vo.post_title}</div>
+                            <div class="df">
+                                <div class="zuodat">
+                                    <!--<img src="images/shi3.png" alt="">-->
+                                </div>
+                                <div class="youwnkw dc js">
+                                    <div class="dwyonrs">
+                                        {:substr(htmlspecialchars_decode($vo['appreciation']),0,200)}
+                                    </div>
+                                    <a href="{:cmf_url('portal/Appreciation/index',array('id'=>$vo['id']))}" class="dwnnru flex1">阅读全文»</a>
+
+                                    <div class="co666">
+                                        分类： <span class="lan">
+                                        <foreach name="vo.categories" item="voo">
+                                           {$voo.name}
+                                        </foreach>
+                                    </span>
+                                        <br>发布于 {:date('Y-m-d H:i',$vo['published_time'])} 人气: {$vo.post_like}
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        </if>
+                    </foreach>
+                </ul>
+            </div>
+        </div>
+        <div class="cl h33"></div>
+        <div class="oages df ac js">
+            <a href="#" class="fema cur"><em class="">&lt; </em> 上一页 </a>
+            <span class="">
+					<a href="#" class="pagesa cur">1</a>
+					<a href="#" class="pagesa">2</a>
+					<a href="#" class="pagesa">3</a>
+					<a href="#" class="pagesa">4</a>
+					<a href="#" class="pagesa">5</a>
+					<a href="#" class="pagesa">6</a>
+					<a href="#" class="pagesa">7</a>
+				</span>
+            <a href="#" class="fema"> 下一页 <em class="">&gt;</em></a>
+        </div>
+        <div class="cl h33"></div>
+    </div>
+</div>
+
+<include file="public@scripts"/>
+<hook name="before_body_end"/>
+</body>
+
+</html>

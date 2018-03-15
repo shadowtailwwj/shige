@@ -20,8 +20,18 @@ class PoetlistController extends HomeBaseController
 {
     public function index()
     {
+        $tid = $this->request->param('id', 0, 'intval');
+        $initials = $this->request->param('initials', 0, '');
+
+        if($tid!=''){
+            $data['times'] = $tid;
+        }
+        if($initials!=''){
+            $data['initials'] = $initials;
+        }
+        $data['flag'] = 1;
         $times = Db::name('times')->select();
-        $poet = Db::name('portal_poet')->where('flag',1)->select();
+        $poet = Db::name('portal_poet')->where($data)->select();
         $this->assign('times', $times);
         $this->assign('poet', $poet);
         return $this->fetch();

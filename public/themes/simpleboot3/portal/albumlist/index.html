@@ -7,71 +7,65 @@
 <body>
 <include file="public@nav"/>
 
-<div class="banner df jc ov">
-    <img src="images/subban1.png" alt="" />
-</div>
 
 <div class="content flex1">
     <div class="inner">
         <div class="msba">
-            <a href="#" class="cur" >全部</a>
-            <foreach name="cate" item="vo">
-                <a href="#" class="" >{$vo.name}</a>
-            </foreach>
+        <a href="{:cmf_url('portal/Albumlist/index',array('id'=>''))}" class="cur" >全部</a>
+        <foreach name="cate" item="vo">
+        <a href="{:cmf_url('portal/Albumlist/index',array('id'=>$vo['id']))}" class="" >{$vo.name}</a>
+        </foreach>
         </div>
         <div class="msba">
-            <a href="#" class="cur" >全部</a>
-            <a href="#" class="" >A  </a>
-            <a href="#" class="" >B  </a>
-            <a href="#" class="" >C  </a>
-            <a href="#" class="" >D  </a>
-            <a href="#" class="" >E  </a>
-            <a href="#" class="" >F  </a>
-            <a href="#" class="" >G  </a>
-            <a href="#" class="" >H  </a>
-            <a href="#" class="" >I  </a>
-            <a href="#" class="" >J  </a>
-            <a href="#" class="" >K  </a>
-            <a href="#" class="" >L  </a>
-            <a href="#" class="" >M  </a>
-            <a href="#" class="" >N  </a>
-            <a href="#" class="" >O  </a>
-            <a href="#" class="" >P  </a>
-            <a href="#" class="" >Q  </a>
-            <a href="#" class="" >R  </a>
-            <a href="#" class="" >S  </a>
-            <a href="#" class="" >T  </a>
-            <a href="#" class="" >U  </a>
-            <a href="#" class="" >V  </a>
-            <a href="#" class="" >W  </a>
-            <a href="#" class="" >X  </a>
-            <a href="#" class="" >Y  </a>
-            <a href="#" class="" >Z  </a>
+        <a href="{:cmf_url('portal/Albumlist/index',array('initials'=>''))}" class="cur" >全部</a>
+        <a href="{:cmf_url('portal/Albumlist/index',array('initials'=>'A'))}" class="" >A  </a>
+        <a href="{:cmf_url('portal/Albumlist/index',array('initials'=>'B'))}" class="" >B  </a>
+        <a href="{:cmf_url('portal/Albumlist/index',array('initials'=>'C'))}" class="" >C  </a>
+        <a href="{:cmf_url('portal/Albumlist/index',array('initials'=>'D'))}" class="" >D  </a>
+        <a href="{:cmf_url('portal/Albumlist/index',array('initials'=>'E'))}" class="" >E  </a>
+        <a href="{:cmf_url('portal/Albumlist/index',array('initials'=>'F'))}" class="" >F  </a>
+        <a href="{:cmf_url('portal/Albumlist/index',array('initials'=>'G'))}" class="" >G  </a>
+        <a href="{:cmf_url('portal/Albumlist/index',array('initials'=>'H'))}" class="" >H  </a>
+        <a href="{:cmf_url('portal/Albumlist/index',array('initials'=>'I'))}" class="" >I  </a>
+        <a href="{:cmf_url('portal/Albumlist/index',array('initials'=>'J'))}" class="" >J  </a>
+        <a href="{:cmf_url('portal/Albumlist/index',array('initials'=>'K'))}" class="" >K  </a>
+        <a href="{:cmf_url('portal/Albumlist/index',array('initials'=>'L'))}" class="" >L  </a>
+        <a href="{:cmf_url('portal/Albumlist/index',array('initials'=>'M'))}" class="" >M  </a>
+        <a href="{:cmf_url('portal/Albumlist/index',array('initials'=>'N'))}" class="" >N  </a>
+        <a href="{:cmf_url('portal/Albumlist/index',array('initials'=>'O'))}" class="" >O  </a>
+        <a href="{:cmf_url('portal/Albumlist/index',array('initials'=>'P'))}" class="" >P  </a>
+        <a href="{:cmf_url('portal/Albumlist/index',array('initials'=>'Q'))}" class="" >Q  </a>
+        <a href="{:cmf_url('portal/Albumlist/index',array('initials'=>'R'))}" class="" >R  </a>
+        <a href="{:cmf_url('portal/Albumlist/index',array('initials'=>'S'))}" class="" >S  </a>
+        <a href="{:cmf_url('portal/Albumlist/index',array('initials'=>'T'))}" class="" >T  </a>
+        <a href="{:cmf_url('portal/Albumlist/index',array('initials'=>'U'))}" class="" >U  </a>
+        <a href="{:cmf_url('portal/Albumlist/index',array('initials'=>'V'))}" class="" >V  </a>
+        <a href="{:cmf_url('portal/Albumlist/index',array('initials'=>'W'))}" class="" >W  </a>
+        <a href="{:cmf_url('portal/Albumlist/index',array('initials'=>'X'))}" class="" >X  </a>
+        <a href="{:cmf_url('portal/Albumlist/index',array('initials'=>'Y'))}" class="" >Y  </a>
+        <a href="{:cmf_url('portal/Albumlist/index',array('initials'=>'Z'))}" class="" >Z  </a>
         </div>
         <div class="cl h15"></div>
-        <div class="lostxbo lostxbosm">
-
-            <div class="liscontin">
-                <ul class="shilist1 shilist3">
-                    <foreach name="album" item="vo">
-                    <li><a href="#" class="" ><span class="sspomg"><img src="{:cmf_get_image_url($vo.cover)}" alt="" /></span><span class="shinmtl">{$vo.album_name}</span></a></li>
-                    </foreach>
-                </ul>
-            </div>
+        <div class="liscontin">
+        <ul class="shilist1 shilist3">
+        <foreach name="album" item="vo">
+        <li><a href="{:cmf_url('portal/Album/index',array('id'=>$vo['id']))}" class="" ><span class="sspomg"><img src="{:cmf_get_image_url($vo.cover)}" alt="" width="150" height="150"/></span><span class="shinmtl">{$vo.album_name}</span></a></li>
+        </foreach>
+        </ul>
         </div>
         <div class="cl h33"></div>
         <div class="oages df ac js">
-            <a href="#" class="fema cur" ><em class="">< </em> 上一页 </a>
+            <a href="#" class="fema cur"><em class="">&lt; </em> 上一页 </a>
             <span class="">
-					<a href="#" class="pagesa cur" >1</a>
-					<a href="#" class="pagesa" >2</a>
-					<a href="#" class="pagesa" >3</a>
-					<a href="#" class="pagesa" >4</a>
-					<a href="#" class="pagesa" >5</a>
-					<a href="#" class="pagesa" >6</a>
-					<a href="#" class="pagesa" >7</a>
+					<a href="#" class="pagesa cur">1</a>
+					<a href="#" class="pagesa">2</a>
+					<a href="#" class="pagesa">3</a>
+					<a href="#" class="pagesa">4</a>
+					<a href="#" class="pagesa">5</a>
+					<a href="#" class="pagesa">6</a>
+					<a href="#" class="pagesa">7</a>
 				</span>
-            <a href="#" class="fema" > 下一页 <em class="">></em></a>
+            <a href="#" class="fema"> 下一页 <em class="">&gt;</em></a>
         </div>
         <div class="cl h33"></div>
     </div>

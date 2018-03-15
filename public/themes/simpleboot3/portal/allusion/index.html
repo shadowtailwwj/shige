@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{$post.post_title}</title>
+    <meta name="keywords" content="{$site_info.site_seo_keywords|default=''}"/>
+    <meta name="description" content="{$site_info.site_seo_description|default=''}">
+    <include file="public@head"/>
+    <style>
+        #article_content img {
+            height: auto !important;
+            max-width: 100%;
+        }
+
+        #article_content {
+            word-wrap: break-word;
+        }
+    </style>
+    <hook name="before_head_end"/>
+</head>
+<body class="body-white">
+<include file="public@nav"/>
+
+<div class="content flex1">
+    <div class="inner df js">
+
+
+        <div class="mantazip flex1">
+            <div class="lostxbo lostxbosm">
+                <div class="snntls df js">
+                    <a href="#" class="cur">{$post.post_title}</a>
+
+                </div>
+                <div class="sgihmtan">
+                    <!--分类： <span class="lan"></span> -->
+                    发布于 {:date('Y-m-d H:i',$post['published_time'])} 人气: {$post.post_like}
+                    <div class="sharin"><img src="__TMPL__/public/assets/images/share.png" alt=""></div>
+                </div>
+
+                <div class="snnwxq">
+                    {:htmlspecialchars_decode($post['allusion'])}
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mamnyonx">
+            <div class="">
+                <div class="msantl">
+                    【乐理与技巧】用奇异恩典练习泛音技巧
+                </div>
+                <div class="xluns xlunss">
+                    <ul class="tutu" style="left: -692px;">
+                        <li><a href="#" class=""><img src="__TMPL__/public/assets/images/xlun1.png" alt=""></a></li>
+                        <li><a href="#" class=""><img src="__TMPL__/public/assets/images/xlun1.png" alt=""></a></li>
+                        <li><a href="#" class=""><img src="__TMPL__/public/assets/images/xlun1.png" alt=""></a></li>
+                        <li><a href="#" class=""><img src="__TMPL__/public/assets/images/xlun1.png" alt=""></a></li>
+                        <li><a href="#" class=""><img src="__TMPL__/public/assets/images/xlun1.png" alt=""></a></li>
+
+                        <div class="yuandian"></div>
+                </div>
+            </div>
+            <div class="cl h16"></div>
+            <div class="lostxbo">
+                <div class="snntls">
+                    <a href="#" class="">推荐文章  </a>
+                </div>
+                <div class="dianjwz">
+                    <ul>
+                        <foreach name="postlist" item="vo">
+                            <li><a href="{:cmf_url('portal/Allusion/index',array('id'=>$vo['id']))}" class=""><span class="dsnnz">{$vo.id}.</span>{$vo.post_title}</a></li>
+                        </foreach>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="public@footer"/>
+</div>
+
+<include file="public@scripts"/>
+<hook name="before_body_end"/>
+</body>
+</html>
