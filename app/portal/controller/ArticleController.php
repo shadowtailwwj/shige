@@ -29,7 +29,10 @@ class ArticleController extends HomeBaseController
 
         $album = Db::name('portal_album')->where('id',$article['album_id'])->find();
 //        $poet = Db::name('portal_poet')->where('id',$article['poet_id'])->find();
-
+        $mp3 = Db::name('portal_post')->where('id',$articleId)->find();
+        $where['create_time'] = ['>=', 0];
+        $where['delete_time'] = 0;
+        $postlist = Db::name('portal_post')->where($where)->order('create_time desc')->limit(5)->select();
         if (empty($articleId)) {
             abort(404, '文章不存在!');
         }
@@ -66,12 +69,15 @@ class ArticleController extends HomeBaseController
 
         hook('portal_before_assign_article', $article);
         $article['album'] = $album['album_name'];
+        $article['cover1'] = $album['cover'];
 //        $article['poet'] = $poet['name'];
         $article['xiazai'] = cmf_get_file_download_url($article['music'], $expires = 3600);
         $this->assign('article', $article);
+        $this->assign('postlist', $postlist);
         $this->assign('prev_article', $prevArticle);
         $this->assign('next_article', $nextArticle);
-
+        $this->assign('src', cmf_get_image_url($mp3['music']));
+        $this->assign('title', $mp3['post_title']);
         $tplName = empty($article['more']['template']) ? $tplName : $article['more']['template'];
 
         return $this->fetch("/$tplName");

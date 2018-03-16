@@ -16,37 +16,12 @@ use app\portal\service\PostService;
 use app\portal\model\PortalPostModel;
 use think\Db;
 
-class AlbumController extends HomeBaseController
+class SinglistController extends HomeBaseController
 {
     public function index()
     {
-        $albumId = $this->request->param('id', 0, 'intval');
-        $postId = $this->request->param('postid', 0, 'intval');
-        $album = Db::name('portal_album')->where('id',$albumId)->find();
-//        $MP3 = Db::name('portal_post')->where('album_id',$albumId)->select();
-        $mp3 = Db::name('portal_post')->where('id',$postId)->find();
-//        $music = [];
-//        foreach ($MP3 as $key=>$val){
-//
-//            $m['cover'] = cmf_get_image_url($album['cover']);
-//            $m['src'] =  cmf_get_image_url($val['music']);
-//            $m['title'] = $val['post_title'];
-//            $music[] = $m;
-//        }
-        $postlist = Db::name('portal_post')->where('album_id',$albumId)->select();
-        $albums = Db::name('portal_album')->where('flag',1)->order('create_time desc')->limit(5)->select();
-        $count = Db::name('portal_post')->where('album_id',$albumId)->count();
-
-
-
-        $this->assign('album', $album);
-//        $this->assign('mp3', json_encode($music));
-        $this->assign('src', cmf_get_image_url($mp3['music']));
-        $this->assign('title', $mp3['post_title']);
-        $this->assign('cover', cmf_get_image_url($album['cover']));
-        $this->assign('albums', $albums);
-        $this->assign('postlist', $postlist);
-        $this->assign('count', $count);
+        $singlist = Db::name('portal_sing')->where('flag',1)->select();
+        $this->assign('singlist', $singlist);
         return $this->fetch();
     }
 

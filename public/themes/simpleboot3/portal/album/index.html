@@ -7,83 +7,11 @@
 <body>
 <include file="public@nav"/>
 
-<!--<div class="content flex1">-->
-    <!--<div class="cl h22"></div>-->
-    <!--<div class="inner df js">-->
-        <!--<div class="digentu">-->
-            <!--<img src="{:cmf_get_image_url($album.cover)}" alt="" width="241" height="258"/>-->
-        <!--</div>-->
-        <!--<div class="zhongnr flex1">-->
-            <!--<div class="shinremt">{$album.album_name}</div>-->
-            <!--<table class="sbbtl">-->
-                <!--<tr>-->
-                    <!--<td>所属歌手：</td><td>{$album.singer}</td>-->
-                    <!--<td>发行日期：</td><td>{$album.release_time}</td>-->
-                <!--</tr>-->
-                <!--<tr>-->
-                    <!--<td>歌曲数量：</td><td>{$count}</td>-->
-                    <!--<td>专辑语言：</td><td>{$album.language}</td>-->
-                <!--</tr>-->
-
-            <!--</table>-->
-            <!--<div class="ansbibtn df ">-->
-                <!--<a href="#" class="df ac jc cur" ><span class=""><img src="__TMPL__/public/assets/images/play.png" alt="" /></span> 播放</a>-->
-                <!--<a href="#" class="df ac jc" ><span class=""><img src="__TMPL__/public/assets/images/icm1.png" alt="" /></span> 收藏</a>-->
-                <!--<a href="#" class="df ac jc" ><span class=""><img src="__TMPL__/public/assets/images/icm2.png" alt="" /></span> 分享</a>-->
-
-            <!--</div>-->
-
-        <!--</div>-->
-
-    <!--</div>-->
-
-    <!--<div class="inner df js">-->
-        <!--<div class="zahunmsu">-->
-            <!--<div class="shijjs">曲目列表</div>-->
-            <!--<div class="cl h11"></div>-->
-            <!--<table class="shijjtb">-->
-                <!--<tr class="sbttou">-->
-                    <!--<td>诗歌   </td>-->
-                    <!--<td>   </td>-->
-                    <!--<td>时间   </td>-->
-                    <!--<td>专辑   </td>-->
-                    <!--<td>时长   </td>-->
-                <!--</tr>-->
-                <!--<tr>-->
-                    <!--<foreach name="postlist" item="vo">-->
-                    <!--<td>{$vo.post_title}</td>-->
-                    <!--<td class="shiinco">-->
-                        <!--<div class="df ac">-->
-                            <!--<a href="#" class="" ><img src="__TMPL__/public/assets/images/c1.png" alt="" /></a>-->
-                            <!--<a href="#" class="" ><img src="__TMPL__/public/assets/images/c2.png" alt="" /></a>-->
-                            <!--<a href="#" class="" ><img src="__TMPL__/public/assets/images/c3.png" alt="" /></a>-->
-                            <!--<a href="#" class="" ><img src="__TMPL__/public/assets/images/c4.png" alt="" /></a>-->
-                            <!--<a href="#" class="" ><img src="__TMPL__/public/assets/images/c5.png" alt="" /></a>-->
-                        <!--</div>-->
-                    <!--</td>-->
-                    <!--<td>{$album.release_time}</td>-->
-                    <!--<td>《{$album.album_name}》   </td>-->
-                    <!--<td>10分钟   </td>-->
-                <!--</tr>-->
-                <!--</foreach>-->
-            <!--</table>-->
-        <!--</div>-->
-        <!--<div class="flex1">-->
-            <!--<div class="shijjs">专辑简介</div>-->
-            <!--<div class="ndwixq ndwixqx">-->
-                <!--{$album.description}-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-
-
-<!--</div>-->
-
 <div class="geqie">
     <div class="inner">
-        <a href="#" class="cur" >歌曲</a>
-        <a href="#" class="" >专辑</a>
-        <a href="#" class="" >视频</a>
+        <a href="{:cmf_url('portal/List/index')}" class="cur" >歌曲</a>
+        <a href="{:cmf_url('portal/Album/index',array('id'=>1))}" class="" >专辑</a>
+        <a href="{:cmf_url('portal/Videolist/index')}" class="" >视频</a>
         <div class="cl"></div>
     </div>
 </div>
@@ -124,20 +52,19 @@
                         <td>首数</td>
                         <td>时长</td>
                     </tr>
-
+                    <foreach name="postlist" item="vo">
                     <tr>
                         <td><div class="chepne"><span class="pl20">1</span></div></td>
                         <td>
                             <div class="dwjjgwz">
-                                <a href="#" class="geuwz1" >歌曲歌曲歌曲</a> <span class="tagsx">歌曲</span><span class="tagsx">MV</span>
+                                <a href="#" class="geuwz1" >{$vo.post_title}</a> <span class="tagsx">歌曲</span><span class="tagsx">MV</span>
                                 <span class="flex1"></span>
                                 <div class="df ac  flex1 shiinco shiinco-cnr">
-                                    <a href="#" class=""><em class="fa fa-play"></em></a>
+                                    <a href="{:cmf_url('portal/Album/index',array('id'=>$album['id'],'postid'=>$vo['id']))}" class="bofang"><em class="fa fa-play"></em></a>
                                     <a href="#" class=""><em class="fa fa-plus"></em></a>
                                     <a href="#" class=""><em class="fa fa-share"></em></a>
                                     <a href="#" class=""><em class="fa fa-star"></em></a>
                                     <a href="#" class=""><em class="fa fa-download"></em></a>
-
                                 </div>
                             </div>
                             <div class="cl"></div>
@@ -146,14 +73,13 @@
                             <span class="geuwz2">歌曲歌曲歌曲</span>
                         </td>
                         <td>
-                            <span class="geuwz3">12</span>
+                            <span class="geuwz3">{$vo.num}</span>
                         </td>
                         <td>
                             <span class="geuwz6">04:15</span>
                         </td>
-
                     </tr>
-
+                    </foreach>
                 </table>
             </div>
             <div class="dwnysou flex1">
@@ -214,7 +140,7 @@
                     <div class="audio-prev"></div>
                     <div class="audio-play"></div>
                     <div class="audio-next"></div>
-                    <div class="audio-menu"></div>
+                    <!--<div class="audio-menu"></div>-->
                     <div class="audio-volume"></div>
                 </div>
                 <div class="audio-set-volume">
@@ -238,33 +164,36 @@
 <script type="text/javascript">
     $(function(){
 
+
         var song = [
             {
-                'cover' : '__TMPL__/public/assets/images/cover2.jpg',
-                'src' : 'http://m2.music.126.net/4uhG3v3vvpRTwJ-HTd5P6w==/6637751697320553.mp3',
-                'title' : 'Memories'
+                'cover' : '{$cover}',
+                'src' : '{$src}',
+                'title' : '{$title}'
             },
-            {
-                'cover' : '__TMPL__/public/assets/images/cover.png',
-                'src' : 'http://webmp3-1253691995.costj.myqcloud.com/audio/NumberOne.mp3',
-                'title' : 'number one'
-            },
-            {
-                'cover' : '__TMPL__/public/assets/images/cover1.jpg',
-                'src' : 'http://webmp3-1253691995.costj.myqcloud.com/audio/dqwm.mp3',
-                'title' : '大橋のぞみ - 黒ネコのタンゴ'
-            },
-            {
-                'cover' : '__TMPL__/public/assets/images/cover3.jpg',
-                'src' : 'http://webmp3-1253691995.costj.myqcloud.com/audio/qby.mp3',
-                'title' : '黒うさP,初音ミク - 千本桜'
-            },
-            {
-                'cover' : '__TMPL__/public/assets/images/cover4.jpg',
-                'src' : 'http://webmp3-1253691995.costj.myqcloud.com/audio/jljt.mp3',
-                'title' : '极乐净土'
-            }
+//            {
+//                'cover' : '__TMPL__/public/assets/images/cover.png',
+//                'src' : 'http://webmp3-1253691995.costj.myqcloud.com/audio/NumberOne.mp3',
+//                'title' : 'number one'
+//            },
+//            {
+//                'cover' : '__TMPL__/public/assets/images/cover1.jpg',
+//                'src' : 'http://webmp3-1253691995.costj.myqcloud.com/audio/dqwm.mp3',
+//                'title' : '大橋のぞみ - 黒ネコのタンゴ'
+//            },
+//            {
+//                'cover' : '__TMPL__/public/assets/images/cover3.jpg',
+//                'src' : 'http://webmp3-1253691995.costj.myqcloud.com/audio/qby.mp3',
+//                'title' : '黒うさP,初音ミク - 千本桜'
+//            },
+//            {
+//                'cover' : '__TMPL__/public/assets/images/cover4.jpg',
+//                'src' : 'http://webmp3-1253691995.costj.myqcloud.com/audio/jljt.mp3',
+//                'title' : '极乐净土'
+//            }
         ];
+
+
 
         var audioFn = audioPlay({
             song : song,
@@ -282,7 +211,7 @@
         //audioFn.stopAudio();
 
         /* 开启播放 */
-        //audioFn.playAudio();
+//        audioFn.playAudio();
 
         /* 选择歌单中索引为3的曲目(索引是从0开始的)，第二个参数true立即播放该曲目，false则不播放 */
         //audioFn.selectMenu(3,true);

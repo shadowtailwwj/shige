@@ -26,7 +26,10 @@ class RamshowController extends HomeBaseController
             ->where('flag',1)
             ->select();
 
-//        print_r($ramble);die;
+        $sing = Db::name('portal_sing')->where('flag',1)->select();
+        $story = Db::name('portal_story')->where('flag',1)->select();
+        $this->assign('story', $story);
+        $this->assign('sing', $sing);
         $this->assign('ramble', $ramble);
         return $this->fetch();
     }

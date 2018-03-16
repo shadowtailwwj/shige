@@ -11,9 +11,9 @@
 <include file="public@nav"/>
 <div class="geqie">
     <div class="inner">
-        <a href="#" class="cur" >歌曲</a>
-        <a href="#" class="" >专辑</a>
-        <a href="#" class="" >视频</a>
+        <a href="{:cmf_url('portal/List/index')}" class="cur" >歌曲</a>
+        <a href="{:cmf_url('portal/Album/index',array('id'=>1))}" class="" >专辑</a>
+        <a href="{:cmf_url('portal/Videolist/index')}" class="" >视频</a>
         <div class="cl"></div>
     </div>
 </div>
@@ -21,54 +21,51 @@
     <div class="inner">
         <div class="msba">
             <em>语　言</em>
-
-            <a href="#" class="" >全部　  </a>
-            <a href="#" class="" >华语　  </a>
-            <a href="#" class="" >闽南语　</a>
-            <a href="#" class="" >英语　  </a>
-            <a href="#" class="" >韩语　  </a>
-            <a href="#" class="" >泰语　  </a>
-            <a href="#" class="" >西班牙语</a>
+            <a href="{:cmf_url('portal/List/index',array('language'=>''))}" class="" >全部　  </a>
+            <a href="{:cmf_url('portal/List/index',array('language'=>'华语'))}" class="" >华语　  </a>
+            <a href="{:cmf_url('portal/List/index',array('language'=>'闽南语'))}" class="" >闽南语　</a>
+            <a href="{:cmf_url('portal/List/index',array('language'=>'英语'))}" class="" >英语　  </a>
+            <a href="{:cmf_url('portal/List/index',array('language'=>'韩语'))}" class="" >韩语　  </a>
+            <a href="{:cmf_url('portal/List/index',array('language'=>'泰语'))}" class="" >泰语　  </a>
+            <a href="{:cmf_url('portal/List/index',array('language'=>'西班牙语'))}" class="" >西班牙语</a>
         </div>
         <div class="msba">
             <em>诗　集</em>
-            <a href="#" class="" >全部</a>　
-            <a href="#" class="" >诗歌</a>
-            <a href="#" class="" >诗歌（补充本）</a>
-            <a href="#" class="" >儿童诗歌</a>　
-            <a href="#" class="" >标语诗歌</a>　
-            <a href="#" class="" >新诗</a>
+            <a href="{:cmf_url('portal/List/index',array('poetry_id'=>''))}" class="" >全部</a>
+            <foreach name="poetry" item="vo">
+            <a href="{:cmf_url('portal/List/index',array('poetry_id'=>$vo['poetry_id']))}" class="" >{$vo.poetry_name}</a>
+            </foreach>
         </div>
-        <div class="msba">
-            <em>首字母</em>
-            <a href="#" class="">全部</a>
-            <a href="#" class="">A</a>
-            <a href="#" class="">B</a>
-            <a href="#" class="">C</a>
-            <a href="#" class="">D</a>
-            <a href="#" class="">E</a>
-            <a href="#" class="">F</a>
-            <a href="#" class="">G</a>
-            <a href="#" class="">H</a>
-            <a href="#" class="">I</a>
-            <a href="#" class="">J</a>
-            <a href="#" class="">K</a>
-            <a href="#" class="">L</a>
-            <a href="#" class="">M</a>
-            <a href="#" class="">N</a>
-            <a href="#" class="">O</a>
-            <a href="#" class="">P</a>
-            <a href="#" class="">Q</a>
-            <a href="#" class="">R</a>
-            <a href="#" class="">S</a>
-            <a href="#" class="">T</a>
-            <a href="#" class="">U</a>
-            <a href="#" class="">V</a>
-            <a href="#" class="">W</a>
-            <a href="#" class="">X</a>
-            <a href="#" class="">Y</a>
-            <a href="#" class="">Z</a>
-        </div>
+        <!--<div class="msba">-->
+            <!--<em>首字母</em>-->
+            <!--<a href="{:cmf_url('portal/List/index',array('initials'=>''))}" class="cur" >全部</a>-->
+            <!--<a href="{:cmf_url('portal/List/index',array('initials'=>'A'))}" class="" >A  </a>-->
+            <!--<a href="{:cmf_url('portal/List/index',array('initials'=>'B'))}" class="" >B  </a>-->
+            <!--<a href="{:cmf_url('portal/List/index',array('initials'=>'C'))}" class="" >C  </a>-->
+            <!--<a href="{:cmf_url('portal/List/index',array('initials'=>'D'))}" class="" >D  </a>-->
+            <!--<a href="{:cmf_url('portal/List/index',array('initials'=>'E'))}" class="" >E  </a>-->
+            <!--<a href="{:cmf_url('portal/List/index',array('initials'=>'F'))}" class="" >F  </a>-->
+            <!--<a href="{:cmf_url('portal/List/index',array('initials'=>'G'))}" class="" >G  </a>-->
+            <!--<a href="{:cmf_url('portal/List/index',array('initials'=>'H'))}" class="" >H  </a>-->
+            <!--<a href="{:cmf_url('portal/List/index',array('initials'=>'I'))}" class="" >I  </a>-->
+            <!--<a href="{:cmf_url('portal/List/index',array('initials'=>'J'))}" class="" >J  </a>-->
+            <!--<a href="{:cmf_url('portal/List/index',array('initials'=>'K'))}" class="" >K  </a>-->
+            <!--<a href="{:cmf_url('portal/List/index',array('initials'=>'L'))}" class="" >L  </a>-->
+            <!--<a href="{:cmf_url('portal/List/index',array('initials'=>'M'))}" class="" >M  </a>-->
+            <!--<a href="{:cmf_url('portal/List/index',array('initials'=>'N'))}" class="" >N  </a>-->
+            <!--<a href="{:cmf_url('portal/List/index',array('initials'=>'O'))}" class="" >O  </a>-->
+            <!--<a href="{:cmf_url('portal/List/index',array('initials'=>'P'))}" class="" >P  </a>-->
+            <!--<a href="{:cmf_url('portal/List/index',array('initials'=>'Q'))}" class="" >Q  </a>-->
+            <!--<a href="{:cmf_url('portal/List/index',array('initials'=>'R'))}" class="" >R  </a>-->
+            <!--<a href="{:cmf_url('portal/List/index',array('initials'=>'S'))}" class="" >S  </a>-->
+            <!--<a href="{:cmf_url('portal/List/index',array('initials'=>'T'))}" class="" >T  </a>-->
+            <!--<a href="{:cmf_url('portal/List/index',array('initials'=>'U'))}" class="" >U  </a>-->
+            <!--<a href="{:cmf_url('portal/List/index',array('initials'=>'V'))}" class="" >V  </a>-->
+            <!--<a href="{:cmf_url('portal/List/index',array('initials'=>'W'))}" class="" >W  </a>-->
+            <!--<a href="{:cmf_url('portal/List/index',array('initials'=>'X'))}" class="" >X  </a>-->
+            <!--<a href="{:cmf_url('portal/List/index',array('initials'=>'Y'))}" class="" >Y  </a>-->
+            <!--<a href="{:cmf_url('portal/List/index',array('initials'=>'Z'))}" class="" >Z  </a>-->
+        <!--</div>-->
 
 
         <div class="gequqie">
@@ -85,38 +82,37 @@
                 <td>专辑</td>
                 <td>时长</td>
             </tr>
+            <foreach name="postlist" item="vo">
             <tr>
                 <td><div class="chepne"><input type="checkbox" value="" /> <span class="">1</span></div></td>
                 <td>
                     <div class="dwjjgwz">
-                        <a href="#" class="geuwz1" >歌曲歌曲歌曲</a> <span class="tagsx">歌曲</span><span class="tagsx">MV</span>
+                        <a href="{:cmf_url('portal/Article/index',array('id'=>$vo['id']))}" class="geuwz1" >{$vo.post_title}</a> <span class="tagsx">歌曲</span><span class="tagsx">MV</span>
                         <span class="flex1"></span>
                         <div class="df ac  flex1 shiinco shiinco-cnr">
-                            <a href="#" class=""><em class="fa fa-play"></em></a>
+                            <a href="{:cmf_url('portal/List/index',array('id'=>$vo['id']))}" class=""><em class="fa fa-play"></em></a>
                             <a href="#" class=""><em class="fa fa-plus"></em></a>
                             <a href="#" class=""><em class="fa fa-share"></em></a>
                             <a href="#" class=""><em class="fa fa-star"></em></a>
                             <a href="#" class=""><em class="fa fa-download"></em></a>
-
                         </div>
                     </div>
                     <div class="cl"></div>
                 </td>
                 <td>
-                    <span class="geuwz2">歌曲歌曲歌曲</span>
+                    <span class="geuwz2">{$vo.poetry_name}</span>
                 </td>
                 <td>
-                    <span class="geuwz3">12</span>
+                    <span class="geuwz3">{$vo.num}</span>
                 </td>
                 <td>
-                    <span class="geuwz5">歌曲歌曲歌曲</span>
+                    <span class="geuwz5">{$vo.album_name}</span>
                 </td>
                 <td>
                     <span class="geuwz6">04:15</span>
                 </td>
-
             </tr>
-
+            </foreach>
 
         </table>
         <div class="cl h30"></div>
@@ -163,7 +159,7 @@
                     <div class="audio-prev"></div>
                     <div class="audio-play"></div>
                     <div class="audio-next"></div>
-                    <div class="audio-menu"></div>
+                    <!--<div class="audio-menu"></div>-->
                     <div class="audio-volume"></div>
                 </div>
                 <div class="audio-set-volume">
@@ -188,11 +184,6 @@
     $(function(){
 
         var song = [
-            {
-                'cover' : '__TMPL__/public/assets/images/cover2.jpg',
-                'src' : 'http://m2.music.126.net/4uhG3v3vvpRTwJ-HTd5P6w==/6637751697320553.mp3',
-                'title' : 'Memories'
-            },
             {
                 'cover' : '__TMPL__/public/assets/images/cover.png',
                 'src' : 'http://webmp3-1253691995.costj.myqcloud.com/audio/NumberOne.mp3',

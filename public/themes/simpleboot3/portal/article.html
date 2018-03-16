@@ -1,31 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{$article.post_title}</title>
-    <meta name="keywords" content="{$site_info.site_seo_keywords|default=''}"/>
-    <meta name="description" content="{$site_info.site_seo_description|default=''}">
     <include file="public@head"/>
-    <style>
-        #article_content img {
-            height: auto !important;
-            max-width: 100%;
-        }
 
-        #article_content {
-            word-wrap: break-word;
-        }
-    </style>
-    <hook name="before_head_end"/>
 </head>
-<body class="body-white">
+<body>
 <include file="public@nav"/>
 
-
-<div class="content flex1">
+<div class="content">
     <div class="cl h22"></div>
     <div class="inner df js">
         <div class="digentu">
-            <img src="images/shilogo.png" alt="" />
+            <img src="{:cmf_get_image_url($article['cover1'])}" alt="">
         </div>
         <div class="zhongnr flex1">
             <div class="zhongdtl">{$article.post_title}</div>
@@ -34,75 +20,195 @@
                 <br>专辑： <span class="">{$article.album}</span>
             </div>
             <div class="ansbibtn df ">
-                <a href="{$article.xiazai}" class="df ac jc cur" ><span class="icmvx icm0"><img src="images/play.png" alt="" /></span> 播放{$article.post_hits}</a>
-                <a href="#" class="df ac jc" ><span class="icmvx icm1"><img src="images/icm1.png" alt="" /></span> 收藏{$article.post_like}</a>
-                <a href="#" class="df ac jc" ><span class="icmvx icm2"><img src="images/icm2.png" alt="" /></span> 分享</a>
-                <a href="{$article.xiazai}" class="df ac jc" ><span class="icmvx icm3"><img src="images/icm3.png" alt="" /></span> 下载</a>
+                <a href="#" class="df ac jc cur"><em class="fa fa-play"></em> 播放</a>
+                <a href="#" class="df ac jc"><em class="fa fa-star"></em>收藏</a>
+                <a href="#" class="df ac jc"><em class="fa fa-share"></em> 分享</a>
+                <a href="#" class="df ac jc"><em class="fa fa-download"></em> 下载</a>
             </div>
             <div class="lvbtns df ac">
-                <a href="#qiehan" class="">文本</a>
-                <a href="#qiehan" class="">PDF</a>
-                <a href="#qiehan" class="">JPG</a>
+                <a href="#qiehan" class="cur">歌词</a>
+                <a href="#qiehan" class="">歌谱（简）</a>
+                <a href="#qiehan" class="">歌谱（繁）</a>
+                <a href="#qiehan" class="">歌谱（繁）</a>
+                <a href="#qiehan" class="">源考</a>
+                <a href="#qiehan" class="">赏析</a>
             </div>
 
             <div class="ndwixq wenbenqih cur">
-                {$article.post_content}
+                纵有成百万的人直接或间接受到达秘属灵生活和工作的影响，但是很少人真正认识这位被神大用的仆人。 依照教会的历史有一件不辩自明的事实，就是每个复兴运动都有一个属灵的领袖。等到主的时候到了，那人就会出现。照样在19世纪初叶，在那次属灵运动开始的时候，神所要使用的器皿亦应时而生。这个运动通常被称为“弟兄运动”(Brethren)。经过半世纪以上不断的辛劳，达秘殷勤的教导而且付之实行，处在当前宗教的纷乱之下，坚持基督身体的每一肢体仍有责任和权利，竭力用和平彼此联络，保守在圣灵里的合一(弗4:3)。这是他毕生所致力的伟大目的。
             </div>
             <div class="ndwixq wenbenqih">
                 pbf 依照教会的历史有一件不辩自明的事实，就是每个复兴运动都有一个属灵的领袖。等到主的时候到了，那人就会出现。照样在19世纪初叶，在那次属灵运动开始的时候，神所要使用的器皿亦应时而生。这个运动通常被称为“弟兄运动”(Brethren)。经过半世纪以上不断的辛劳，达秘殷勤的教导而且付之实行，处在当前宗教的纷乱之下，坚持基督身体的每一肢体仍有责任和权利，竭力用和平彼此联络，保守在圣灵里的合一(弗4:3)。这是他毕生所致力的伟大目的。
             </div>
             <div class="ndwixq wenbenqih">
+                img.jpg 依照教会的历史有一件不辩自明的事实，就是每个复兴运动都有一个属灵的领袖。等到主的时候到了，那人就会出现。照样在19世纪初叶，在那次属灵运动开始的时候，神所要使用的器皿亦应时而生。这个运动通常被称为“弟兄运动”(Brethren)。经过半世纪以上不断的辛劳，达秘殷勤的教导而且付之实行，处在当前宗教的纷乱之下，坚持基督身体的每一肢体仍有责任和权利，竭力用和平彼此联络，保守在圣灵里的合一(弗4:3)。这是他毕生所致力的伟大目的。
+            </div>
+
+        </div>
+        <div class="youwnttl">
+            <div class="lostxbo">
+                <div class="snntls">
+                    <a href="#aaa" class="">详细内容  </a>
+                </div>
+                <div class="dianjwz qemcin cur" style="display: block;">
+                    大类：颂赞三一神（点击可另页显示此大类所有歌曲的列表）
+                    <br>小类：祂的计划（点击可另页显示此小类所有歌曲的列表）
+                    <br>诗人：{$article.poet_id}
+                    <br>作曲：{$article.composer}
+                    <br>调号：{$article.tone}
+                    <br>节奏：{$article.rhythm}
+                    <br>韵律：{$article.cadence}
+                    <br>英诗：1（点击可转到该首英文诗歌页面）
+
+                </div>
 
             </div>
+
+            <div class="lostxbo">
+                <div class="snntls">
+                    <a href="#aaa" class="">相关歌曲  </a>
+                </div>
+                <div class="dianjwz qemcin cur" style="display: block;">
+                    <ul class="dwmst">
+                        <foreach name="postlist" item="vo">
+                        <li><a href="{:cmf_url('portal/Article/index',array('id'=>$vo['id']))}" class="" >{$vo.post_title}</a></li>
+                        </foreach>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="lostxbo">
+                <div class="snntls">
+                    <a href="#aaa" class="">下载  </a>
+                </div>
+                <div class="dianjwz qemcin cur" style="display: block;">
+                    <ul class="dwmst">
+
+                        <li><a href="#" class="" ><span class="lv">歌谱：</span>歌谱（简）　歌谱（繁）</a></li>
+                        <li><a href="#" class="" ><span class="lv">音乐：</span>MP3                    </a></li>
+                        <li><a href="#" class="" ><span class="lv">歌谱：</span>歌谱（简）　歌谱（繁）</a></li>
+                        <li><a href="#" class="" ><span class="lv">音乐：</span>MP3                    </a></li>
+                        <li><a href="#" class="" ><span class="lv">歌谱：</span>歌谱（简）　歌谱（繁）</a></li>
+                        <li><a href="#" class="" ><span class="lv">音乐：</span>MP3                    </a></li>
+                        <li><a href="#" class="" ><span class="lv">歌谱：</span>歌谱（简）　歌谱（繁）</a></li>
+                        <li><a href="#" class="" ><span class="lv">音乐：</span>MP3                    </a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+
         </div>
-        <if condition="($article.appreciation == '')">
-            <div class="col-md-3">
-                <div class="tc-box first-box">
-                    <div class="headtitle">
-                        <h2>热门诗歌</h2>
-                    </div>
-                    <div class="ranking">
-                        <php>
-                            $hot_articles=[];
-                        </php>
-                        <ul class="list-unstyled">
-                            <portal:articles limit="10" order="post.post_hits DESC">
-                                <php>$top=$key<3?"top3":"";</php>
-                                <li class="{$top}">
-                                    <i>{$key+1}</i>
-                                    <a title="{$vo.post_title}"
-                                       href="{:url('portal/article/index',array('id'=>$vo['id']))}">
-                                        {$vo.post_title}&nbsp;&nbsp;{:date('Y-m-d H:i',$article.published_time)}
-                                    </a>
-                                </li>
-                            </portal:articles>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        <else />
-            <div class="youwnttl">
-                <div class="lostxbo">
-                    <div class="snntls">
-                        <a href="#aaa" class="cur" >诗歌赏析  </a>
-                        <a href="#aaa" class="" >诗歌考典  </a>
-                    </div>
-                    <div class="dianjwz qemcin cur">
-                        {$article.appreciation}
-                    </div>
-                    <div class="dianjwz qemcin">
-                        {$article.allusion}
-                    </div>
-                </div>
-            </div>
-        </if>
+
 
     </div>
 </div>
-<include file="public@footer"/>
-</div>
 
-<include file="public@scripts"/>
-<hook name="before_body_end"/>
+<include file="public@footer"/>
 </body>
+<!-- 歌曲部分开始 -->
+<div class="audio-box">
+    <div class="audio-container">
+        <div class="audio-view">
+            <div class="audio-cover" ></div>
+            <div class="audio-body">
+                <h3 class="audio-title">未知歌曲</h3>
+                <div class="audio-backs">
+                    <div class="audio-this-time">00:00</div>
+                    <div class="audio-count-time">00:00</div>
+                    <div class="audio-setbacks">
+                        <i class="audio-this-setbacks">
+                            <span class="audio-backs-btn"></span>
+                        </i>
+                        <span class="audio-cache-setbacks">
+							</span>
+                    </div>
+                </div>
+            </div>
+            <div class="audio-btn">
+                <div class="audio-select">
+                    <div class="audio-prev"></div>
+                    <div class="audio-play"></div>
+                    <div class="audio-next"></div>
+                    <!--<div class="audio-menu"></div>-->
+                    <div class="audio-volume"></div>
+                </div>
+                <div class="audio-set-volume">
+                    <div class="volume-box">
+                        <i><span></span></i>
+                    </div>
+                </div>
+                <div class="audio-list">
+                    <div class="audio-list-head">
+                        <p>歌单</p>
+                        <span class="menu-close">关闭</span>
+                    </div>
+                    <ul class="audio-inline">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="__TMPL__/public/assets/script/audio.js"></script>
+<script type="text/javascript">
+    $(function(){
+
+
+        var song = [
+            {
+                'cover' : "{:cmf_get_image_url($article['cover1'])}",
+                'src' : '{$src}',
+                'title' : '{$title}'
+            },
+//            {
+//                'cover' : '__TMPL__/public/assets/images/cover1.jpg',
+//                'src' : 'http://webmp3-1253691995.costj.myqcloud.com/audio/dqwm.mp3',
+//                'title' : '大橋のぞみ - 黒ネコのタンゴ'
+//            },
+//            {
+//                'cover' : '__TMPL__/public/assets/images/cover3.jpg',
+//                'src' : 'http://webmp3-1253691995.costj.myqcloud.com/audio/qby.mp3',
+//                'title' : '黒うさP,初音ミク - 千本桜'
+//            },
+//            {
+//                'cover' : '__TMPL__/public/assets/images/cover4.jpg',
+//                'src' : 'http://webmp3-1253691995.costj.myqcloud.com/audio/jljt.mp3',
+//                'title' : '极乐净土'
+//            }
+        ];
+
+
+
+        var audioFn = audioPlay({
+            song : song,
+            autoPlay : true  //是否立即播放第一首，autoPlay为true且song为空，会alert文本提示并退出
+        });
+
+        /* 向歌单中添加新曲目，第二个参数true为新增后立即播放该曲目，false则不播放 */
+        audioFn.newSong({
+            'cover' : '__TMPL__/public/assets/images/cover5.jpg',
+            'src' : 'http://webmp3-1253691995.costj.myqcloud.com/audio/baab.mp3',
+            'title' : 'B.A.A.B'
+        },false);
+
+        /* 暂停播放 */
+        //audioFn.stopAudio();
+
+        /* 开启播放 */
+//        audioFn.playAudio();
+
+        /* 选择歌单中索引为3的曲目(索引是从0开始的)，第二个参数true立即播放该曲目，false则不播放 */
+        //audioFn.selectMenu(3,true);
+
+        /* 查看歌单中的曲目 */
+        //console.log(audioFn.song);
+
+        /* 当前播放曲目的对象 */
+        //console.log(audioFn.audio);
+    });
+
+</script>
+
+<!-- 歌曲部分 结束 -->
 </html>
